@@ -1,4 +1,5 @@
 import 'package:capstone/components/color_path.dart';
+import 'package:capstone/otp_password.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -9,152 +10,188 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  FocusNode _focus = FocusNode();
   TextEditingController _emailController = TextEditingController();
+  bool _isPasswordVisible = false;
 
   @override
+  void initState() {
+    super.initState();
+    _focus.addListener(_onFocusChange);
+    _focus.addListener(_onFocusChange);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _focus.removeListener(_onFocusChange);
+    _focus.dispose();
+  }
+
+  void _onFocusChange() {
+    if (_focus.hasFocus) {
+      setState(() {
+        height = 20;
+      });
+    } else {
+      setState(() {
+        height = 100;
+      });
+    }
+    debugPrint(height.toString());
+  }
+
+  double height = 50;
+  double width = 0;
+  @override
   Widget build(BuildContext context) {
-    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: ColorPath.background,
-      body: Stack(
-        children: [
-          Positioned(
-            top: 40,
-            left: 10,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                alignment:
-                    Alignment.center, // Mengatur posisi gambar dengan angka
-                margin: EdgeInsets.only(
-                    bottom: 400), // Mengatur margin bawah (opsional)
-                child: Image.asset(
-                  'assets/images/homelogo.png',
-                  width: 200, // Sesuaikan dengan ukuran yang diinginkan
-                  height: 200, // Sesuaikan dengan ukuran yang diinginkan
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Positioned(
+              top: 40,
+              left: 10,
+              child: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.white,
                 ),
-              ),
-            ],
-          ),
-          Container(
-            height: height * 0.15,
-          ),
-          Container(
-            margin: EdgeInsets.only(top: height * 0.30),
-            height: height * 0.85,
-            decoration: const BoxDecoration(
-              color: ColorPath.primary,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
-            child: ListView(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'Lupa Kata Sandi',
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: ColorPath.textcolor1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
                 Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(5.0),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        width: 149,
-                        height: 149,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF2D9CDB),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                      Image.asset(
-                        'assets/images/Lock.png',
-                        width: 200,
-                        height: 200,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text('Masukkan Email Terdaftar',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: ColorPath.background,
-                      )),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: TextFormField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 16.0),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Tindakan saat tombol "Lanjut" ditekan
-                        String email = _emailController.text;
-                        // Lakukan sesuatu dengan alamat email yang diberikan
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                      child: Text(
-                        'Lanjut',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
+                  margin: const EdgeInsets.only(
+                    top: 100,
+                  ), // Mengatur posisi gambar dengan angka
+                  // Mengatur margin bawah (opsional)
+                  child: Image.asset(
+                    'assets/images/homelogo.png',
+                    width: 200, // Sesuaikan dengan ukuran yang diinginkan
+                    height: 200, // Sesuaikan dengan ukuran yang diinginkan
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+            Container(
+              margin: EdgeInsets.only(top: height * 2.5),
+              // height: height * 0.85,
+              decoration: const BoxDecoration(
+                color: ColorPath.primary,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(50),
+                  topRight: Radius.circular(50),
+                ),
+              ),
+              child: Expanded(
+                child: ListView(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text(
+                        'Lupa Kata Sandi',
+                        style: TextStyle(
+                          fontSize: 32,
+                          color: ColorPath.textcolor1,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.all(5.0),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            width: 149,
+                            height: 149,
+                            decoration: BoxDecoration(
+                              color: Color(0xFF2D9CDB),
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Image.asset(
+                            'assets/images/Lock.png',
+                            width: 200,
+                            height: 200,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Text('Masukkan Email Terdaftar',
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: ColorPath.background,
+                          )),
+                    ),
+                    const SizedBox(height: 5),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: TextFormField(
+                        focusNode: _focus,
+                        decoration: InputDecoration(
+                          labelText: 'Email',
+                          labelStyle: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => OtpPassword()));
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 60, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: ColorPath.background,
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: const Text(
+                            'Lanjut',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
