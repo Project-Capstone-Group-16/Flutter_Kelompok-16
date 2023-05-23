@@ -24,7 +24,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
             top: 40,
             left: 10,
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios,
                 color: Colors.white,
               ),
@@ -39,7 +39,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
               Container(
                 alignment:
                     Alignment.center, // Mengatur posisi gambar dengan angka
-                margin: EdgeInsets.only(
+                margin: const EdgeInsets.only(
                     bottom: 400), // Mengatur margin bawah (opsional)
                 child: Image.asset(
                   'assets/images/homelogo.png',
@@ -50,7 +50,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
             ],
           ),
           Container(
-            margin: EdgeInsets.only(top: height * 0.30),
+            margin: EdgeInsets.only(top: height * 0.20),
             height: height * 0.85,
             decoration: const BoxDecoration(
               color: ColorPath.primary,
@@ -63,7 +63,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -79,56 +79,49 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text('Masukkan Email Terdaftar',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: ColorPath.background,
-                      )),
-                ),
-                SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: TextFormField(
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 16.0),
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'Mengatur Ulang    Kata Sandi Berhasil!',
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.w600,
+                      color: ColorPath.background,
                     ),
+                    textAlign: TextAlign.center,
                   ),
                 ),
-                const SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Tindakan saat tombol "Lanjut" ditekan
-                        String email = _emailController.text;
-                        // Lakukan sesuatu dengan alamat email yang diberikan
-                      },
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
+                const SizedBox(height: 10),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'Mengatur ulang kata sandimu berhasil, Silahkan masuk kembali.',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: ColorPath.background,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                Center(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 60, vertical: 10),
+                    decoration: BoxDecoration(
+                      color: ColorPath.background,
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: const Text(
+                      'Selesai',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
                       ),
-                      child: Text(
-                        'Lanjut',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
