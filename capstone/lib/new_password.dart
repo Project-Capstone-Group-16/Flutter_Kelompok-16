@@ -9,7 +9,7 @@ class NewPassword extends StatefulWidget {
 }
 
 class _NewPasswordState extends State<NewPassword> {
-  FocusNode _focus = FocusNode();
+  final FocusNode _focus = FocusNode();
   FocusNode _confirmPasswordFocus = FocusNode();
 
   bool _isPasswordVisible = false;
