@@ -50,9 +50,6 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
             ],
           ),
           Container(
-            height: height * 0.15,
-          ),
-          Container(
             margin: EdgeInsets.only(top: height * 0.30),
             height: height * 0.85,
             decoration: const BoxDecoration(
@@ -64,18 +61,6 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
             ),
             child: ListView(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Text(
-                    'Buat Kata Sandi Baru Anda',
-                    style: TextStyle(
-                      fontSize: 32,
-                      color: ColorPath.textcolor1,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
                 Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(5.0),
@@ -85,13 +70,9 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                       Container(
                         width: 149,
                         height: 149,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF2D9CDB),
-                          shape: BoxShape.circle,
-                        ),
                       ),
                       Image.asset(
-                        'assets/images/Lock.png',
+                        'assets/images/ceklis.png',
                         width: 200,
                         height: 200,
                       ),
