@@ -1,6 +1,7 @@
+import 'package:capstone/new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pinput/pinput.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'components/color_path.dart';
 
@@ -14,6 +15,7 @@ class OtpPassword extends StatefulWidget {
 class _OtpPasswordState extends State<OtpPassword> {
   FocusNode _focus = FocusNode();
   TextEditingController _emailController = TextEditingController();
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -47,7 +49,48 @@ class _OtpPasswordState extends State<OtpPassword> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    String currentText = "";
 
+    final TextEditingController? controller;
+
+    /// Colors of the input fields which have inputs. Default is [Colors.green]
+    final Color activeColor;
+
+    /// Color of the input field which is currently selected. Default is [Colors.blue]
+    final Color selectedColor;
+
+    /// Colors of the input fields which don't have inputs. Default is [Colors.red]
+    final Color inactiveColor;
+
+    /// Colors of the input fields if the [PinCodeTextField] is disabled. Default is [Colors.grey]
+    final Color disabledColor;
+
+    /// Colors of the input fields which have inputs. Default is [Colors.green]
+    final Color activeFillColor;
+
+    /// Color of the input field which is currently selected. Default is [Colors.blue]
+    final Color selectedFillColor;
+
+    /// Colors of the input fields which don't have inputs. Default is [Colors.red]
+    final Color inactiveFillColor;
+
+    /// Color of the input field when in error mode. Default is [Colors.redAccent]
+    final Color errorBorderColor;
+
+    /// Border radius of each pin code field
+    final BorderRadius borderRadius;
+
+    /// [height] for the pin code field. default is [50.0]
+    final double fieldHeight;
+
+    /// [width] for the pin code field. default is [40.0]
+    final double fieldWidth;
+
+    /// Border width for the each input fields. Default is [2.0]
+    final double borderWidth;
+
+    /// this defines the shape of the input fields. Default is underlined
+    final PinCodeFieldShape shape;
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -139,12 +182,43 @@ class _OtpPasswordState extends State<OtpPassword> {
                             color: ColorPath.background,
                           )),
                     ),
+                    SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 30),
+                      child: PinCodeTextField(
+                        focusNode: _focus,
+                        length: 4,
+                        obscureText: false,
+                        animationType: AnimationType.fade,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.circle,
+                          fieldHeight: 60,
+                          fieldWidth: 60,
+                          activeFillColor: Colors.white,
+                          inactiveColor: Colors.grey,
+                        ),
+                        keyboardType: TextInputType.number,
+                        animationDuration: Duration(milliseconds: 300),
+                        enableActiveFill: false,
+                        controller: textEditingController,
+                        onCompleted: (v) {},
+                        onChanged: (value) {
+                          setState(() {
+                            currentText = value;
+                          });
+                        },
+                        appContext: context,
+                      ),
+                    ),
                     SizedBox(height: 40),
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Test()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NewPassword()));
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
