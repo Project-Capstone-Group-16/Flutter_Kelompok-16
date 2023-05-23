@@ -1,0 +1,657 @@
+{
+	"info": {
+		"_postman_id": "9bacce09-5c24-4bfa-948d-3b9a69140529",
+		"name": "Warehouse Management",
+		"description": "API Documentasi untuk Warehouse Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24582718"
+	},
+	"item": [
+		{
+			"name": "OTP",
+			"item": [
+				{
+					"name": "AUTH",
+					"item": [
+						{
+							"name": "Update Password",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\" : \"subaruputra1313\",\r\n    \"confirm_password\" : \"subaruputra1313\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/forgot-password/update",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"forgot-password",
+										"update"
+									]
+								},
+								"description": "API ini untuk update password ketika user lupa password dengan membutuhkan payload request Password dan Confirm Password"
+							},
+							"response": [
+								{
+									"name": "Update Password Output",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"password\" : \"subaruputra1313\",\r\n    \"confirm_password\" : \"subaruputra1313\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/forgot-password/update",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"forgot-password",
+												"update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 May 2023 17:33:35 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "26"
+										}
+									],
+									"cookie": [],
+									"body": "\"Change password success\""
+								}
+							]
+						}
+					],
+					"description": "API yang di dalama folder AUTH ini memerlukan Bearer Token untuk mengehit di postman nya"
+				},
+				{
+					"name": "NO-AUTH",
+					"item": [
+						{
+							"name": "Login User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = pm.response.json();\r",
+											"console.log(jsonData.data.token);\r",
+											"pm.globals.set(\"token\", jsonData.data.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"subaruputra13@gmail.com\",\r\n    \"password\" : \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/login",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"login"
+									]
+								},
+								"description": "API ini untuk user melakukan Login ketika sudah selesai dengan API Login, untuk payloade request nya adalah Email dan Password"
+							},
+							"response": [
+								{
+									"name": "Login User Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\" : \"subaruputra13@gmail.com\",\r\n    \"password\" : \"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/login",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 May 2023 17:33:04 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "226"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Success Login\",\n    \"data\": {\n        \"email\": \"subaruputra13@gmail.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODQ1MjExODQsInVzZXJJZCI6Mn0.K81e2DkKCT4xr6O3kObcKF46NtxbJgIXNJlSyrv1s8w\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Register User",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"subaruputra1311@gmail.com\",\r\n    \"password\" : \"123456\",\r\n    \"confirm_password\" :\"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/register",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"register"
+									]
+								},
+								"description": "API ini untuk user melakukan Register, untuk payload request nya adalah Email, Password, Confirm Password"
+							},
+							"response": [
+								{
+									"name": "Register User Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\" : \"subaruputra1311@gmail.com\",\r\n    \"password\" : \"123456\",\r\n    \"confirm_password\" :\"123456\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/register",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 May 2023 17:31:55 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "155"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"success register user\",\n    \"data\": {\n        \"email\": \"subaruputra1311@gmail.com\",\n        \"password\": \"$2a$10$mZEdZOn/731Y00mO93B/..Yb289DqUBx5/9OlXFh3bC0caCrnPnAK\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Generate OTP",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"subaruputra13@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/forgot-password/generate",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"forgot-password",
+										"generate"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Generate OTP Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\" : \"subaruputra13@gmail.com\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/forgot-password/generate",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"forgot-password",
+												"generate"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 May 2023 17:32:23 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "69"
+										}
+									],
+									"cookie": [],
+									"body": "\"OTP sent successfully, please check your email for the OTP  token \""
+								}
+							]
+						},
+						{
+							"name": "Verity Otp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"otp\" : \"946189\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/forgot-password/verify",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"forgot-password",
+										"verify"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Verity Otp Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"otp\" : \"946189\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/forgot-password/verify",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"forgot-password",
+												"verify"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 19 May 2023 17:32:37 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "31"
+										}
+									],
+									"cookie": [],
+									"body": "\"OTP verification successful!\""
+								}
+							]
+						}
+					],
+					"description": "API yang di dalama folder NO-AUTH ini tidak memerlukan Bearer Token untuk mengehit di postman nya"
+				}
+			],
+			"description": "API Documentasi ini untuk fitur awal Login, Register dan Forgot Password menggunakan OTP Email"
+		},
+		{
+			"name": "ADMIN",
+			"item": [
+				{
+					"name": "AUTH",
+					"item": [],
+					"description": "API yang di dalama folder AUTH ini tidak memerlukan Bearer Token untuk mengehit di postman nya"
+				},
+				{
+					"name": "NO-AUTH",
+					"item": [
+						{
+							"name": "Login Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\" : \"admin1@gmail.com\",\r\n    \"password\" : \"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/login/admin",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"login",
+										"admin"
+									]
+								},
+								"description": "StartFragment\n\nAPI ini untuk Admin melakukan Login ketika sudah selesai dengan API Login Admin, untuk payload request nya adalah Email dan Password"
+							},
+							"response": [
+								{
+									"name": "Login Admin Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"email\" : \"admin1@gmail.com\",\r\n    \"password\" : \"admin123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/login/admin",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"login",
+												"admin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 May 2023 06:20:06 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "219"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Success Login\",\n    \"data\": {\n        \"email\": \"admin1@gmail.com\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2ODQ4MjY0MDYsInVzZXJJZCI6MX0.WHI3OVAr94fCnfbBFKY8HM22sCei939zNSFy67rPdM8\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Register Admin",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fullname\" : \"Alfian Subaru Putra\",\r\n    \"email\" : \"admin11@gmail.com\",\r\n    \"phone_number\" : 123456789101112,\r\n    \"password\" : \"admin123\",\r\n    \"confirm_password\" : \"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "3.25.202.31:8080/register/admin",
+									"host": [
+										"3",
+										"25",
+										"202",
+										"31"
+									],
+									"port": "8080",
+									"path": [
+										"register",
+										"admin"
+									]
+								},
+								"description": "API ini untuk Admin melakukan Register, untuk payload request nya adalah Fullname, Email, Phone Number, Password dan Confirm Password"
+							},
+							"response": [
+								{
+									"name": "Register Admin Output",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"fullname\" : \"Alfian Subaru Putra\",\r\n    \"email\" : \"admin11@gmail.com\",\r\n    \"phone_number\" : 123456789101112,\r\n    \"password\" : \"admin123\",\r\n    \"confirm_password\" : \"admin123\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "3.25.202.31:8080/register/admin",
+											"host": [
+												"3",
+												"25",
+												"202",
+												"31"
+											],
+											"port": "8080",
+											"path": [
+												"register",
+												"admin"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=UTF-8"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 May 2023 06:21:56 GMT"
+										},
+										{
+											"key": "Content-Length",
+											"value": "211"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"success register user\",\n    \"data\": {\n        \"fullname\": \"Alfian Subaru Putra\",\n        \"email\": \"admin11@gmail.com\",\n        \"phone_number\": 123456789101112,\n        \"password\": \"$2a$10$gNFJQVOF.yX4U9nkpBMszeljgAGS3qjKxJHS3wPm5OciL5um5Xm/W\"\n    }\n}"
+								}
+							]
+						}
+					],
+					"description": "API yang di dalama folder NO-AUTH ini tidak memerlukan Bearer Token untuk mengehit di postman nya"
+				}
+			],
+			"description": "StartFragment\n\nAPI Documentasi ini untuk fitur Admin butuhkan di dalam aplikasi Inventron\n\nEndFragment"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
