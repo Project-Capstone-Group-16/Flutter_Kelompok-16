@@ -1,8 +1,6 @@
-import 'package:capstone/forgot_password.dart';
-import 'package:capstone/new_password.dart';
-import 'package:capstone/otp_password.dart';
 import 'package:flutter/material.dart';
-import 'package:capstone/forgot_success.dart';
+
+import 'package:capstone/forgot_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
-      home: ForgotPassword(),
+      home: const ForgotPassword(),
     );
   }
 }
