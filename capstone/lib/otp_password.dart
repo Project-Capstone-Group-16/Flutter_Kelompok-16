@@ -1,8 +1,9 @@
-import 'package:capstone/new_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
+import 'components/all_button.dart';
+import 'package:capstone/new_password.dart';
 import 'components/color_path.dart';
 
 class OtpPassword extends StatefulWidget {
@@ -13,8 +14,8 @@ class OtpPassword extends StatefulWidget {
 }
 
 class _OtpPasswordState extends State<OtpPassword> {
-  FocusNode _focus = FocusNode();
-  TextEditingController _emailController = TextEditingController();
+  final FocusNode _focus = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
   TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -28,7 +29,6 @@ class _OtpPasswordState extends State<OtpPassword> {
   void dispose() {
     super.dispose();
     _focus.removeListener(_onFocusChange);
-    _focus.dispose();
   }
 
   void _onFocusChange() {
@@ -211,32 +211,18 @@ class _OtpPasswordState extends State<OtpPassword> {
                         appContext: context,
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Center(
-                      child: GestureDetector(
+                      child: AllButton(
+                        text: 'Kirim',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => NewPassword()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Kirim',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewPassword(),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],

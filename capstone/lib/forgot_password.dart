@@ -1,6 +1,8 @@
-import 'package:capstone/components/color_path.dart';
-import 'package:capstone/otp_password.dart';
 import 'package:flutter/material.dart';
+
+import 'package:capstone/otp_password.dart';
+import 'package:capstone/components/color_path.dart';
+import 'components/all_button.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -10,9 +12,9 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  FocusNode _focus = FocusNode();
-  TextEditingController _emailController = TextEditingController();
-  bool _isPasswordVisible = false;
+  final FocusNode _focus = FocusNode();
+  final TextEditingController _emailController = TextEditingController();
+  final bool _isPasswordVisible = false;
 
   @override
   void initState() {
@@ -109,14 +111,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
                           Container(
                             width: 149,
                             height: 149,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF2D9CDB),
                               shape: BoxShape.circle,
                             ),
@@ -131,12 +133,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text('Masukkan Email Terdaftar',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorPath.background,
-                          )),
+                      child: Text(
+                        'Masukkan Email Terdaftar',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: ColorPath.background,
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 5),
                     Padding(
@@ -160,30 +164,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     const SizedBox(height: 40),
                     Center(
-                      child: GestureDetector(
+                      child: AllButton(
+                        text: 'Lanjut',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OtpPassword()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Lanjut',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtpPassword(),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],

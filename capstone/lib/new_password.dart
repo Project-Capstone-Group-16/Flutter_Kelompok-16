@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/forgot_success.dart';
-import 'package:flutter/material.dart';
+import 'components/all_button.dart';
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
@@ -211,30 +213,16 @@ class _NewPasswordState extends State<NewPassword> {
                     ),
                     SizedBox(height: 40),
                     Center(
-                      child: GestureDetector(
+                      child: AllButton(
+                        text: 'Simpan',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ForgotSuccess()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Simpan',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ForgotSuccess(),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                     const SizedBox(height: 5),

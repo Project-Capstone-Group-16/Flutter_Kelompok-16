@@ -1,6 +1,8 @@
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 
+import 'components/all_button.dart';
+
 class ForgotSuccess extends StatefulWidget {
   const ForgotSuccess({super.key});
 
@@ -67,7 +69,7 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      Container(
+                      const SizedBox(
                         width: 149,
                         height: 149,
                       ),
@@ -107,22 +109,9 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                 ),
                 const SizedBox(height: 40),
                 Center(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 60, vertical: 10),
-                    decoration: BoxDecoration(
-                      color: ColorPath.background,
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    child: const Text(
-                      'Selesai',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+                  child: AllButton(
+                    text: 'Selesai',
+                    onTap: () {},
                   ),
                 ),
               ],
