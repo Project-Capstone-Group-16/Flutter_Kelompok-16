@@ -13,8 +13,7 @@ class _LandingPageState extends State<LandingPage> {
   final List<String> imgList = [
     'assets/images/landingpage1.png',
     'assets/images/landingpage2.png',
-    'assets/images/landingpage1.png',
-    'assets/images/landingpage2.png'
+    'assets/images/landingpage3.png',
   ];
 
   final CarouselController _controller = CarouselController();
