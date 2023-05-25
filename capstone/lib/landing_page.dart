@@ -1,76 +1,108 @@
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'view/intro_screen1.dart';
+import 'view/intro_screen2.dart';
+import 'view/intro_screen3.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({super.key});
-
+  LandingPage({super.key});
   @override
   State<LandingPage> createState() => _LandingPageState();
 }
 
 class _LandingPageState extends State<LandingPage> {
-  final List<String> imgList = [
-    'assets/images/landingpage1.png',
-    'assets/images/landingpage2.png',
-    'assets/images/landingpage3.png',
-  ];
+  
+  PageController _controller= PageController();
 
-  final CarouselController _controller = CarouselController();
-
-  int _currentSlide = 0;
+  bool onLastPage=false;
 
   @override
-  Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    return Column(
-      children: [
-        Expanded(
-          child: CarouselSlider(
-            options: CarouselOptions(
-              height: height,
-              viewportFraction: 1.0,
-              enlargeCenterPage: false,
-              autoPlay: true,
-              onPageChanged: (index, _) {
-                setState(() {
-                  _currentSlide = index;
-                });
-              },
-            ),
-            carouselController: _controller,
-            items: imgList.map((item) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Image.asset(
-                      item,
-                      fit: BoxFit.cover,
-                      height: height,
-                    ),
-                  );
-                },
-              );
-            }).toList(),
+  Widget build(BuildContext context) { 
+    return Scaffold(
+      body: Stack(
+        children: [
+          PageView(
+            controller: _controller,
+            onPageChanged: (index){
+              setState(() {
+                onLastPage=(index==2);
+              });
+            },
+            children:const [
+              IntroPage1(),
+              IntroPage2(),
+              IntroPage3(),
+            ],
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: imgList.map((item) {
-            int index = imgList.indexOf(item);
-            return Container(
-              width: 8.0,
-              height: 8.0,
-              margin: EdgeInsets.symmetric(horizontal: 4.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _currentSlide == index ? Colors.blue : Colors.grey,
+
+          Container(
+            alignment: Alignment(0, 0.70),
+              // mainAxisAlignment: MainAxisAlignment.end,
+              child: SmoothPageIndicator(controller: _controller, count: 3),
+            ),
+            
+          Container(
+            alignment: Alignment(0, 0.8),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 800),
+              child: Column(
+                children: [
+                  onLastPage?
+                  GestureDetector(
+                            onTap: (){
+                             
+                            }, 
+                            child: Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
+                                color: Colors.white,
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Mulai',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: ColorPath.background,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  ),
+                              ),
+                            )
+                            ):      
+                  GestureDetector(
+                            onTap: (){
+                               _controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+                            }, 
+                            child: Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5.0),
+                                color: Colors.white,
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Lewati',
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: ColorPath.background,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  ),
+                              ),
+                            )
+                            ),
+                ],
               ),
-            );
-          }).toList(),
-        ),
-      ],
+            ),
+            ),
+
+          
+        ],
+      ),
     );
   }
 }
