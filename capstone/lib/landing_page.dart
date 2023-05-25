@@ -37,13 +37,13 @@ class _LandingPageState extends State<LandingPage> {
           ),
 
           Container(
-            alignment: Alignment(0, 0.70),
+            alignment: const Alignment(0, 0.70),
               // mainAxisAlignment: MainAxisAlignment.end,
               child: SmoothPageIndicator(controller: _controller, count: 3),
             ),
             
           Container(
-            alignment: Alignment(0, 0.8),
+            alignment: const Alignment(0, 0.8),
             child: Padding(
               padding: const EdgeInsets.only(top: 800),
               child: Column(
@@ -74,7 +74,9 @@ class _LandingPageState extends State<LandingPage> {
                             ):      
                   GestureDetector(
                             onTap: (){
-                               _controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+                               _controller.nextPage(
+                                duration: const Duration(milliseconds: 500), 
+                                curve: Curves.easeIn);
                             }, 
                             child: Container(
                               width: 100,
