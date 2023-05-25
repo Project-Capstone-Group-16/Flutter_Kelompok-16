@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/forgot_success.dart';
-import 'components/all_button.dart';
+import 'package:flutter/material.dart';
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
@@ -16,7 +13,6 @@ class _NewPasswordState extends State<NewPassword> {
   final FocusNode _confirmPasswordFocus = FocusNode();
 
   bool _isPasswordVisible = false;
-  bool _is2PasswordVisible = false;
 
   @override
   void initState() {
@@ -182,7 +178,7 @@ class _NewPasswordState extends State<NewPassword> {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: TextFormField(
-                        obscureText: !_is2PasswordVisible,
+                        obscureText: !_isPasswordVisible,
                         focusNode: _confirmPasswordFocus,
                         decoration: InputDecoration(
                           labelText: 'Masukkan Kembali Password Anda',
@@ -198,31 +194,37 @@ class _NewPasswordState extends State<NewPassword> {
                               const EdgeInsets.symmetric(horizontal: 16.0),
                           suffixIcon: IconButton(
                             icon: Image.asset(
-                              _is2PasswordVisible
+                              _isPasswordVisible
                                   ? 'assets/images/onvisibility.png' // Replace with the path to the visible icon image
                                   : 'assets/images/visibility.png', // Replace with the path to the invisible icon image
                             ),
                             onPressed: () {
                               setState(() {
-                                _is2PasswordVisible = !_is2PasswordVisible;
+                                _isPasswordVisible = !_isPasswordVisible;
                               });
                             },
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 40),
                     Center(
-                      child: AllButton(
-                        text: 'Simpan',
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ForgotSuccess(),
-                            ),
-                          );
-                        },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 60, vertical: 10),
+                        decoration: BoxDecoration(
+                          color: ColorPath.background,
+                          borderRadius: BorderRadius.circular(40),
+                        ),
+                        child: const Text(
+                          'Simpan',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 5),
