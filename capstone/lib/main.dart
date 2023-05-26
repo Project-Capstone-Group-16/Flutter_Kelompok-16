@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone/forgot_password.dart';
+import 'package:capstone/forgotPasswordPage/forgot_password.dart';
 
 void main() {
   runApp(const MyApp());

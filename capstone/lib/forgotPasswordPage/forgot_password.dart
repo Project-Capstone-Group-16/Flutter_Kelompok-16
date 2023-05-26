@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone/otp_password.dart';
+import 'package:capstone/forgotPasswordPage/otp_password.dart';
 import 'package:capstone/components/color_path.dart';
-import 'components/all_button.dart';
+import '../components/all_button.dart';
+import '../components/email_textfield.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -12,9 +13,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  final FocusNode _focus = FocusNode();
-  final TextEditingController _emailController = TextEditingController();
-  final bool _isPasswordVisible = false;
+  final _focus = FocusNode();
+  final emailController = TextEditingController();
 
   @override
   void initState() {
@@ -47,8 +47,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   double width = 0;
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -143,24 +141,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                     ),
                     const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: TextFormField(
-                        focusNode: _focus,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 16.0),
-                        ),
-                      ),
+                    EmailTextField(
+                      controller: emailController,
+                      labelText: 'Email',
+                      obscureText: false,
+                      focusNode: _focus,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 40),
                     Center(

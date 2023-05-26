@@ -11,12 +11,9 @@ class ForgotSuccess extends StatefulWidget {
 }
 
 class _ForgotSuccessState extends State<ForgotSuccess> {
-  TextEditingController _emailController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: ColorPath.background,

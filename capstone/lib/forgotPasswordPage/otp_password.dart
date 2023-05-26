@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'components/all_button.dart';
@@ -15,7 +14,6 @@ class OtpPassword extends StatefulWidget {
 
 class _OtpPasswordState extends State<OtpPassword> {
   final FocusNode _focus = FocusNode();
-  final TextEditingController _emailController = TextEditingController();
   TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -48,49 +46,19 @@ class _OtpPasswordState extends State<OtpPassword> {
   double width = 0;
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    String currentText = "";
-
-    final TextEditingController? controller;
-
-    /// Colors of the input fields which have inputs. Default is [Colors.green]
-    final Color activeColor;
-
-    /// Color of the input field which is currently selected. Default is [Colors.blue]
-    final Color selectedColor;
-
     /// Colors of the input fields which don't have inputs. Default is [Colors.red]
-    final Color inactiveColor;
-
-    /// Colors of the input fields if the [PinCodeTextField] is disabled. Default is [Colors.grey]
-    final Color disabledColor;
-
-    /// Colors of the input fields which have inputs. Default is [Colors.green]
-    final Color activeFillColor;
-
-    /// Color of the input field which is currently selected. Default is [Colors.blue]
-    final Color selectedFillColor;
-
-    /// Colors of the input fields which don't have inputs. Default is [Colors.red]
-    final Color inactiveFillColor;
 
     /// Color of the input field when in error mode. Default is [Colors.redAccent]
-    final Color errorBorderColor;
 
     /// Border radius of each pin code field
-    final BorderRadius borderRadius;
 
     /// [height] for the pin code field. default is [50.0]
-    final double fieldHeight;
 
     /// [width] for the pin code field. default is [40.0]
-    final double fieldWidth;
 
     /// Border width for the each input fields. Default is [2.0]
-    final double borderWidth;
 
     /// this defines the shape of the input fields. Default is underlined
-    final PinCodeFieldShape shape;
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -160,7 +128,7 @@ class _OtpPasswordState extends State<OtpPassword> {
                           Container(
                             width: 149,
                             height: 149,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF2D9CDB),
                               shape: BoxShape.circle,
                             ),
@@ -182,7 +150,7 @@ class _OtpPasswordState extends State<OtpPassword> {
                             color: ColorPath.background,
                           )),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 8.0, horizontal: 30),
@@ -199,14 +167,12 @@ class _OtpPasswordState extends State<OtpPassword> {
                           inactiveColor: Colors.grey,
                         ),
                         keyboardType: TextInputType.number,
-                        animationDuration: Duration(milliseconds: 300),
+                        animationDuration: const Duration(milliseconds: 300),
                         enableActiveFill: false,
                         controller: textEditingController,
                         onCompleted: (v) {},
                         onChanged: (value) {
-                          setState(() {
-                            currentText = value;
-                          });
+                          setState(() {});
                         },
                         appContext: context,
                       ),
