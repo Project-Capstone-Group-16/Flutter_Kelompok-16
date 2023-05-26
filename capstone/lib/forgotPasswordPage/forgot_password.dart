@@ -1,6 +1,9 @@
-import 'package:capstone/components/color_path.dart';
-import 'package:capstone/otp_password.dart';
 import 'package:flutter/material.dart';
+
+import 'package:capstone/forgotPasswordPage/otp_password.dart';
+import 'package:capstone/components/color_path.dart';
+import '../components/all_button.dart';
+import '../components/email_textfield.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
@@ -10,9 +13,8 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
-  FocusNode _focus = FocusNode();
-  TextEditingController _emailController = TextEditingController();
-  bool _isPasswordVisible = false;
+  final _focus = FocusNode();
+  final emailController = TextEditingController();
 
   @override
   void initState() {
@@ -45,8 +47,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   double width = 0;
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -109,14 +109,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
                           Container(
                             width: 149,
                             height: 149,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF2D9CDB),
                               shape: BoxShape.circle,
                             ),
@@ -131,59 +131,40 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text('Masukkan Email Terdaftar',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorPath.background,
-                          )),
-                    ),
-                    const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: TextFormField(
-                        focusNode: _focus,
-                        decoration: InputDecoration(
-                          labelText: 'Email',
-                          labelStyle: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        'Masukkan Email Terdaftar',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: ColorPath.background,
                         ),
                       ),
                     ),
+                    const SizedBox(height: 5),
+                    EmailTextField(
+                      controller: emailController,
+                      labelText: 'Email',
+                      obscureText: false,
+                      focusNode: _focus,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
+                    ),
                     const SizedBox(height: 40),
                     Center(
-                      child: GestureDetector(
+                      child: AllButton(
+                        text: 'Lanjut',
                         onTap: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => OtpPassword()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Lanjut',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const OtpPassword(),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],

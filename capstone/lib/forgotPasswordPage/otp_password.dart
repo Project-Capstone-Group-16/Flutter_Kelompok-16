@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:pinput/pinput.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-import 'components/color_path.dart';
+import 'package:capstone/components/all_button.dart';
+import 'new_password.dart';
+import 'package:capstone/components/color_path.dart';
 
 class OtpPassword extends StatefulWidget {
   const OtpPassword({super.key});
@@ -12,8 +13,8 @@ class OtpPassword extends StatefulWidget {
 }
 
 class _OtpPasswordState extends State<OtpPassword> {
-  FocusNode _focus = FocusNode();
-  TextEditingController _emailController = TextEditingController();
+  final FocusNode _focus = FocusNode();
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -26,7 +27,6 @@ class _OtpPasswordState extends State<OtpPassword> {
   void dispose() {
     super.dispose();
     _focus.removeListener(_onFocusChange);
-    _focus.dispose();
   }
 
   void _onFocusChange() {
@@ -46,8 +46,19 @@ class _OtpPasswordState extends State<OtpPassword> {
   double width = 0;
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    /// Colors of the input fields which don't have inputs. Default is [Colors.red]
 
+    /// Color of the input field when in error mode. Default is [Colors.redAccent]
+
+    /// Border radius of each pin code field
+
+    /// [height] for the pin code field. default is [50.0]
+
+    /// [width] for the pin code field. default is [40.0]
+
+    /// Border width for the each input fields. Default is [2.0]
+
+    /// this defines the shape of the input fields. Default is underlined
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -117,7 +128,7 @@ class _OtpPasswordState extends State<OtpPassword> {
                           Container(
                             width: 149,
                             height: 149,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFF2D9CDB),
                               shape: BoxShape.circle,
                             ),
@@ -139,30 +150,45 @@ class _OtpPasswordState extends State<OtpPassword> {
                             color: ColorPath.background,
                           )),
                     ),
-                    SizedBox(height: 40),
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Test()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Kirim',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 8.0, horizontal: 30),
+                      child: PinCodeTextField(
+                        focusNode: _focus,
+                        length: 4,
+                        obscureText: false,
+                        animationType: AnimationType.fade,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.circle,
+                          fieldHeight: 60,
+                          fieldWidth: 60,
+                          activeFillColor: Colors.white,
+                          inactiveColor: Colors.grey,
                         ),
+                        keyboardType: TextInputType.number,
+                        animationDuration: const Duration(milliseconds: 300),
+                        enableActiveFill: false,
+                        controller: textEditingController,
+                        onCompleted: (v) {},
+                        onChanged: (value) {
+                          setState(() {});
+                        },
+                        appContext: context,
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Center(
+                      child: AllButton(
+                        text: 'Kirim',
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewPassword(),
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ],
