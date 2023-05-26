@@ -15,8 +15,6 @@ class NewPassword extends StatefulWidget {
 class _NewPasswordState extends State<NewPassword> {
   final FocusNode _focus = FocusNode();
   final FocusNode _confirmPasswordFocus = FocusNode();
-  final newPasswordController = TextEditingController();
-  final confirmNewPasswordController = TextEditingController();
 
   bool _isPasswordVisible = false;
   bool _is2PasswordVisible = false;
@@ -139,28 +137,36 @@ class _NewPasswordState extends State<NewPassword> {
                           )),
                     ),
                     const SizedBox(height: 5),
-                    PasswordTextField(
-                      controller: newPasswordController,
-                      labelText: 'Masukkan Password Baru',
-                      obscureText: _isPasswordVisible,
-                      focusNode: _focus,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'new password is required';
-                        }
-                        return null;
-                      },
-                      suffixIcon: IconButton(
-                        icon: Image.asset(
-                          _isPasswordVisible
-                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: TextFormField(
+                        obscureText: !_isPasswordVisible,
+                        focusNode: _focus,
+                        decoration: InputDecoration(
+                          labelText: 'Masukkan Password Baru',
+                          labelStyle: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
+                          suffixIcon: IconButton(
+                            icon: Image.asset(
+                              _isPasswordVisible
+                                  ? 'assets/images/onvisibility.png' // Replace with the path to the visible icon image
+                                  : 'assets/images/visibility.png', // Replace with the path to the invisible icon image
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _isPasswordVisible = !_isPasswordVisible;
+                              });
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _isPasswordVisible = !_isPasswordVisible;
-                          });
-                        },
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -174,31 +180,39 @@ class _NewPasswordState extends State<NewPassword> {
                           )),
                     ),
                     const SizedBox(height: 5),
-                    PasswordTextField(
-                      controller: confirmNewPasswordController,
-                      labelText: 'Konfirmasi Password Baru',
-                      obscureText: _is2PasswordVisible,
-                      focusNode: _confirmPasswordFocus,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'confirm new password';
-                        }
-                        return null;
-                      },
-                      suffixIcon: IconButton(
-                        icon: Image.asset(
-                          _is2PasswordVisible
-                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      child: TextFormField(
+                        obscureText: !_is2PasswordVisible,
+                        focusNode: _confirmPasswordFocus,
+                        decoration: InputDecoration(
+                          labelText: 'Masukkan Kembali Password Anda',
+                          labelStyle: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.grey,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16.0),
+                          suffixIcon: IconButton(
+                            icon: Image.asset(
+                              _is2PasswordVisible
+                                  ? 'assets/images/onvisibility.png' // Replace with the path to the visible icon image
+                                  : 'assets/images/visibility.png', // Replace with the path to the invisible icon image
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                _is2PasswordVisible = !_is2PasswordVisible;
+                              });
+                            },
+                          ),
                         ),
-                        onPressed: () {
-                          setState(() {
-                            _is2PasswordVisible = !_is2PasswordVisible;
-                          });
-                        },
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    SizedBox(height: 40),
                     Center(
                       child: AllButton(
                         text: 'Simpan',
