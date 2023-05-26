@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/forgot_success.dart';
-import 'components/all_button.dart';
-import 'components/password_textfield.dart';
+import 'package:capstone/forgotPasswordPage/forgot_success.dart';
+import '../components/all_button.dart';
+import '../components/password_textfield.dart';
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
