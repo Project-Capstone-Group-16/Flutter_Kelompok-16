@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD:capstone/lib/forgotPasswordPage/otp_password.dart
 import 'package:pin_code_fields/pin_code_fields.dart';
-=======
-import 'package:flutter/services.dart';
-import 'package:pinput/pinput.dart';
->>>>>>> f3e5e46a6ed8bd3bfaccb14d20b2a77b05df71f5:capstone/lib/otp_password.dart
 
-import 'components/color_path.dart';
+import 'package:capstone/components/all_button.dart';
+import 'new_password.dart';
+import 'package:capstone/components/color_path.dart';
 
 class OtpPassword extends StatefulWidget {
   const OtpPassword({super.key});
@@ -16,13 +13,8 @@ class OtpPassword extends StatefulWidget {
 }
 
 class _OtpPasswordState extends State<OtpPassword> {
-<<<<<<< HEAD:capstone/lib/forgotPasswordPage/otp_password.dart
   final FocusNode _focus = FocusNode();
   TextEditingController textEditingController = TextEditingController();
-=======
-  FocusNode _focus = FocusNode();
-  TextEditingController _emailController = TextEditingController();
->>>>>>> f3e5e46a6ed8bd3bfaccb14d20b2a77b05df71f5:capstone/lib/otp_password.dart
 
   @override
   void initState() {
@@ -35,7 +27,6 @@ class _OtpPasswordState extends State<OtpPassword> {
   void dispose() {
     super.dispose();
     _focus.removeListener(_onFocusChange);
-    _focus.dispose();
   }
 
   void _onFocusChange() {
@@ -55,7 +46,6 @@ class _OtpPasswordState extends State<OtpPassword> {
   double width = 0;
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD:capstone/lib/forgotPasswordPage/otp_password.dart
     /// Colors of the input fields which don't have inputs. Default is [Colors.red]
 
     /// Color of the input field when in error mode. Default is [Colors.redAccent]
@@ -69,10 +59,6 @@ class _OtpPasswordState extends State<OtpPassword> {
     /// Border width for the each input fields. Default is [2.0]
 
     /// this defines the shape of the input fields. Default is underlined
-=======
-    var width = MediaQuery.of(context).size.width;
-
->>>>>>> f3e5e46a6ed8bd3bfaccb14d20b2a77b05df71f5:capstone/lib/otp_password.dart
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: SafeArea(
@@ -164,7 +150,6 @@ class _OtpPasswordState extends State<OtpPassword> {
                             color: ColorPath.background,
                           )),
                     ),
-<<<<<<< HEAD:capstone/lib/forgotPasswordPage/otp_password.dart
                     const SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.symmetric(
@@ -193,32 +178,17 @@ class _OtpPasswordState extends State<OtpPassword> {
                       ),
                     ),
                     const SizedBox(height: 40),
-=======
-                    SizedBox(height: 40),
->>>>>>> f3e5e46a6ed8bd3bfaccb14d20b2a77b05df71f5:capstone/lib/otp_password.dart
                     Center(
-                      child: GestureDetector(
+                      child: AllButton(
+                        text: 'Kirim',
                         onTap: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Test()));
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 60, vertical: 10),
-                          decoration: BoxDecoration(
-                            color: ColorPath.background,
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: const Text(
-                            'Kirim',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewPassword(),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                          );
+                        },
                       ),
                     ),
                   ],

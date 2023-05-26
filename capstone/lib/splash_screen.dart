@@ -1,4 +1,3 @@
-import 'package:capstone/forgot_password.dart';
 import 'package:flutter/material.dart';
 
 import 'components/color_path.dart';
