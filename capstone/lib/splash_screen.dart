@@ -28,34 +28,32 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPath.background,
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset(
-                'assets/images/homelogo.png',
-                width: 200, // Sesuaikan dengan ukuran yang diinginkan
-                height: 200, // Sesuaikan dengan ukuran yang diinginkan
-              ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/homelogo.png',
+              width: 200, // Sesuaikan dengan ukuran yang diinginkan
+              height: 200, // Sesuaikan dengan ukuran yang diinginkan
             ),
-            const Align(
-              alignment: Alignment.center,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 16),
-                child: Text(
-                  'Inventron',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
-                  ),
+          ),
+          const Align(
+            alignment: Alignment.center,
+            child: Padding(
+              padding: EdgeInsets.only(bottom: 16),
+              child: Text(
+                'Inventron',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }

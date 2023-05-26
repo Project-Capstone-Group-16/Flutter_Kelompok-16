@@ -121,7 +121,7 @@ class _OtpPasswordState extends State<OtpPassword> {
                     ),
                     Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
