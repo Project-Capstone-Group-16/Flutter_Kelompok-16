@@ -188,7 +188,35 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
-                    const SizedBox(height: 20),
+
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ForgotPassword(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              'Lupa Kata Sandi?',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 95, 92, 92),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 60),
                     Center(
                       child: AllButton(
                         text: 'Masuk',
