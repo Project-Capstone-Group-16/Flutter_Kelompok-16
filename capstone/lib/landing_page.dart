@@ -1,3 +1,4 @@
+import 'package:capstone/LoginRegisterPage/login_register.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -47,7 +48,14 @@ class _LandingPageState extends State<LandingPage> {
                 children: [
                   onLastPage
                       ? GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const LoginRegister(),
+                              ),
+                            );
+                          },
                           child: Container(
                             width: 100,
                             height: 40,
