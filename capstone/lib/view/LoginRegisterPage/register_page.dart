@@ -5,6 +5,8 @@ import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/email_textfield.dart';
 import 'package:capstone/components/password_textfield.dart';
 import 'package:capstone/screen.dart';
+import 'package:capstone/model/controller/auth_controller.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -20,6 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final Auth authController=Get.find<Auth>();
 
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
@@ -188,10 +191,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: !_isPasswordVisible,
                       focusNode: _passwordFocus,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email is required';
-                        }
-                        return null;
                       },
                       suffixIcon: IconButton(
                         icon: Image.asset(
@@ -225,10 +224,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       obscureText: !_isConfirmPasswordVisible,
                       focusNode: _confirmPasswordFocus,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email is required';
-                        }
-                        return null;
                       },
                       suffixIcon: IconButton(
                         icon: Image.asset(
@@ -248,7 +243,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     Center(
                       child: AllButton(
                         text: 'Daftar',
-                        onTap: () {},
+                        onTap: () {
+                        },
                         backgroundColor: ColorPath.background,
                         textColor: ColorPath.white,
                       ),

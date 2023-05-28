@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'route/app_page.dart';
 import 'route/app_route.dart';
+import 'model/controller/auth_controller.dart';
 
 import 'package:get/get.dart';
 
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
       getPages: AppPage.list,
       initialRoute: AppRoute.landing_page,
       debugShowCheckedModeBanner: false,
+      initialBinding: BindingsBuilder(() {
+        Get.put<Auth>(Auth());
+        }),
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
