@@ -1,10 +1,10 @@
-import 'package:capstone/LoginRegisterPage/login_register.dart';
+import 'package:capstone/view/LoginRegisterPage/login_register.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'view/intro_screen1.dart';
-import 'view/intro_screen2.dart';
-import 'view/intro_screen3.dart';
+import 'intro_screen1.dart';
+import 'intro_screen2.dart';
+import 'intro_screen3.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});

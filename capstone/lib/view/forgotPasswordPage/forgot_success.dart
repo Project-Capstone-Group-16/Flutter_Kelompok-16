@@ -1,7 +1,7 @@
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 
-import '../components/all_button.dart';
+import '../../components/all_button.dart';
 
 class ForgotSuccess extends StatefulWidget {
   const ForgotSuccess({super.key});

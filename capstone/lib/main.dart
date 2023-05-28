@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone/screen.dart';
+import 'route/app_page.dart';
+import 'route/app_route.dart';
+
+import 'package:get/get.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -11,14 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      getPages: AppPage.list,
+      initialRoute: AppRoute.landing_page,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
-      home: const LandingPage(),
     );
   }
 }
