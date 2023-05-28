@@ -109,6 +109,8 @@ class _ForgotSuccessState extends State<ForgotSuccess> {
                   child: AllButton(
                     text: 'Selesai',
                     onTap: () {},
+                    backgroundColor: ColorPath.background,
+                    textColor: ColorPath.white,
                   ),
                 ),
               ],

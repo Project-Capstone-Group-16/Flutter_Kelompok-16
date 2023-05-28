@@ -53,7 +53,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
         child: Stack(
           children: [
             Positioned(
-              top: 40,
+              top: 35,
               left: 10,
               child: IconButton(
                 icon: const Icon(
@@ -71,7 +71,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 Container(
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(
-                    top: 100,
+                    top: 50,
                   ), // Mengatur posisi gambar dengan angka
                   // Mengatur margin bawah (opsional)
                   child: Image.asset(
@@ -83,7 +83,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               ],
             ),
             Container(
-              margin: EdgeInsets.only(top: height * 2.5),
+              margin: EdgeInsets.only(top: height * 4.5),
               // height: height * 0.85,
               decoration: const BoxDecoration(
                 color: ColorPath.primary,
@@ -165,6 +165,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                             ),
                           );
                         },
+                        backgroundColor: ColorPath.background,
+                        textColor: ColorPath.white,
                       ),
                     ),
                   ],

@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
 
+import 'package:capstone/screen.dart';
+import 'package:capstone/components/email_textfield.dart';
+import 'package:capstone/components/password_textfield.dart';
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/forgotPasswordPage/forgot_success.dart';
-import '../components/all_button.dart';
+import 'package:capstone/components/all_button.dart';
 
-class NewPassword extends StatefulWidget {
-  const NewPassword({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<NewPassword> createState() => _NewPasswordState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _NewPasswordState extends State<NewPassword> {
-  final FocusNode _focus = FocusNode();
-  final FocusNode _confirmPasswordFocus = FocusNode();
+class _LoginPageState extends State<LoginPage> {
+  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _passwordFocus = FocusNode();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   bool _isPasswordVisible = false;
-  bool _is2PasswordVisible = false;
 
   @override
   void initState() {
     super.initState();
-    _focus.addListener(_onFocusChange);
-    _focus.addListener(_onFocusChange);
-    _confirmPasswordFocus.addListener(_onConfirmPasswordFocusChange);
+    _emailFocus.addListener(_onFocusChange);
+    _emailFocus.addListener(_onFocusChange);
+    _passwordFocus.addListener(_onConfirmPasswordFocusChange);
   }
 
   void _onConfirmPasswordFocusChange() {
-    if (_confirmPasswordFocus.hasFocus) {
+    if (_passwordFocus.hasFocus) {
       setState(() {
         height = 20;
       });
@@ -41,14 +44,14 @@ class _NewPasswordState extends State<NewPassword> {
   @override
   void dispose() {
     super.dispose();
-    _focus.removeListener(_onFocusChange);
-    _focus.dispose();
-    _confirmPasswordFocus.removeListener(_onConfirmPasswordFocusChange);
-    _confirmPasswordFocus.dispose();
+    _emailFocus.removeListener(_onFocusChange);
+    _emailFocus.dispose();
+    _passwordFocus.removeListener(_onConfirmPasswordFocusChange);
+    _passwordFocus.dispose();
   }
 
   void _onFocusChange() {
-    if (_focus.hasFocus) {
+    if (_emailFocus.hasFocus) {
       setState(() {
         height = 20;
       });
@@ -117,9 +120,9 @@ class _NewPasswordState extends State<NewPassword> {
                     const Padding(
                       padding: EdgeInsets.all(15.0),
                       child: Text(
-                        'Buat Kata Sandi     Baru Anda',
+                        'Hai!                            Selamat Datang Kembali',
                         style: TextStyle(
-                          fontSize: 32,
+                          fontSize: 28,
                           color: ColorPath.textcolor1,
                           fontWeight: FontWeight.w600,
                         ),
@@ -128,50 +131,32 @@ class _NewPasswordState extends State<NewPassword> {
                     ),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text('Kata Sandi Baru',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w600,
-                            color: ColorPath.background,
-                          )),
-                    ),
-                    const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: TextFormField(
-                        obscureText: !_isPasswordVisible,
-                        focusNode: _focus,
-                        decoration: InputDecoration(
-                          labelText: 'Masukkan Password Baru',
-                          labelStyle: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 16.0),
-                          suffixIcon: IconButton(
-                            icon: Image.asset(
-                              _isPasswordVisible
-                                  ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                                  : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                _isPasswordVisible = !_isPasswordVisible;
-                              });
-                            },
-                          ),
+                      child: Text(
+                        'Email',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: ColorPath.background,
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 5),
+                    EmailTextField(
+                      controller: emailController,
+                      labelText: 'Masukkan Email Anda',
+                      obscureText: false,
+                      focusNode: _emailFocus,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(height: 15),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text('Konfirmasi Kata Sandi',
+                      child: Text('Kata Sandi',
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
@@ -179,50 +164,35 @@ class _NewPasswordState extends State<NewPassword> {
                           )),
                     ),
                     const SizedBox(height: 5),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: TextFormField(
-                        obscureText: !_is2PasswordVisible,
-                        focusNode: _confirmPasswordFocus,
-                        decoration: InputDecoration(
-                          labelText: 'Masukkan Kembali Password Anda',
-                          labelStyle: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.grey,
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 16.0),
-                          suffixIcon: IconButton(
-                            icon: Image.asset(
-                              _is2PasswordVisible
-                                  ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                                  : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
-                            ),
-                            onPressed: () {
-                              setState(() {
-                                _is2PasswordVisible = !_is2PasswordVisible;
-                              });
-                            },
-                          ),
+                    PasswordTextField(
+                      controller: passwordController,
+                      labelText: "Masukkan Kata Sandi Anda",
+                      obscureText: !_isPasswordVisible,
+                      focusNode: _passwordFocus,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email is required';
+                        }
+                        return null;
+                      },
+                      suffixIcon: IconButton(
+                        icon: Image.asset(
+                          _isPasswordVisible
+                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
+                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
                         ),
+                        onPressed: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 20),
                     Center(
                       child: AllButton(
-                        text: 'Simpan',
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ForgotSuccess(),
-                            ),
-                          );
-                        },
+                        text: 'Masuk',
+                        onTap: () {},
                         backgroundColor: ColorPath.background,
                         textColor: ColorPath.white,
                       ),
@@ -247,7 +217,7 @@ class _NewPasswordState extends State<NewPassword> {
                         child: OutlinedButton.icon(
                           icon: Image.asset(
                             'assets/images/googlelogo.png',
-                            width: 20.0,
+                            width: 17.0,
                           ),
                           onPressed: () {},
                           label: const Text(
@@ -268,7 +238,7 @@ class _NewPasswordState extends State<NewPassword> {
                         child: OutlinedButton.icon(
                           icon: Image.asset(
                             'assets/images/applelogo.png',
-                            width: 20.0,
+                            width: 17.0,
                           ),
                           onPressed: () {},
                           label: const Text(

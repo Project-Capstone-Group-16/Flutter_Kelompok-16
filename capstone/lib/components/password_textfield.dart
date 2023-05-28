@@ -25,6 +25,7 @@ class PasswordTextField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         focusNode: focusNode,
+        obscureText: obscureText,
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: const TextStyle(
