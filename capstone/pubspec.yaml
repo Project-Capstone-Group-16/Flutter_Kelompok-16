@@ -32,9 +32,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  get: ^4.6.5
+  http: ^1.0.0
   introduction_screen: ^3.1.8
   pin_code_fields: ^7.4.0
   pinput: ^2.2.31
+  shared_preferences: ^2.1.1
   smooth_page_indicator: ^1.1.0
 
 dev_dependencies:

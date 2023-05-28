@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone/forgotPasswordPage/otp_password.dart';
+import 'package:capstone/view/forgotPasswordPage/otp_password.dart';
 import 'package:capstone/components/color_path.dart';
-import '../components/all_button.dart';
-import '../components/email_textfield.dart';
+import '../../components/all_button.dart';
+import '../../components/email_textfield.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});

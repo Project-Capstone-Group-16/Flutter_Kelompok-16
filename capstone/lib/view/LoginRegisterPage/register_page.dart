@@ -1,36 +1,55 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone/screen.dart';
+import 'package:capstone/components/all_button.dart';
+import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/email_textfield.dart';
 import 'package:capstone/components/password_textfield.dart';
-import 'package:capstone/components/color_path.dart';
-import 'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
+import 'package:capstone/model/controller/auth_controller.dart';
+import 'package:get/get.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
+  final FocusNode _confirmPasswordFocus = FocusNode();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final Auth authController=Get.find<Auth>();
 
   bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
 
   @override
   void initState() {
     super.initState();
     _emailFocus.addListener(_onFocusChange);
     _emailFocus.addListener(_onFocusChange);
-    _passwordFocus.addListener(_onConfirmPasswordFocusChange);
+    _passwordFocus.addListener(_passwordFocusChange);
+    _confirmPasswordFocus.addListener(_onConfirmPasswordFocusChange);
+  }
+
+  void _passwordFocusChange() {
+    if (_passwordFocus.hasFocus) {
+      setState(() {
+        height = 20;
+      });
+    } else {
+      setState(() {
+        height = 100;
+      });
+    }
   }
 
   void _onConfirmPasswordFocusChange() {
-    if (_passwordFocus.hasFocus) {
+    if (_confirmPasswordFocus.hasFocus) {
       setState(() {
         height = 20;
       });
@@ -46,8 +65,10 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
     _emailFocus.removeListener(_onFocusChange);
     _emailFocus.dispose();
-    _passwordFocus.removeListener(_onConfirmPasswordFocusChange);
+    _passwordFocus.removeListener(_passwordFocusChange);
     _passwordFocus.dispose();
+    _confirmPasswordFocus.removeListener(_onConfirmPasswordFocusChange);
+    _confirmPasswordFocus.dispose();
   }
 
   void _onFocusChange() {
@@ -120,9 +141,9 @@ class _LoginPageState extends State<LoginPage> {
                     const Padding(
                       padding: EdgeInsets.all(15.0),
                       child: Text(
-                        'Hai!                            Selamat Datang Kembali',
+                        'Hai!                                           Selamat Datang Kembali',
                         style: TextStyle(
-                          fontSize: 28,
+                          fontSize: 22,
                           color: ColorPath.textcolor1,
                           fontWeight: FontWeight.w600,
                         ),
@@ -140,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 4),
                     EmailTextField(
                       controller: emailController,
                       labelText: 'Masukkan Email Anda',
@@ -153,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
                         return null;
                       },
                     ),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 30.0),
                       child: Text('Kata Sandi',
@@ -163,17 +184,13 @@ class _LoginPageState extends State<LoginPage> {
                             color: ColorPath.background,
                           )),
                     ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 4),
                     PasswordTextField(
                       controller: passwordController,
                       labelText: "Masukkan Kata Sandi Anda",
                       obscureText: !_isPasswordVisible,
                       focusNode: _passwordFocus,
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email is required';
-                        }
-                        return null;
                       },
                       suffixIcon: IconButton(
                         icon: Image.asset(
@@ -188,16 +205,51 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
+                    const SizedBox(height: 5),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.0),
+                      child: Text(
+                        'Konfirmasi Kata Sandi',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: ColorPath.background,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    PasswordTextField(
+                      controller: confirmPasswordController,
+                      labelText: "Masukkan Kembali Kata Sandi Anda",
+                      obscureText: !_isConfirmPasswordVisible,
+                      focusNode: _confirmPasswordFocus,
+                      validator: (value) {
+                      },
+                      suffixIcon: IconButton(
+                        icon: Image.asset(
+                          _isConfirmPasswordVisible
+                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
+                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _isConfirmPasswordVisible =
+                                !_isConfirmPasswordVisible;
+                          });
+                        },
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     Center(
                       child: AllButton(
-                        text: 'Masuk',
-                        onTap: () {},
+                        text: 'Daftar',
+                        onTap: () {
+                        },
                         backgroundColor: ColorPath.background,
                         textColor: ColorPath.white,
                       ),
                     ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 4),
                     const Padding(
                       padding: EdgeInsets.all(15.0),
                       child: Text(
@@ -217,7 +269,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: OutlinedButton.icon(
                           icon: Image.asset(
                             'assets/images/googlelogo.png',
-                            width: 17.0,
+                            width: 20.0,
                           ),
                           onPressed: () {},
                           label: const Text(
@@ -238,7 +290,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: OutlinedButton.icon(
                           icon: Image.asset(
                             'assets/images/applelogo.png',
-                            width: 17.0,
+                            width: 20.0,
                           ),
                           onPressed: () {},
                           label: const Text(
@@ -251,6 +303,40 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
+                    ),
+                    const SizedBox(height: 0.5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Sudah Memiliki Akun?',
+                          style: TextStyle(
+                              color: ColorPath.textcolor1,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 2),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginPage(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              'Login',
+                              style: TextStyle(
+                                color: ColorPath.background,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
