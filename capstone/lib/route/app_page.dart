@@ -29,5 +29,9 @@ class AppPage{
       name: AppRoute.dashboard_screen, 
       page: ()=>const DashboardScreen()
       ),
+    GetPage(
+      name: AppRoute.explore_screen, 
+      page: ()=>const ExploreScreen()
+      ),
   ];
 }
