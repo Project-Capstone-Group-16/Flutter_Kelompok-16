@@ -25,5 +25,9 @@ class AppPage{
       name: AppRoute.lupa_password, 
       page: ()=>const ForgotPassword()
       ),
+    GetPage(
+      name: AppRoute.dashboard_screen, 
+      page: ()=>const DashboardScreen()
+      ),
   ];
 }

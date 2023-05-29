@@ -220,7 +220,12 @@ class _LoginPageState extends State<LoginPage> {
                     Center(
                       child: AllButton(
                         text: 'Masuk',
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                            builder: (context) => const DashboardScreen(),
+                          ));
+                        },
                         backgroundColor: ColorPath.background,
                         textColor: ColorPath.white,
                       ),

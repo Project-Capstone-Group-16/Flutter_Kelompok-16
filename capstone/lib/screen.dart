@@ -7,3 +7,7 @@ export 'view/landingPage/landing_page.dart';
 export 'view/LoginRegisterPage/login_register.dart';
 export 'view/LoginRegisterPage/login_page.dart';
 export 'view/LoginRegisterPage/register_page.dart';
+export 'view/dashboard/dashboard_screen.dart';
+export 'view/home/home_screen.dart';
+export 'view/explore/explore_screen.dart';
+export 'view/profile/profile_screen.dart';

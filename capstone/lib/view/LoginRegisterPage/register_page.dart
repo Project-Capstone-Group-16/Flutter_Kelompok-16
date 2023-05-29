@@ -244,6 +244,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: AllButton(
                         text: 'Daftar',
                         onTap: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context)=>const DashboardScreen())
+                              );
                         },
                         backgroundColor: ColorPath.background,
                         textColor: ColorPath.white,
