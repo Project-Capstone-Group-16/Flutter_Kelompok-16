@@ -33,5 +33,9 @@ class AppPage{
       name: AppRoute.explore_screen, 
       page: ()=>const ExploreScreen()
       ),
+    GetPage(
+      name: AppRoute.category_barang_screen, 
+      page: ()=>const CategoryBarangScreen()
+      ),
   ];
 }
