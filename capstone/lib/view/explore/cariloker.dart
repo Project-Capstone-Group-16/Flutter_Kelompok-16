@@ -1,3 +1,4 @@
+import 'package:capstone/components/all_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/color_path.dart';
@@ -32,11 +33,14 @@ class _CariLokerState extends State<CariLoker> {
           top: true,
           child: Stack(
             children: [
-              GoogleMap(
-                onMapCreated: _onMapCreated,
-                initialCameraPosition: CameraPosition(
-                  target: _center,
-                  zoom: 14.0,
+              Card(
+                elevation: 3,
+                child: GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _center,
+                    zoom: 14.0,
+                  ),
                 ),
               ),
               Align(
@@ -117,12 +121,56 @@ class _CariLokerState extends State<CariLoker> {
                 alignment: AlignmentDirectional(-0.99, 1.01),
                 child: Container(
                   width: 424,
-                  height: 100,
+                  height: 180,
                   decoration: BoxDecoration(
                     color: ColorPath.background2,
                   ),
+                  child: Stack(
+                    children: [
+                      // Widget choice chip "Pickup"
+                      Positioned(
+                        top: 20, // Sesuaikan posisi vertikal
+                        left: 40, // Sesuaikan posisi horizontal
+                        child: ChoiceChip(
+                          label: Text('Self Service'),
+                          selected: true,
+                          selectedColor: Color(0xFF1C49C3),
+                          labelStyle: TextStyle(color: Colors.white),
+                          onSelected: (bool selected) {
+                            // Ketika choice chip dipilih, tambahkan logika di sini
+                          },
+                        ),
+                      ),
+                      // Widget choice chip "Self Service"
+                      Positioned(
+                        top: 20, // Sesuaikan posisi vertikal
+                        right: 40, // Sesuaikan posisi horizontal
+                        child: ChoiceChip(
+                          label: Text('    Pick Up    '),
+                          selected: false,
+                          selectedColor: Color(0xFF1C49C3),
+                          labelStyle: TextStyle(color: Colors.white),
+                          onSelected: (bool selected) {
+                            // Ketika choice chip dipilih, tambahkan logika di sini
+                          },
+                        ),
+                      ),
+                      Positioned(
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                          top: 40,
+                          child: Center(
+                            child: AllButton(
+                                onTap: () {},
+                                text: "Lanjut",
+                                backgroundColor: ColorPath.background,
+                                textColor: Colors.white),
+                          ))
+                    ],
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         ),
