@@ -13,6 +13,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorPath.primary,
       body: SafeArea(
         child: Stack(
           children: [
@@ -44,6 +45,42 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                 )
               ],
             ),
+
+            const SizedBox(height: 30,),
+
+            Container(
+              alignment: Alignment.center,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 350,
+                    height: 650,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 0.2
+                      ),
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 3),  
+                          blurRadius: 2,        
+                          spreadRadius: 2,      
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         )
         ),
