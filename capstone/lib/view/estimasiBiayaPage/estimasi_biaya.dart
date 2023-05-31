@@ -1,5 +1,7 @@
-import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
+
+import 'package:capstone/components/color_path.dart';
+import 'package:capstone/components/all_button.dart';
 
 class EstimasiBiayaScreen extends StatelessWidget {
   const EstimasiBiayaScreen({super.key});
@@ -71,10 +73,10 @@ class EstimasiBiayaScreen extends StatelessWidget {
                               ),
                              ),
 
-                             child: const Column(
+                             child: Column(
                               children: [
-                                SizedBox(height: 10,),
-                                Padding(
+                                const SizedBox(height: 10,),
+                                const Padding(
                                   padding: EdgeInsets.only(right: 155),
                                   child: Text(
                                     'Estimasi Per Hari',
@@ -85,11 +87,11 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                     ),
                                     ),
                                 ),
-                                Row(
-                                  
+                                const Row(
+                                  mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(right: 155, left: 17),
+                                      padding: EdgeInsets.only(left: 17.5),
                                       child: Text(
                                         'Estimasi Biaya : ',
                                         style: TextStyle(
@@ -99,18 +101,232 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                         ),
                                     ),
                                     Text(
-                                      'Estimasi Biaya : ',
+                                      'Rp10.000- Rp40.000',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorPath.textcolor1, 
                                       ),
                                       ),
                                   ],
                                 ),
-                                
+
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 10,left: 17.5),
+                                  child: Text(
+                                    'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                   ),  
+                                   Padding(
+                                     padding: const EdgeInsets.only(top:20,left: 220),
+                                     child: ElevatedButton(
+                                      onPressed: (){}, 
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: ColorPath.textcolor1,
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 5,
+                                          horizontal: 25,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                      ),
+                                      child: const Text('Detail'),
+                                      ),
+                                   ),   
                               ]
                               ),
-                           ),
+                             ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15,),
+                Container(
+                  alignment: Alignment.center,
+                  child: Stack(
+                    children: [
+                      Container(
+                      width: 348,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 0.2,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                             ),
+
+                             child: Column(
+                              children: [
+                                const SizedBox(height: 10,),
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 140),
+                                  child: Text(
+                                    'Estimasi Per Bulan',
+                                    style: TextStyle(
+                                      fontSize: 19,
+                                      color: ColorPath.textcolor1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                ),
+                                const Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 17.5),
+                                      child: Text(
+                                        'Estimasi Biaya : ',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        ),
+                                    ),
+                                    Text(
+                                      'Rp50.000- Rp100.000',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorPath.textcolor1, 
+                                      ),
+                                      ),
+                                  ],
+                                ),
+
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 10,left: 17.5),
+                                  child: Text(
+                                    'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                   ),  
+                                   Padding(
+                                     padding: const EdgeInsets.only(top:20,left: 220),
+                                     child: ElevatedButton(
+                                      onPressed: (){}, 
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: ColorPath.textcolor1,
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 5,
+                                          horizontal: 25,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                      ),
+                                      child: const Text('Detail'),
+                                      ),
+                                   ),   
+                              ]
+                              ),
+                             ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 15,),
+                Container(
+                  alignment: Alignment.center,
+                  child: Stack(
+                    children: [
+                      Container(
+                      width: 348,
+                      height: 170,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 0.2,
+                        ),
+                        borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                             ),
+
+                             child: Column(
+                              children: [
+                                const SizedBox(height: 10,),
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 135),
+                                  child: Text(
+                                    'Estimasi Per Tahun',
+                                    style: TextStyle(
+                                      fontSize: 19,
+                                      color: ColorPath.textcolor1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                ),
+                                const Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(left: 17.5),
+                                      child: Text(
+                                        'Estimasi Biaya : ',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        ),
+                                    ),
+                                    Text(
+                                      'Rp400.000- Rp600.000',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: ColorPath.textcolor1, 
+                                      ),
+                                      ),
+                                  ],
+                                ),
+
+                                const Padding(
+                                  padding: EdgeInsets.only(right: 10,left: 17.5),
+                                  child: Text(
+                                    'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                   ),  
+                                   Padding(
+                                     padding: const EdgeInsets.only(top:20,left: 220),
+                                     child: ElevatedButton(
+                                      onPressed: (){}, 
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: ColorPath.textcolor1,
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 5,
+                                          horizontal: 25,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                      ),
+                                      child: const Text('Detail'),
+                                      ),
+                                   ),   
+                              ]
+                              ),
+                             ),
                     ],
                   ),
                 ),
