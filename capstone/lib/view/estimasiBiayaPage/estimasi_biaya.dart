@@ -69,8 +69,48 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10),
                               ),
-                      ),
-                    ),
+                             ),
+
+                             child: const Column(
+                              children: [
+                                SizedBox(height: 10,),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 155),
+                                  child: Text(
+                                    'Estimasi Per Hari',
+                                    style: TextStyle(
+                                      fontSize: 19,
+                                      color: ColorPath.textcolor1,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    ),
+                                ),
+                                Row(
+                                  
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 155, left: 17),
+                                      child: Text(
+                                        'Estimasi Biaya : ',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        ),
+                                    ),
+                                    Text(
+                                      'Estimasi Biaya : ',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      ),
+                                  ],
+                                ),
+                                
+                              ]
+                              ),
+                           ),
                     ],
                   ),
                 ),

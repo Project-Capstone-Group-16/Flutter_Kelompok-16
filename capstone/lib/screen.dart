@@ -13,3 +13,5 @@ export 'view/explore/explore_screen.dart';
 export 'view/profile/profile_screen.dart';
 export 'view/categoryPage/category_screen.dart';
 export 'view/estimasiBiayaPage/estimasi_biaya.dart';
+export 'view/DurasiPenitipan/durasi_penitipan.dart';
+
