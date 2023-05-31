@@ -18,8 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: AppPage.list,
-      initialRoute: AppRoute.durasi_penitipan_screen,
-
+      initialRoute: AppRoute.estimasi_biaya_screen,
       debugShowCheckedModeBanner: false,
       initialBinding: BindingsBuilder(() {
         Get.put<Auth>(Auth());
