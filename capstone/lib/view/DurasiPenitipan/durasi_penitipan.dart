@@ -96,6 +96,7 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                               daysOfWeekVisible: true,
                               weekNumbersVisible: false,
                               daysOfWeekStyle: const DaysOfWeekStyle(
+
                                   // Tulisan hari sun belum bisa ke warna putih
                                   weekdayStyle: TextStyle(color: Colors.white)),
                               availableCalendarFormats: const {
