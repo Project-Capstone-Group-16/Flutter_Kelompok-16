@@ -14,4 +14,7 @@ export 'view/profile/profile_screen.dart';
 export 'view/categoryPage/category_screen.dart';
 export 'view/estimasiBiayaPage/estimasi_biaya.dart';
 export 'view/DurasiPenitipan/durasi_penitipan.dart';
+export 'view/estimasiBiayaPage/estimasi_biaya_harian.dart';
+export 'view/estimasiBiayaPage/estimasi_biaya_bulanan.dart';
+export 'view/estimasiBiayaPage/estimasi_biaya_tahunan.dart';
 

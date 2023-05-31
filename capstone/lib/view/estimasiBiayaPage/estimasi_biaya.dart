@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
+
 
 class EstimasiBiayaScreen extends StatelessWidget {
   const EstimasiBiayaScreen({super.key});
@@ -124,7 +125,12 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                    Padding(
                                      padding: const EdgeInsets.only(top:20,left: 220),
                                      child: ElevatedButton(
-                                      onPressed: (){}, 
+                                      onPressed: (){
+                                        Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                        builder: (context) => const EstimasiBiayaPerHariScreen(),
+                                      ));
+                                      }, 
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: ColorPath.textcolor1,
                                         padding: const EdgeInsets.symmetric(
@@ -217,7 +223,12 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                    Padding(
                                      padding: const EdgeInsets.only(top:20,left: 220),
                                      child: ElevatedButton(
-                                      onPressed: (){}, 
+                                      onPressed: (){
+                                        Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                        builder: (context) => const EstimasiBiayaPerBulanScreen(),
+                                      ));
+                                      }, 
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: ColorPath.textcolor1,
                                         padding: const EdgeInsets.symmetric(
@@ -310,7 +321,12 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                    Padding(
                                      padding: const EdgeInsets.only(top:20,left: 220),
                                      child: ElevatedButton(
-                                      onPressed: (){}, 
+                                      onPressed: (){
+                                        Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                        builder: (context) => const EstimasiBiayaPerTahunScreen(),
+                                      ));
+                                      }, 
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: ColorPath.textcolor1,
                                         padding: const EdgeInsets.symmetric(
