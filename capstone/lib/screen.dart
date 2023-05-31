@@ -11,3 +11,4 @@ export 'view/dashboard/dashboard_screen.dart';
 export 'view/home/home_screen.dart';
 export 'view/explore/explore_screen.dart';
 export 'view/profile/profile_screen.dart';
+export 'view/DurasiPenitipan/durasi_penitipan.dart';
