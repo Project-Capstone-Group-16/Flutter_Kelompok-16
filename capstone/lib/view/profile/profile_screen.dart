@@ -1,4 +1,5 @@
 import 'package:capstone/components/color_path.dart';
+import 'package:capstone/view/profile/biodata.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  bool switchValue = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +44,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.6, -0.94),
+                    alignment: AlignmentDirectional(0.6, -0.91),
                     child: Container(
-                      width: 40,
-                      height: 40,
+                      width: 35,
+                      height: 35,
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
@@ -59,16 +61,247 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Align(
                     alignment: AlignmentDirectional(0.9, -0.93),
                     child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.logout,
-                          color: ColorPath.background2,
-                          size: 24,
-                        )),
-                  )
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.logout,
+                        color: ColorPath.background2,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(-0.78, -0.58),
+                    child: Text(
+                      'Pengaturan',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: ColorPath.background,
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: AlignmentDirectional(0, -0.10),
+                    child: Container(
+                      width: 331,
+                      height: 281,
+                      decoration: BoxDecoration(
+                        color: ColorPath.background2,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: Color(0xFFB3B3B3),
+                        ),
+                      ),
+                      child: Stack(
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-0.94, -0.9),
+                            child: Icon(
+                              Icons.settings_outlined,
+                              color: ColorPath.background,
+                              size: 22,
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.74, -0.88),
+                            child: Text(
+                              'Umum',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: ColorPath.background,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.87, -0.60),
+                            child: Text(
+                              'Biodata',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.90, -0.70),
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.navigate_next,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => BiodataPage()));
+                              },
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.87, -0.30),
+                            child: Text(
+                              'Histori',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.90, -0.36),
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.navigate_next,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.87, 0),
+                            child: Text(
+                              'Favorit',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.90, 0),
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.navigate_next,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.87, 0.30),
+                            child: Text(
+                              'Bahasa',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.90, 0.36),
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.navigate_next,
+                                color: Colors.black,
+                                size: 24,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-0.87, 0.66),
+                            child: Text(
+                              'Pemberitahuan',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0.87, 0.66),
+                            child: Container(
+                              height: 20,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: Colors.black,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(16.0)),
+                              child: Switch.adaptive(
+                                value: switchValue,
+                                onChanged: (newValue) {
+                                  setState(() {
+                                    switchValue = newValue;
+                                  });
+                                },
+                                activeColor: ColorPath.white,
+                                activeTrackColor: Color(0xFF14D63F),
+                                inactiveTrackColor: ColorPath.background2,
+                                inactiveThumbColor: Colors.green,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            )
+            ),
+            Align(
+              alignment: AlignmentDirectional(0, 0.80),
+              child: Container(
+                width: 331,
+                height: 110,
+                decoration: BoxDecoration(
+                  color: ColorPath.background2,
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Color(0xFFB3B3B3),
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(-0.94, -0.58),
+                      child: Icon(
+                        Icons.info_outlined,
+                        color: ColorPath.background,
+                        size: 22,
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.74, -0.55),
+                      child: Text(
+                        'Bantuan',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: ColorPath.background,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.87, 0.20),
+                      child: Text(
+                        'Pertanyaan Umum',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.90, 0.26),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.navigate_next,
+                          color: Colors.black,
+                          size: 24,
+                        ),
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
