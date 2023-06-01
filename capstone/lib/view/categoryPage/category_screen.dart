@@ -100,7 +100,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                   isContainer3Active=false;
                                   isContainer4Active=false;
                                   if (isContainer1Active){
-                                    selectedImage='assets/images/landingpage1.png';
+                                    selectedImage='assets/images/gambartas.png';
                                   }
                                 });
                               },
@@ -127,7 +127,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                   isContainer3Active=false;
                                   isContainer4Active=false;
                                   if (isContainer2Active){
-                                    selectedImage='assets/images/landingpage2.png';
+                                    selectedImage='assets/images/gambarsepatu.png';
                                   }
                                 });
                               },
@@ -154,7 +154,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                   isContainer2Active=false;
                                   isContainer4Active=false;
                                   if (isContainer3Active){
-                                    selectedImage='assets/images/landingpage3.png';
+                                    selectedImage='assets/images/gambarbaju.png';
                                   }
                                 });
                               },
@@ -181,7 +181,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                   isContainer2Active=false;
                                   isContainer3Active=false;
                                   if (isContainer4Active){
-                                    selectedImage='assets/images/landingpage1.png';
+                                    selectedImage='assets/images/gambarkotak.png';
                                   }
                                 });
                               },
@@ -208,16 +208,19 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                         Container(
                           width: 278,
                           height: 410,
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 238, 249, 250),
-                            borderRadius: BorderRadius.only(
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 238, 249, 250),
+                            borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
                               bottomLeft: Radius.circular(20),
                               topRight: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                             ),
+                            image: selectedImage.isNotEmpty
+                            ?DecorationImage(image: AssetImage(selectedImage),
+                            fit: BoxFit.cover
+                            ):null
                             ),
-                            child: selectedImage.isNotEmpty?Image.asset(selectedImage):null,
                           ),
 
                           const SizedBox(height: 50),
