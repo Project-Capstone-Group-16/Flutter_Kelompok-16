@@ -87,12 +87,12 @@ class _CariLokerState extends State<CariLoker> {
                 child: Container(
                   width: 448,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ColorPath.background2,
                   ),
                   child: Stack(
                     children: [
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: Text(
                           'Lokasi Loker',
@@ -105,9 +105,9 @@ class _CariLokerState extends State<CariLoker> {
                       ),
                       IconButton(
                         onPressed: () {
-                          // Handle settings icon press
+                          // Navigator.pop(context);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
                         ),
@@ -118,7 +118,7 @@ class _CariLokerState extends State<CariLoker> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.99, 1.01),
+                alignment: const AlignmentDirectional(-0.99, 1.01),
                 child: Container(
                   width: 424,
                   height: 180,

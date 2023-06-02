@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import 'package:capstone/components/color_path.dart';
+import 'package:capstone/screen.dart';
 
 class ExploreScreen extends StatefulWidget {
   const ExploreScreen({super.key});
@@ -238,7 +239,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           child: Material(
                             child: InkWell(
                               splashColor: ColorPath.background,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).push(
+                                MaterialPageRoute(
+                                builder: (context) => const CategoryBarangScreen(),
+                              ));
+                              },
                               child: Ink(
                                 width: 75,
                                 height: 79,
@@ -283,7 +289,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                           child: Material(
                             child: InkWell(
                               splashColor: ColorPath.background,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).push(
+                                MaterialPageRoute(
+                                builder: (context) => const EstimasiBiayaScreen(),
+                              ));
+                              },
                               child: Ink(
                                 width: 75,
                                 height: 79,

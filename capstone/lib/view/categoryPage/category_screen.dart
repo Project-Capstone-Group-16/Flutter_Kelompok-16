@@ -1,7 +1,9 @@
+import 'package:capstone/view/cariLoker/cariloker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
 
 class CategoryBarangScreen extends StatefulWidget {
   const CategoryBarangScreen({super.key});
@@ -228,7 +230,12 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                           const SizedBox(height: 50),
 
                           AllButton(
-                            onTap: (){}, 
+                            onTap: (){
+                              Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                            builder: (context) => const CariLoker(),
+                          ));
+                            }, 
                             text: 'Lanjut', 
                             backgroundColor: ColorPath.background, 
                             textColor: ColorPath.white,

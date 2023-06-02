@@ -1,4 +1,4 @@
-import 'package:capstone/view/explore/cariloker.dart';
+import 'package:capstone/view/cariLoker/cariloker.dart';
 import 'package:get/get.dart';
 import 'app_route.dart';
 
