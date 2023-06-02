@@ -219,7 +219,9 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                             image: selectedImage.isNotEmpty
                             ?DecorationImage(image: AssetImage(selectedImage),
                             fit: BoxFit.cover
-                            ):null
+                            ):const DecorationImage(image: AssetImage('assets/images/emptycategoryscreen.png'),
+                            fit: BoxFit.contain
+                            )
                             ),
                           ),
 
