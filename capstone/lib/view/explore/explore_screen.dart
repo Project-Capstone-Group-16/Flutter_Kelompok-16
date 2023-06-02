@@ -505,7 +505,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                 padding: const EdgeInsets.fromLTRB(0, 650, 0, 0),
                 child: CarouselSlider(
                   options: CarouselOptions(
-                    height: 155,
+                    height: 165,
                     viewportFraction: 0.5,
                     pageSnapping: true,
                     enableInfiniteScroll: false,
@@ -520,7 +520,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                          width: 155,
+                          width: 175,
                           decoration: const BoxDecoration(
                             shape: BoxShape.rectangle,
                             borderRadius: BorderRadius.all(
