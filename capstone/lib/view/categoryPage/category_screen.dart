@@ -43,6 +43,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                     Navigator.pop(context);
                   },
                 ),
+                ),
 
                 const SizedBox(width: 60),
 
@@ -60,7 +61,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
             const SizedBox(height: 30),
 
             Container(
-              padding: EdgeInsets.only(top: 45),
+              padding: const EdgeInsets.only(top: 45),
               alignment: Alignment.center,
               child: Stack(
                 alignment: Alignment.center,
@@ -89,15 +90,8 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                         ),
                       ],
                     ),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0, 3),
-                        blurRadius: 2,
-                        spreadRadius: 2,
-                      ),
-                    ],
-                  ),
+                    
+
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
@@ -290,19 +284,6 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
 
                           const SizedBox(height: 70),
 
-                          AllButton(
-                            onTap: (){
-                              Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                ? DecorationImage(
-                                    image: AssetImage(selectedImage),
-                                    fit: BoxFit.cover)
-                                : const DecorationImage(
-                                    image: AssetImage(
-                                        'assets/images/emptycategoryscreen.png'),
-                                    fit: BoxFit.contain)),
-                      ),
-                      const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
                           Navigator.of(context)
@@ -316,6 +297,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                       ),
                     ],
                   ),
+                  
                 )
               ],
             ),
