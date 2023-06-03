@@ -1,5 +1,9 @@
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/view/profile/biodata.dart';
+import 'package:capstone/view/profile/favorit_loker.dart';
+import 'package:capstone/view/profile/halaman_faq.dart';
+import 'package:capstone/view/profile/histori_pesanan.dart';
+import 'package:capstone/view/profile/pilih_bahasa.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -157,7 +161,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 size: 24,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Histori_Pesanan()));
+                              },
                             ),
                           ),
                           Align(
@@ -178,7 +188,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 size: 24,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Favorit_Loker()));
+                              },
                             ),
                           ),
                           Align(
@@ -199,7 +214,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 color: Colors.black,
                                 size: 24,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Pilih_bahasa()));
+                              },
                             ),
                           ),
                           Align(
@@ -295,7 +315,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           color: Colors.black,
                           size: 24,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Faq_Page()));
+                        },
                       ),
                     ),
                   ],

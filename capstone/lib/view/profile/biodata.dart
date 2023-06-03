@@ -2,8 +2,6 @@ import 'package:capstone/components/color_path.dart';
 import 'package:capstone/view/profile/alamat_pengguna.dart';
 import 'package:flutter/material.dart';
 
-import '../../components/all_button.dart';
-
 class BiodataPage extends StatefulWidget {
   const BiodataPage({super.key});
 
@@ -25,7 +23,6 @@ class _BiodataPageState extends State<BiodataPage> {
             child: Text(
               'Biodata',
               style: TextStyle(
-                fontFamily: 'Poppins',
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
                 color: ColorPath.background,
@@ -33,11 +30,16 @@ class _BiodataPageState extends State<BiodataPage> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(-0.9, -0.96),
-            child: Icon(
-              Icons.arrow_back_ios_outlined,
+            alignment: AlignmentDirectional(-0.9, -0.99),
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                size: 24,
+              ),
               color: Colors.black,
-              size: 24,
             ),
           ),
           Align(
