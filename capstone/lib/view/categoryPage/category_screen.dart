@@ -105,7 +105,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer3Active = false;
                                 isContainer4Active = false;
                                 if (isContainer1Active) {
-                                  selectedImage = 'assets/images/gambartas.png';
+                                  selectedImage = 'assets/images/gambartas.jpg';
                                 }
                               });
                             },
@@ -135,7 +135,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer4Active = false;
                                 if (isContainer2Active) {
                                   selectedImage =
-                                      'assets/images/gambarsepatu.png';
+                                      'assets/images/gambarsepatu.jpg';
                                 }
                               });
                             },
@@ -165,7 +165,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer4Active = false;
                                 if (isContainer3Active) {
                                   selectedImage =
-                                      'assets/images/gambarbaju.png';
+                                      'assets/images/gambarbaju.jpg';
                                 }
                               });
                             },
@@ -195,7 +195,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer3Active = false;
                                 if (isContainer4Active) {
                                   selectedImage =
-                                      'assets/images/gambarkotak.png';
+                                      'assets/images/gambarkotak.jpg';
                                 }
                               });
                             },
