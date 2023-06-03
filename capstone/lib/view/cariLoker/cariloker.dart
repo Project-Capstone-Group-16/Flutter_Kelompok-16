@@ -72,7 +72,7 @@ class _CariLokerState extends State<CariLoker> {
                         dropdownValue = newValue;
                       });
                     },
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                       enabledBorder: InputBorder.none,
@@ -83,7 +83,7 @@ class _CariLokerState extends State<CariLoker> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1, -1),
+                alignment: const AlignmentDirectional(-1, -1),
                 child: Container(
                   width: 448,
                   height: 60,
@@ -122,7 +122,7 @@ class _CariLokerState extends State<CariLoker> {
                 child: Container(
                   width: 424,
                   height: 180,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ColorPath.background2,
                   ),
                   child: Stack(
@@ -132,10 +132,10 @@ class _CariLokerState extends State<CariLoker> {
                         top: 20, // Sesuaikan posisi vertikal
                         left: 40, // Sesuaikan posisi horizontal
                         child: ChoiceChip(
-                          label: Text('Self Service'),
+                          label: const Text('Self Service'),
                           selected: true,
-                          selectedColor: Color(0xFF1C49C3),
-                          labelStyle: TextStyle(color: Colors.white),
+                          selectedColor: const Color(0xFF1C49C3),
+                          labelStyle: const TextStyle(color: Colors.white),
                           onSelected: (bool selected) {
                             // Ketika choice chip dipilih, tambahkan logika di sini
                           },
@@ -146,10 +146,10 @@ class _CariLokerState extends State<CariLoker> {
                         top: 20, // Sesuaikan posisi vertikal
                         right: 40, // Sesuaikan posisi horizontal
                         child: ChoiceChip(
-                          label: Text('    Pick Up    '),
+                          label: const Text('    Pick Up    '),
                           selected: false,
-                          selectedColor: Color(0xFF1C49C3),
-                          labelStyle: TextStyle(color: Colors.white),
+                          selectedColor: const Color(0xFF1C49C3),
+                          labelStyle: const TextStyle(color: Colors.white),
                           onSelected: (bool selected) {
                             // Ketika choice chip dipilih, tambahkan logika di sini
                           },
