@@ -1,4 +1,3 @@
-import 'package:capstone/view/cariLoker/cariloker.dart';
 import 'package:get/get.dart';
 import 'app_route.dart';
 
@@ -25,5 +24,8 @@ class AppPage {
     GetPage(
         name: AppRoute.durasi_penitipan_screen,
         page: () => const DurasiPenitipan()),
+    GetPage(
+        name: AppRoute.metode_pembayaran_screen,
+        page: () => const MetodePembayaranScreen()),
   ];
 }
