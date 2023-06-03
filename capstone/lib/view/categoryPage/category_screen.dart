@@ -1,4 +1,3 @@
-import 'package:capstone/view/cariLoker/cariloker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
