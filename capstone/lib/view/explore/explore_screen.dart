@@ -240,10 +240,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             child: InkWell(
                               splashColor: ColorPath.background,
                               onTap: () {
-                                Navigator.of(context).push(
-                                MaterialPageRoute(
-                                builder: (context) => const CategoryBarangScreen(),
-                              ));
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const CategoryBarangScreen(),
+                                ));
                               },
                               child: Ink(
                                 width: 75,
@@ -290,10 +290,10 @@ class _ExploreScreenState extends State<ExploreScreen> {
                             child: InkWell(
                               splashColor: ColorPath.background,
                               onTap: () {
-                                Navigator.of(context).push(
-                                MaterialPageRoute(
-                                builder: (context) => const EstimasiBiayaScreen(),
-                              ));
+                                Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      const EstimasiBiayaScreen(),
+                                ));
                               },
                               child: Ink(
                                 width: 75,

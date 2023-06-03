@@ -14,6 +14,7 @@ class CategoryBarangScreen extends StatefulWidget {
 
 class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
 
+
   bool isContainer1Active=false;
   bool isContainer2Active=false;
   bool isContainer3Active=false;
@@ -26,22 +27,21 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
-        child: Stack(
-          children: [
-            Row(
-              children: [
-                Positioned(
-                  top: 35,
-                  left: 10,
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+          child: Stack(
+        children: [
+          Row(
+            children: [
+              Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
                   ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
 
                 const SizedBox(width: 60),
@@ -89,130 +89,149 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                         ),
                       ],
                     ),
-
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 20),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  isContainer1Active=!isContainer1Active;
-                                  isContainer2Active=false;
-                                  isContainer3Active=false;
-                                  isContainer4Active=false;
-                                  if (isContainer1Active){
-                                    selectedImage='assets/images/gambartas.png';
-                                  }
-                                });
-                              },
-                              child: Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: isContainer1Active ? const Color.fromARGB(255, 53, 59, 222) : const Color.fromARGB(255, 216, 216, 216),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(0, 3),
+                        blurRadius: 2,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isContainer1Active = !isContainer1Active;
+                                isContainer2Active = false;
+                                isContainer3Active = false;
+                                isContainer4Active = false;
+                                if (isContainer1Active) {
+                                  selectedImage = 'assets/images/gambartas.png';
+                                }
+                              });
+                            },
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  color: isContainer1Active
+                                      ? const Color.fromARGB(255, 53, 59, 222)
+                                      : const Color.fromARGB(
+                                          255, 216, 216, 216),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
                                     bottomLeft: Radius.circular(10),
                                     topRight: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
-                                  )
-                                ),
-                                child: Image.asset('assets/images/tas.png'),
-                              ),
+                                  )),
+                              child: Image.asset('assets/images/tas.png'),
                             ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  isContainer2Active=!isContainer2Active;
-                                  isContainer1Active=false;
-                                  isContainer3Active=false;
-                                  isContainer4Active=false;
-                                  if (isContainer2Active){
-                                    selectedImage='assets/images/gambarsepatu.png';
-                                  }
-                                });
-                              },
-                              child: Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: isContainer2Active ? const Color.fromARGB(255, 53, 59, 222) : const Color.fromARGB(255, 216, 216, 216),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isContainer2Active = !isContainer2Active;
+                                isContainer1Active = false;
+                                isContainer3Active = false;
+                                isContainer4Active = false;
+                                if (isContainer2Active) {
+                                  selectedImage =
+                                      'assets/images/gambarsepatu.png';
+                                }
+                              });
+                            },
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  color: isContainer2Active
+                                      ? const Color.fromARGB(255, 53, 59, 222)
+                                      : const Color.fromARGB(
+                                          255, 216, 216, 216),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
                                     bottomLeft: Radius.circular(10),
                                     topRight: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
-                                  )
-                                ),
-                                child: Image.asset('assets/images/sepatu.png'),
-                              ),
+                                  )),
+                              child: Image.asset('assets/images/sepatu.png'),
                             ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  isContainer3Active=!isContainer3Active;
-                                  isContainer1Active=false;
-                                  isContainer2Active=false;
-                                  isContainer4Active=false;
-                                  if (isContainer3Active){
-                                    selectedImage='assets/images/gambarbaju.png';
-                                  }
-                                });
-                              },
-                              child: Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: isContainer3Active ? const Color.fromARGB(255, 53, 59, 222) : const Color.fromARGB(255, 216, 216, 216),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isContainer3Active = !isContainer3Active;
+                                isContainer1Active = false;
+                                isContainer2Active = false;
+                                isContainer4Active = false;
+                                if (isContainer3Active) {
+                                  selectedImage =
+                                      'assets/images/gambarbaju.png';
+                                }
+                              });
+                            },
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  color: isContainer3Active
+                                      ? const Color.fromARGB(255, 53, 59, 222)
+                                      : const Color.fromARGB(
+                                          255, 216, 216, 216),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
                                     bottomLeft: Radius.circular(10),
                                     topRight: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
-                                  )
-                                ),
-                                child: Image.asset('assets/images/baju.png'),
-                              ),
+                                  )),
+                              child: Image.asset('assets/images/baju.png'),
                             ),
-                            GestureDetector(
-                              onTap: (){
-                                setState(() {
-                                  isContainer4Active=!isContainer4Active;
-                                  isContainer1Active=false;
-                                  isContainer2Active=false;
-                                  isContainer3Active=false;
-                                  if (isContainer4Active){
-                                    selectedImage='assets/images/gambarkotak.png';
-                                  }
-                                });
-                              },
-                              child: Container(
-                                width: 60,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                  color: isContainer4Active ? const Color.fromARGB(255, 53, 59, 222) : const Color.fromARGB(255, 216, 216, 216),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isContainer4Active = !isContainer4Active;
+                                isContainer1Active = false;
+                                isContainer2Active = false;
+                                isContainer3Active = false;
+                                if (isContainer4Active) {
+                                  selectedImage =
+                                      'assets/images/gambarkotak.png';
+                                }
+                              });
+                            },
+                            child: Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  color: isContainer4Active
+                                      ? const Color.fromARGB(255, 53, 59, 222)
+                                      : const Color.fromARGB(
+                                          255, 216, 216, 216),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
                                     bottomLeft: Radius.circular(10),
                                     topRight: Radius.circular(10),
                                     bottomRight: Radius.circular(10),
-                                  )
-                                ),
-                                child: Image.asset('assets/images/box.png'),
-                              ),
+                                  )),
+                              child: Image.asset('assets/images/box.png'),
                             ),
-                          ],
-                        ),
-
-                        const SizedBox(height: 40,),
-
-                        Container(
-                          width: 278,
-                          height: 410,
-                          decoration: BoxDecoration(
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Container(
+                        width: 278,
+                        height: 410,
+                        decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 238, 249, 250),
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(20),
@@ -275,22 +294,34 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                             onTap: (){
                               Navigator.of(context).pushReplacement(
                             MaterialPageRoute(
+                                ? DecorationImage(
+                                    image: AssetImage(selectedImage),
+                                    fit: BoxFit.cover)
+                                : const DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/emptycategoryscreen.png'),
+                                    fit: BoxFit.contain)),
+                      ),
+                      const SizedBox(height: 50),
+                      AllButton(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
-                            }, 
-                            text: 'Lanjut', 
-                            backgroundColor: ColorPath.background, 
-                            textColor: ColorPath.white,
-                            ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        )
-        ),
+                        },
+                        text: 'Lanjut',
+                        backgroundColor: ColorPath.background,
+                        textColor: ColorPath.white,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      )),
     );
   }
 }
