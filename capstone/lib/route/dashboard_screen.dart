@@ -10,9 +10,8 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-
-  int _index=0;
-  final screens=[
+  int _index = 0;
+  final screens = [
     const ExploreScreen(),
     const HomeScreen(),
     const ProfileScreen(),
@@ -21,12 +20,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: screens[_index],
-
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _index,
-        onTap: (value){
+        onTap: (value) {
           setState(() {
-            _index=value;
+            _index = value;
           });
         },
         items: const [
