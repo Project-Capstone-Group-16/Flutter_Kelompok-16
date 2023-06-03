@@ -19,6 +19,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
   bool isContainer3Active=false;
   bool isContainer4Active=false;
   String selectedImage='';
+  String? dropdownValue;
 
   @override
   Widget build(BuildContext context) {
@@ -56,16 +57,17 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
               ],
             ),
 
-            const SizedBox(height: 30,),
+            const SizedBox(height: 30),
 
             Container(
+              padding: EdgeInsets.only(top: 45),
               alignment: Alignment.center,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   Container(
                     width: 350,
-                    height: 650,
+                    height: 740,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       border: Border.all(
@@ -227,7 +229,47 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                             ),
                           ),
 
-                          const SizedBox(height: 50),
+                          const SizedBox(height: 20),
+
+                          Align(
+                          alignment: const AlignmentDirectional(0.05, -0.82),
+                          child: Container(
+                            width: 280,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.grey, width: 1),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: DropdownButtonFormField<String>(
+                              value: dropdownValue,
+                              items: <String>[
+                                'Kecil',
+                                'Sedang',
+                                'Besar',
+                              ].map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue;
+                                });
+                              },
+                    decoration: const InputDecoration(
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: 'Jenis Loker',
+                    ),
+                  ),
+                ),
+              ),
+
+                          const SizedBox(height: 70),
 
                           AllButton(
                             onTap: (){
