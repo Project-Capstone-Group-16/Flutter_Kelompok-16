@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'memilihmetodebayar.dart';
+import 'metode cash/metode_cash.dart';
 
 class MetodePembayaranScreen extends StatefulWidget {
   const MetodePembayaranScreen({super.key});
@@ -63,11 +63,9 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                   color: Colors.white70,
                   borderRadius: BorderRadius.circular(5),
                   border: Border.all(width: 0.5, color: Colors.blueGrey)),
-              // color: Colors.white70,
               child: Column(
                 children: [
                   ListTile(
-                    // focusColor: Colors.red,
                     splashColor: Colors.grey,
                     leading: CircleAvatar(
                       radius: 15,
@@ -79,12 +77,11 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                       style: TextStyle(fontWeight: FontWeight.w500),
                     ),
                     onTap: () {
-                      // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Pembayaran 1
+                      // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Cash
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                const PemilihanMetodePembayaran(1)),
+                            builder: (context) => const MetodeCash()),
                       );
                     },
                   ),
@@ -98,17 +95,17 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                       child: Image.asset('assets/images/vectorFile.png'),
                     ),
                     title: const Text(
-                      'Metode Pembayaran 2',
+                      'Metode Kartu Debit',
                       style: TextStyle(fontWeight: FontWeight.w500),
                     ),
                     onTap: () {
                       // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Pembayaran 2
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const PemilihanMetodePembayaran(2)),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) =>
+                      //           const MatodeKartuDebit()),
+                      // );
                     },
                   ),
                   const Divider(color: Colors.blueGrey),
@@ -124,12 +121,12 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                     ),
                     onTap: () {
                       // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Pembayaran 3
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const PemilihanMetodePembayaran(3)),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) =>
+                      //           const PemilihanMetodePembayaran()),
+                      // );
                     },
                   ),
                 ],
