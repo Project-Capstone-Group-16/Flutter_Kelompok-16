@@ -35,7 +35,7 @@ class _MetodeCashState extends State<MetodeCash> {
                     color: Color(0xFF1652F9),
                     onPressed: () {
                       setState(() {
-                        Navigator.push(
+                        Navigator.pop(
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>

@@ -11,6 +11,8 @@ class CashDiToko extends StatefulWidget {
   State<CashDiToko> createState() => _CashDiTokoState();
 }
 
+bool buttonMetodeCashDitoko = false;
+
 class _CashDiTokoState extends State<CashDiToko> {
   @override
   Widget build(BuildContext context) {
