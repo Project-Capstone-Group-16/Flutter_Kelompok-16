@@ -273,7 +273,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                       AllButton(
                         onTap: () {
                           Navigator.of(context)
-                              .pushReplacement(MaterialPageRoute(
+                              .push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
                         },
