@@ -10,7 +10,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int _index = 0;
+  int _index = 1;
   final screens = [
     const ExploreScreen(),
     const HomeScreen(),
