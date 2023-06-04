@@ -318,42 +318,27 @@ class _BiodataPageState extends State<BiodataPage> {
           ),
           Align(
             alignment: AlignmentDirectional(-0.0, 0.645),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AalamatPengguna()));
-              },
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Container(
                 width: 340,
-                height: 50,
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey, width: 1),
-                  color: Color(0xFFEEF9F7),
-                  borderRadius: BorderRadius.circular(8),
-                  shape: BoxShape.rectangle,
-                ),
-                child: Align(
-                  alignment: AlignmentDirectional(0, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
+                child: TextFormField(
+                  decoration: InputDecoration(
+                      hintText: 'Masukkan Lokasi',
+                      hintStyle: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                        color: ColorPath.hinttext,
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 16.0),
+                      prefixIcon: Icon(
                         Icons.place,
                         color: Color(0xFF02B3FF),
-                        size: 20,
-                      ),
-                      SizedBox(width: 5), // Spasi antara ikon dan teks
-                      Text(
-                        'Masukkan Lokasi',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          color: ColorPath.hinttext,
-                        ),
-                      ),
-                    ],
-                  ),
+                      )),
                 ),
               ),
             ),
