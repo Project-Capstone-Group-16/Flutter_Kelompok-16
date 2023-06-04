@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:capstone/view/metodePembayaran/metode%20kartu%20debit/metode_kartu_debit.dart';
 import 'package:flutter/material.dart';
 
 import 'metode cash/metode_cash.dart';
@@ -100,16 +101,16 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                     ),
                     onTap: () {
                       // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Pembayaran 2
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) =>
-                      //           const MatodeKartuDebit()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MetodeKartuDebit()),
+                      );
                     },
                   ),
                   const Divider(color: Colors.blueGrey),
                   ListTile(
+                    splashColor: Colors.grey,
                     leading: CircleAvatar(
                       radius: 15,
                       backgroundColor: Color(0xFF1652F9),
