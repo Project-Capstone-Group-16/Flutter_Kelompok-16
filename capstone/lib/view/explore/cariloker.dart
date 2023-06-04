@@ -114,11 +114,12 @@ class _CariLokerState extends State<CariLoker> {
                   ),
                 ),
                 Positioned(
-                  top: 20, // Ubah posisi sesuai kebutuhan Anda
+                  top: 0,
+                  bottom: 200, // Ubah posisi sesuai kebutuhan Anda
                   child: Image.asset(
-                    'assets/images/jerman.png', // Ganti dengan path gambar Anda
-                    width: 100,
-                    height: 100,
+                    'assets/images/cariloker.png', // Ganti dengan path gambar Anda
+                    width: 500,
+                    height: 500,
                   ),
                 ),
                 Positioned(

@@ -87,54 +87,40 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
                 color: Colors.black,
               ),
             ),
-            Align(
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  for (int i = 0; i < languages.length; i++)
-                    RadioListTile(
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment
-                            .spaceBetween, // Mengatur posisi tombol di sebelah kanan
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image.asset(
-                                languages[i]['flag'],
-                                width: 24,
-                                height: 24,
-                              ),
-                              SizedBox(width: 10),
-                              Text(
-                                languages[i]['name'],
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ],
-                          ),
-                          Radio<int>(
-                            value: i,
-                            groupValue: selectedLanguage,
-                            onChanged: (value) {
-                              setState(() {
-                                selectedLanguage = i;
-                              });
-                            },
-                          ),
-                        ],
+            ListView.builder(
+              padding: EdgeInsets.only(top: 65),
+              itemCount: languages.length,
+              itemBuilder: (context, index) {
+                final language = languages[index];
+
+                return RadioListTile<int>(
+                  value: index,
+                  groupValue: selectedLanguage,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedLanguage = index;
+                    });
+                  },
+                  title: Row(
+                    children: [
+                      Image.asset(
+                        language['flag'],
+                        width: 45,
+                        height: 29,
                       ),
-                      value: i,
-                      groupValue: selectedLanguage,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedLanguage = i;
-                        });
-                      },
-                    ),
-                ],
-              ),
+                      SizedBox(width: 40),
+                      Text(
+                        language['name'],
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                );
+              },
             ),
           ],
         ),

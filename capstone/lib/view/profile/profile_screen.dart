@@ -1,10 +1,12 @@
 import 'package:capstone/components/color_path.dart';
+import 'package:capstone/screen.dart';
 import 'package:capstone/view/profile/biodata.dart';
 import 'package:capstone/view/profile/favorit_loker.dart';
 import 'package:capstone/view/profile/halaman_faq.dart';
 import 'package:capstone/view/profile/histori_pesanan.dart';
 import 'package:capstone/view/profile/pilih_bahasa.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -65,7 +67,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Align(
                     alignment: AlignmentDirectional(0.9, -0.93),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.defaultDialog(
+                          title: "Keluar?",
+                          titleStyle: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                          ),
+                          content: Container(
+                            child: Text(
+                              'Aoakah Anda yakin ingin keluar?',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                          textConfirm: "Keluar",
+                          textCancel: "Tidak",
+                          confirmTextColor: Colors.white,
+                          contentPadding: EdgeInsets.all(25),
+                          onConfirm: () {
+                            Get.offAll(LoginPage());
+                          },
+                        );
+                      },
                       icon: Icon(
                         Icons.logout,
                         color: ColorPath.background2,
