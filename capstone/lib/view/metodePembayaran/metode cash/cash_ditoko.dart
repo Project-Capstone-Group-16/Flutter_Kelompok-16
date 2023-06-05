@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
 
 import 'metode_cash.dart';
@@ -131,7 +132,64 @@ class _CashDiTokoState extends State<CashDiToko> {
                   foregroundColor: Colors.white,
                   elevation: 3,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        content: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Image.asset(
+                              'assets/images/iconCentang.png',
+                              width: 192,
+                              height: 153,
+                            ),
+                            SizedBox(height: 40),
+                            Text(
+                              'Sukses',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),
+                            ),
+                            SizedBox(height: 0),
+                            Text(
+                              'Selamat barangmu berhasil ditambahkan. Silahkan kembali ke halaman kategori.',
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            MetodePembayaranScreen()));
+                              },
+                              child: Container(
+                                width: 60,
+                                // height: 10,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  // color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(1000),
+                                ),
+                                child: Text(
+                                  'Lanjut',
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
                 child: Text('Selesai'),
               ),
             ),
