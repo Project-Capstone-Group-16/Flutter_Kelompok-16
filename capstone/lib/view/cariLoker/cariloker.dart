@@ -16,11 +16,15 @@ class CariLoker extends StatefulWidget {
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
 
-  bool isContainer1Active = false;
-  bool isContainer2Active = false;
-  bool isContainer3Active = false;
-  bool isContainer4Active = false;
-  String selectedCategoryImage = '';
+  Map<String, String> locationImages = {
+    'Malang': 'assets/images/malangloker.png',
+    'Semarang': 'assets/images/semarangloker.png',
+    'Surabaya': 'assets/images/surabayaloker.png',
+    'Bandung': 'assets/images/bandungloker.png',
+    'Jakarta': 'assets/images/jakartaloker.png',
+  };
+
+  String selectedLokerImage = '';
 
   void addCategoryPic(String selectedimage) {
     final _categoryController = Get.find<CategoryController>();
@@ -105,9 +109,9 @@ class _CariLokerState extends State<CariLoker> {
                               topRight: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                             ),
-                            image: selectedCategoryImage.isNotEmpty
+                            image: selectedLokerImage.isNotEmpty
                                 ? DecorationImage(
-                                    image: AssetImage(selectedCategoryImage),
+                                    image: AssetImage(selectedLokerImage),
                                     fit: BoxFit.cover)
                                 : const DecorationImage(
                                     image: AssetImage(
@@ -142,6 +146,8 @@ class _CariLokerState extends State<CariLoker> {
                             onChanged: (String? newValue) {
                               setState(() {
                                 dropdownValue = newValue;
+                                selectedLokerImage =
+                                    locationImages[newValue!] ?? '';
                               });
                             },
                             decoration: const InputDecoration(
@@ -157,7 +163,7 @@ class _CariLokerState extends State<CariLoker> {
                       const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
-                          addCategoryPic(selectedCategoryImage);
+                          addCategoryPic(selectedLokerImage);
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
