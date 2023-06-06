@@ -54,5 +54,9 @@ class AppPage {
       name: AppRoute.durasi_penitipan_screen,
       page: () => const DurasiPenitipan(),
     ),
+    GetPage(
+      name: AppRoute.ringkasan_pemesanan_page,
+      page: () => const RingkasanPemesananPage(),
+    ),
   ];
 }
