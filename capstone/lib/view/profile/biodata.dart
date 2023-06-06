@@ -44,18 +44,6 @@ class _BiodataPageState extends State<BiodataPage> {
           ),
           Align(
             alignment: AlignmentDirectional(-0.87, -0.84),
-            child: Container(
-              width: 66,
-              height: 66,
-              clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              child: Image.network(
-                'https://picsum.photos/seed/255/600',
-                fit: BoxFit.cover,
-              ),
-            ),
           ),
           Align(
             alignment: AlignmentDirectional(0.1, -0.8),
