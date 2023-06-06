@@ -3,7 +3,6 @@
 import 'package:capstone/screen.dart';
 import 'package:capstone/view/metodePembayaran/metode%20kartu%20debit/metode_kartu_debit.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class KartuDebitSelesai extends StatefulWidget {
   const KartuDebitSelesai({super.key});
