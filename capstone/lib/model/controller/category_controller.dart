@@ -12,10 +12,10 @@ class PicItem{
   }
 }
 
-class CheckoutController extends GetxController{
-  final picItem=<PicItem>[].obs;
+class CategoryController extends GetxController{
+  RxString selectedCategoryImage=''.obs;
 
-  void categoryPic(String image){
-    picItem.add(PicItem(image: image));
+  void addCategoryPic(String image){
+    selectedCategoryImage.value=image;
   }
 }

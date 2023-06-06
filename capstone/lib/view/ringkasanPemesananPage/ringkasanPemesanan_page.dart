@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:get/get.dart';
+
 import 'package:capstone/components/color_path.dart';
+import 'package:capstone/model/controller/category_controller.dart';
 
 
 class RingkasanPemesananPage extends StatefulWidget {
@@ -13,6 +16,10 @@ class RingkasanPemesananPage extends StatefulWidget {
 class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
   @override
   Widget build(BuildContext context) {
+
+    final _categoryController=Get.find<CategoryController>();
+    final selectedCategoryImage=_categoryController.selectedCategoryImage;
+    
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
@@ -86,10 +93,13 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                                 bottomLeft: Radius.circular(10),
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10),
-                              )
+                              ),
+                              image: DecorationImage(image: AssetImage(selectedCategoryImage.value),
+                              fit: BoxFit.cover)
                             ),
                           ),
                         ),
+
                         Padding(
                           padding: const EdgeInsets.only(left:20.0, bottom: 10, top: 10),
                           child: Container(
@@ -117,7 +127,7 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
             ),
           )
           ],
-        )
+        ),
         ),
     );
   }
