@@ -1,4 +1,5 @@
 import 'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/color_path.dart';
@@ -122,30 +123,20 @@ class _CariLokerState extends State<CariLoker> {
                     height: 500,
                   ),
                 ),
-                Positioned(
-                  bottom: 30, // Ubah posisi sesuai kebutuhan Anda
-                  child: Container(
-                    width: 150,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey, width: 1),
-                      color: ColorPath.AppbarProfile,
-                      borderRadius: BorderRadius.circular(30),
-                      shape: BoxShape.rectangle,
-                    ),
-                    child: Align(
-                      alignment: AlignmentDirectional(0, 0),
-                      child: Text(
-                        'Lanjut',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: ColorPath.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
+
+                Padding(
+                  padding: const EdgeInsets.only(top:500.0),
+                  child: AllButton(
+                          onTap: () {
+                            Navigator.of(context)
+                                .push(MaterialPageRoute(
+                              builder: (context) => const RingkasanPemesananPage(),
+                            ));
+                          },
+                          text: 'Lanjut',
+                          backgroundColor: ColorPath.background,
+                          textColor: ColorPath.white,
                         ),
-                      ),
-                    ),
-                  ),
                 ),
               ],
             ),

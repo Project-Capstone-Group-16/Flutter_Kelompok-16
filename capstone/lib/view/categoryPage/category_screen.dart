@@ -1,9 +1,11 @@
-import 'package:capstone/view/cariLoker/cariloker.dart';
+import 'package:capstone/model/controller/category_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
+
+import 'package:get/get.dart';
 
 class CategoryBarangScreen extends StatefulWidget {
   const CategoryBarangScreen({super.key});
@@ -17,8 +19,13 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
   bool isContainer2Active = false;
   bool isContainer3Active = false;
   bool isContainer4Active = false;
-  String selectedImage = '';
+  String selectedCategoryImage = '';
   String? dropdownValue;
+
+  void addCategoryPic(String selectedimage){
+    final _categoryController=Get.find<CategoryController>();
+    _categoryController.addCategoryPic(selectedimage);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +102,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer3Active = false;
                                 isContainer4Active = false;
                                 if (isContainer1Active) {
-                                  selectedImage = 'assets/images/gambartas.jpg';
+                                  selectedCategoryImage = 'assets/images/gambartas.jpg';
                                 }
                               });
                             },
@@ -124,7 +131,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer3Active = false;
                                 isContainer4Active = false;
                                 if (isContainer2Active) {
-                                  selectedImage =
+                                  selectedCategoryImage =
                                       'assets/images/gambarsepatu.jpg';
                                 }
                               });
@@ -154,7 +161,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer2Active = false;
                                 isContainer4Active = false;
                                 if (isContainer3Active) {
-                                  selectedImage =
+                                  selectedCategoryImage =
                                       'assets/images/gambarbaju.jpg';
                                 }
                               });
@@ -184,7 +191,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer2Active = false;
                                 isContainer3Active = false;
                                 if (isContainer4Active) {
-                                  selectedImage =
+                                  selectedCategoryImage =
                                       'assets/images/gambarkotak.jpg';
                                 }
                               });
@@ -222,9 +229,9 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                               topRight: Radius.circular(20),
                               bottomRight: Radius.circular(20),
                             ),
-                            image: selectedImage.isNotEmpty
+                            image: selectedCategoryImage.isNotEmpty
                                 ? DecorationImage(
-                                    image: AssetImage(selectedImage),
+                                    image: AssetImage(selectedCategoryImage),
                                     fit: BoxFit.cover)
                                 : const DecorationImage(
                                     image: AssetImage(
@@ -272,6 +279,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                       const SizedBox(height: 70),
                       AllButton(
                         onTap: () {
+                          addCategoryPic(selectedCategoryImage);
                           Navigator.of(context)
                               .push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
