@@ -50,7 +50,7 @@ class _MetodeCashState extends State<MetodeCash> {
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.blue,
+                        color: Color(0xFF1652F9),
                       ),
                     ),
                   ),

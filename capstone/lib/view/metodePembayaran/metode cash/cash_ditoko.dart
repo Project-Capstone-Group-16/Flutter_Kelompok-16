@@ -78,6 +78,10 @@ class _CashDiTokoState extends State<CashDiToko> {
                       backgroundColor: Color(0xFF1652F9),
                       child: Image.asset('assets/images/vectorFile.png'),
                     ),
+                    title: const Text(
+                      'Metode Cash',
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                     trailing: Container(
                       width: 117,
                       height: 26,
@@ -98,10 +102,6 @@ class _CashDiTokoState extends State<CashDiToko> {
                           ),
                         ],
                       ),
-                    ),
-                    title: const Text(
-                      'Metode Cash',
-                      style: TextStyle(fontWeight: FontWeight.w500),
                     ),
                     onTap: () {
                       setState(() {
@@ -163,6 +163,14 @@ class _CashDiTokoState extends State<CashDiToko> {
                         actions: [
                           Center(
                             child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(1000),
+                                  ),
+                                  backgroundColor: Color(0xFF1677FF),
+                                  foregroundColor: Colors.white,
+                                  elevation: 3,
+                                  fixedSize: Size(150, 41)),
                               onPressed: () {
                                 Navigator.push(
                                     context,
@@ -170,19 +178,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                                         builder: (context) =>
                                             MetodePembayaranScreen()));
                               },
-                              child: Container(
-                                width: 60,
-                                // height: 10,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                  // color: Colors.grey,
-                                  borderRadius: BorderRadius.circular(1000),
-                                ),
-                                child: Text(
-                                  'Lanjut',
-                                  style: TextStyle(color: Colors.black),
-                                ),
-                              ),
+                              child: Text('Selesai'),
                             ),
                           ),
                         ],
