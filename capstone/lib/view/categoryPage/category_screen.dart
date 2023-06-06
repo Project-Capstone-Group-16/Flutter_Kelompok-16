@@ -282,7 +282,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                           addCategoryPic(selectedCategoryImage);
                           Navigator.of(context)
                               .push(MaterialPageRoute(
-                            builder: (context) => const RingkasanPemesananPage(),
+                            builder: (context) => const CariLoker(),
                           ));
                         },
                         text: 'Lanjut',
