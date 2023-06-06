@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../components/color_path.dart';
 
@@ -10,22 +14,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  // @override
-  // void initState() {
-  //   goToForgotPasswordScreen();
-  //   super.initState();
-  // }
-
-  // void goToForgotPasswordScreen() async {
-  //   await Future.delayed(const Duration(seconds: 2));
-  //   Navigator.push(
-  //     context,
-  //     MaterialPageRoute(builder: (context) => ForgotPassword()),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
+    Timer(const Duration(seconds: 3), () {
+      Get.to(const LandingPage());
+    });
     return Scaffold(
       backgroundColor: ColorPath.background,
       body: Column(
