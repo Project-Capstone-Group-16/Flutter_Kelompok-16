@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:capstone/view/metodePembayaran/metode%20kartu%20debit/metode_kartu_debit.dart';
+import 'package:capstone/view/metodePembayaran/metodeE-Wallet/metode_e_wallet.dart';
 import 'package:flutter/material.dart';
 
 import 'metode cash/metode_cash.dart';
@@ -122,12 +123,11 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                     ),
                     onTap: () {
                       // Navigasi ke halaman pemilihan cara pembayaran untuk Metode Pembayaran 3
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //       builder: (context) =>
-                      //           const PemilihanMetodePembayaran()),
-                      // );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MetodeEWallet()),
+                      );
                     },
                   ),
                 ],
