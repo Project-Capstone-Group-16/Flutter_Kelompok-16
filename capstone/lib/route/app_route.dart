@@ -21,4 +21,5 @@ class AppRoute {
   static const String tracking_barang_screen = '/20';
   static const String halaman_notifikasi_screen = '/21';
   static const String estimasi_biaya_screen = '/22';
+  static const String ringkasan_pemesanan_page = '/23';
 }
