@@ -1,6 +1,8 @@
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:capstone/model/controller/category_controller.dart';
 
 import '../../components/color_path.dart';
 
@@ -14,6 +16,21 @@ class CariLoker extends StatefulWidget {
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
 
+  Map<String, String> locationImages = {
+    'Malang': 'assets/images/malangloker.png',
+    'Semarang': 'assets/images/semarangloker.png',
+    'Surabaya': 'assets/images/surabayaloker.png',
+    'Bandung': 'assets/images/bandungloker.png',
+    'Jakarta': 'assets/images/jakartaloker.png',
+  };
+
+  String selectedLokerImage = '';
+
+  void addCategoryPic(String selectedimage) {
+    final _categoryController = Get.find<CategoryController>();
+    _categoryController.addCategoryPic(selectedimage);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,41 +38,42 @@ class _CariLokerState extends State<CariLoker> {
       body: SafeArea(
           child: Stack(
         children: [
-          Align(
-            alignment: AlignmentDirectional(0, -0.96),
-            child: Text(
-              'Lokasi Loker',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: ColorPath.background,
+          Row(
+            children: [
+              Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
               ),
-            ),
+              const SizedBox(width: 78),
+              const Text(
+                'Lokasi Loker',
+                style: TextStyle(
+                  fontSize: 23,
+                  color: ColorPath.textcolor1,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
           ),
-          Align(
-            alignment: AlignmentDirectional(-0.9, -0.99),
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.arrow_back_ios,
-                size: 24,
-              ),
-              color: Colors.black,
-            ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
+          const SizedBox(height: 30),
           Container(
+            padding: const EdgeInsets.only(top: 45),
             alignment: Alignment.center,
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Container(
                   width: 350,
-                  height: 650,
+                  height: 740,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     border: Border.all(color: Colors.black, width: 0.2),
@@ -74,73 +92,92 @@ class _CariLokerState extends State<CariLoker> {
                       ),
                     ],
                   ),
-                  child: Align(
-                    alignment: AlignmentDirectional(0.05, 0.50),
-                    child: Container(
-                      width: 300,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(color: Colors.grey, width: 1),
-                        borderRadius: BorderRadius.circular(8),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      const SizedBox(
+                        height: 40,
                       ),
-                      child: DropdownButtonFormField<String>(
-                        value: dropdownValue,
-                        items: <String>[
-                          'Malang',
-                          'Semarang',
-                          'Surabaya',
-                          'Bandung',
-                          'Jakarta'
-                        ].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownValue = newValue;
-                          });
+                      Container(
+                        width: 278,
+                        height: 410,
+                        decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 238, 249, 250),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              bottomLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                              bottomRight: Radius.circular(20),
+                            ),
+                            image: selectedLokerImage.isNotEmpty
+                                ? DecorationImage(
+                                    image: AssetImage(selectedLokerImage),
+                                    fit: BoxFit.cover)
+                                : const DecorationImage(
+                                    image: AssetImage(
+                                        'assets/images/emptycategoryscreen.png'),
+                                    fit: BoxFit.contain)),
+                      ),
+                      const SizedBox(height: 50),
+                      Align(
+                        alignment: const AlignmentDirectional(0.05, -0.82),
+                        child: Container(
+                          width: 280,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.grey, width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: DropdownButtonFormField<String>(
+                            value: dropdownValue,
+                            items: <String>[
+                              'Malang',
+                              'Semarang',
+                              'Surabaya',
+                              'Bandung',
+                              'Jakarta'
+                            ].map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                                selectedLokerImage =
+                                    locationImages[newValue!] ?? '';
+                              });
+                            },
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 10),
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              hintText: 'Pilih Daerah',
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 50),
+                      AllButton(
+                        onTap: () {
+                          addCategoryPic(selectedLokerImage);
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const CariLoker(),
+                          ));
                         },
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 10),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: 'Pilih Daerah',
-                        ),
+                        text: 'Lanjut',
+                        backgroundColor: ColorPath.background,
+                        textColor: ColorPath.white,
                       ),
-                    ),
+                    ],
                   ),
-                ),
-                Positioned(
-                  top: 0,
-                  bottom: 200, // Ubah posisi sesuai kebutuhan Anda
-                  child: Image.asset(
-                    'assets/images/cariloker.png', // Ganti dengan path gambar Anda
-                    width: 500,
-                    height: 500,
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(top:500.0),
-                  child: AllButton(
-                          onTap: () {
-                            Navigator.of(context)
-                                .push(MaterialPageRoute(
-                              builder: (context) => const RingkasanPemesananPage(),
-                            ));
-                          },
-                          text: 'Lanjut',
-                          backgroundColor: ColorPath.background,
-                          textColor: ColorPath.white,
-                        ),
-                ),
+                )
               ],
             ),
-          ),
+          )
         ],
       )),
     );
