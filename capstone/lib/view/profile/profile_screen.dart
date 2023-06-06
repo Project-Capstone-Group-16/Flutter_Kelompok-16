@@ -1,10 +1,7 @@
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/screen.dart';
-import 'package:capstone/view/profile/biodata.dart';
-import 'package:capstone/view/profile/favorit_loker.dart';
 import 'package:capstone/view/profile/halaman_faq.dart';
-import 'package:capstone/view/profile/histori_pesanan.dart';
-import 'package:capstone/view/profile/pilih_bahasa.dart';
+import 'profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
