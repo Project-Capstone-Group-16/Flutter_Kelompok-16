@@ -14,6 +14,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formField = GlobalKey<FormState>();
+
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   final emailController = TextEditingController();
@@ -188,8 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                         },
                       ),
                     ),
-
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
@@ -206,23 +207,21 @@ class _LoginPageState extends State<LoginPage> {
                             child: const Text(
                               'Lupa Kata Sandi?',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 95, 92, 92),
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600
-                              ),
+                                  color: Color.fromARGB(255, 95, 92, 92),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
                       ],
                     ),
-
                     const SizedBox(height: 60),
                     Center(
                       child: AllButton(
                         text: 'Masuk',
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
+                          Navigator.of(context)
+                              .pushReplacement(MaterialPageRoute(
                             builder: (context) => const DashboardScreen(),
                           ));
                         },
