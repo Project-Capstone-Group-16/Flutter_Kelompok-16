@@ -163,7 +163,6 @@ class _CariLokerState extends State<CariLoker> {
                       const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
-                          addCategoryPic(selectedLokerImage);
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
