@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'route/app_page.dart';
 import 'route/app_route.dart';
 import 'model/controller/auth_controller.dart';
+import 'package:capstone/model/controller/category_controller.dart';
 
 import 'package:get/get.dart';
 
@@ -18,10 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: AppPage.list,
-      initialRoute: AppRoute.metode_pembayaran_screen,
+
+      initialRoute: AppRoute.splash_screen,
+
       debugShowCheckedModeBanner: false,
       initialBinding: BindingsBuilder(() {
         Get.put<Auth>(Auth());
+        Get.put<CategoryController>(CategoryController());
       }),
       theme: ThemeData(
         primarySwatch: Colors.blue,
