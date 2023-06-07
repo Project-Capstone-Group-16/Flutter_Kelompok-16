@@ -16,37 +16,17 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 4), () {
       Get.to(const LandingPage());
     });
     return Scaffold(
       backgroundColor: ColorPath.background,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/images/homelogo.png',
-              width: 200, // Sesuaikan dengan ukuran yang diinginkan
-              height: 200, // Sesuaikan dengan ukuran yang diinginkan
-            ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/inventron.jpg'),
           ),
-          const Align(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 16),
-              child: Text(
-                'Inventron',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          )
-        ],
+        ),
       ),
     );
   }
