@@ -153,7 +153,7 @@ class GopayScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            HomeScreen()));
+                                            DashboardScreen()));
                               },
                               child: Text('Selesai'),
                             ),
