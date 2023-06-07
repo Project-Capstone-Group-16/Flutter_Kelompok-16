@@ -164,7 +164,7 @@ class _CariLokerState extends State<CariLoker> {
                       AllButton(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const CariLoker(),
+                            builder: (context) => const RingkasanPemesananPage(),
                           ));
                         },
                         text: 'Lanjut',

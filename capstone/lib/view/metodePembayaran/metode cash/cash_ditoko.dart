@@ -179,7 +179,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            MetodePembayaranScreen()));
+                                            DashboardScreen()));
                               },
                               child: Text('Selesai'),
                             ),

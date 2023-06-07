@@ -153,7 +153,7 @@ class SPayScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            MetodePembayaranScreen()));
+                                            DashboardScreen()));
                               },
                               child: Text('Selesai'),
                             ),

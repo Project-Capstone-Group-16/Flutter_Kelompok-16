@@ -139,7 +139,7 @@ class _KartuDebitSelesaiState extends State<KartuDebitSelesai> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MetodePembayaranScreen()));
+                        builder: (context) => DashboardScreen()));
               },
               child: Text('Selesai'),
             ),

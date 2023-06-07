@@ -31,7 +31,7 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                     icon: const Icon(Icons.arrow_back_ios_new_outlined),
                     color: Color(0xFF1652F9),
                     onPressed: () {
-                      // Aksi ketika tombol kembali ditekan
+                      Navigator.pop(context);
                     },
                   ),
                   const Expanded(
