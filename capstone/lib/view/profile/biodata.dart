@@ -1,6 +1,6 @@
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/view/profile/alamat_pengguna.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class BiodataPage extends StatefulWidget {
   const BiodataPage({super.key});
@@ -11,6 +11,76 @@ class BiodataPage extends StatefulWidget {
 
 class _BiodataPageState extends State<BiodataPage> {
   String? dropdownValue;
+
+  final ImagePicker _picker = ImagePicker();
+  List<XFile>? _imageFileList;
+  dynamic _pickImageError;
+
+  Future<void> _onImageButtonPressed(ImageSource source) async {
+    try {
+      final XFile? pickedFile = await _picker.pickImage(source: source);
+      setState(() {
+        _setImageFileListFromFile(pickedFile);
+      });
+    } catch (e) {
+      setState(() {
+        _pickImageError = e;
+      });
+    }
+  }
+
+  void _setImageFileListFromFile(XFile? file) {
+    if (file != null) {
+      setState(() {
+        _imageFileList = [file];
+      });
+    }
+  }
+
+  Widget bottomSheet() {
+    return Container(
+      height: 100.0,
+      width: 300.0,
+      margin: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 20,
+      ),
+      child: Column(
+        children: [
+          Text(
+            'Pilih Foto Profil Anda',
+            style: TextStyle(
+              fontSize: 20.0,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () {
+                  _onImageButtonPressed(ImageSource.camera);
+                },
+                icon: Icon(Icons.camera),
+              ),
+              Text('Camera'),
+              SizedBox(width: 50),
+              IconButton(
+                onPressed: () {
+                  _onImageButtonPressed(ImageSource.gallery);
+                },
+                icon: Icon(Icons.image),
+              ),
+              Text('Galeri'),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +125,30 @@ class _BiodataPageState extends State<BiodataPage> {
                             ),
                           ),
                         ],
-                      )
+                      ),
+                      Positioned(
+                        top: 40,
+                        left: 43,
+                        child: Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: ColorPath.background),
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.camera_alt,
+                              color: ColorPath.black,
+                              size: 16,
+                            ),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) => bottomSheet());
+                            },
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20),

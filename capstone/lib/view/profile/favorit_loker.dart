@@ -10,8 +10,6 @@ class Favorit_Loker extends StatefulWidget {
 }
 
 class _Favorit_LokerState extends State<Favorit_Loker> {
-  int _selectedValue = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
