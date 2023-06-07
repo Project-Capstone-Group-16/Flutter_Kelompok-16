@@ -42,13 +42,16 @@ class _CashDiTokoState extends State<CashDiToko> {
                     },
                   ),
                   const Expanded(
-                    child: Text(
-                      'Pembayaran',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1652F9),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 78),
+                      child: Text(
+                        'Pembayaran',
+                        // textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1652F9),
+                        ),
                       ),
                     ),
                   ),
