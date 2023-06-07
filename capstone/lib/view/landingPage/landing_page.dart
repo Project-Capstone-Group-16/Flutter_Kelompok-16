@@ -43,43 +43,45 @@ class _LandingPageState extends State<LandingPage> {
           Container(
             alignment: const Alignment(0, 0.8),
             child: Padding(
-              padding: const EdgeInsets.only(top: 800),
+              padding: const EdgeInsets.only(top: 777),
               child: Column(
                 children: [
-                  onLastPage
-                      ? GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const LoginRegister(),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: 100,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(5.0),
-                              color: Colors.white,
+                  if (onLastPage)
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginRegister(),
                             ),
-                            child: const Center(
-                              child: Text(
-                                'Mulai',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: ColorPath.background,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                          );
+                        },
+                        child: Container(
+                          width: 100,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: Colors.white,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Mulai',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: ColorPath.background,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ))
-                      : GestureDetector(
-                          onTap: () {
-                            _controller.nextPage(
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.easeIn);
-                          },
+                          ),
+                        ))
+                  else
+                    GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn);
+                        },
+                        child: Center(
                           child: Container(
                             width: 100,
                             height: 40,
@@ -97,7 +99,8 @@ class _LandingPageState extends State<LandingPage> {
                                 ),
                               ),
                             ),
-                          )),
+                          ),
+                        )),
                 ],
               ),
             ),
