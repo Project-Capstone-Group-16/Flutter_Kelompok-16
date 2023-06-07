@@ -1,10 +1,9 @@
-import 'package:capstone/components/all_button.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
+
 import 'package:percent_indicator/percent_indicator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,12 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: const TextStyle(
                       color: ColorPath.textcolor1,
                       fontFamily: 'Poppins',
-                      fontSize: 23,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 78),
+                    padding: EdgeInsetsDirectional.only(end: 95),
                   ),
                   IconButton(
                     onPressed: () {},

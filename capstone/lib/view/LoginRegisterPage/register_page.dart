@@ -1,12 +1,13 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/email_textfield.dart';
 import 'package:capstone/components/password_textfield.dart';
-import 'package:capstone/screen.dart';
 import 'package:capstone/model/controller/auth_controller.dart';
-import 'package:get/get.dart';
+import 'package:capstone/screen.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -16,13 +17,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final _formKey = GlobalKey<FormState>();
+
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   final FocusNode _confirmPasswordFocus = FocusNode();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  final Auth authController=Get.find<Auth>();
+  final Auth authController = Get.find<Auth>();
 
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
@@ -136,214 +139,241 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
               child: Expanded(
-                child: ListView(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Text(
-                        'Hai!                                           Selamat Datang Kembali',
-                        style: TextStyle(
-                          fontSize: 22,
-                          color: ColorPath.textcolor1,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text(
-                        'Email',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: ColorPath.background,
+                child: Form(
+                  key: _formKey,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: ListView(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Daftarkan                                     Akun Anda!',
+                          style: TextStyle(
+                            fontSize: 32,
+                            color: ColorPath.textcolor1,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          textAlign: TextAlign.start,
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 4),
-                    EmailTextField(
-                      controller: emailController,
-                      labelText: 'Masukkan Email Anda',
-                      obscureText: false,
-                      focusNode: _emailFocus,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email is required';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 5),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text('Kata Sandi',
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Text(
+                          'Email',
                           style: TextStyle(
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
                             color: ColorPath.background,
-                          )),
-                    ),
-                    const SizedBox(height: 4),
-                    PasswordTextField(
-                      controller: passwordController,
-                      labelText: "Masukkan Kata Sandi Anda",
-                      obscureText: !_isPasswordVisible,
-                      focusNode: _passwordFocus,
-                      validator: (value) {
-                      },
-                      suffixIcon: IconButton(
-                        icon: Image.asset(
-                          _isPasswordVisible
-                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isPasswordVisible = !_isPasswordVisible;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.0),
-                      child: Text(
-                        'Konfirmasi Kata Sandi',
-                        style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: ColorPath.background,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    PasswordTextField(
-                      controller: confirmPasswordController,
-                      labelText: "Masukkan Kembali Kata Sandi Anda",
-                      obscureText: !_isConfirmPasswordVisible,
-                      focusNode: _confirmPasswordFocus,
-                      validator: (value) {
-                      },
-                      suffixIcon: IconButton(
-                        icon: Image.asset(
-                          _isConfirmPasswordVisible
-                              ? 'assets/images/visible.png' // Replace with the path to the visible icon image
-                              : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            _isConfirmPasswordVisible =
-                                !_isConfirmPasswordVisible;
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Center(
-                      child: AllButton(
-                        text: 'Daftar',
-                        onTap: () {
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context)=>const DashboardScreen())
-                              );
-                        },
-                        backgroundColor: ColorPath.background,
-                        textColor: ColorPath.white,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                    const Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Text(
-                        'Atau',
-                        style: TextStyle(
-                          fontSize: 11,
-                          color: Color(0XFF6D6D6D),
-                          fontWeight: FontWeight.w600,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Center(
-                      child: FractionallySizedBox(
-                        widthFactor:
-                            0.6, // Faktor lebar relatif terhadap parent
-                        child: OutlinedButton.icon(
-                          icon: Image.asset(
-                            'assets/images/googlelogo.png',
-                            width: 20.0,
                           ),
-                          onPressed: () {},
-                          label: const Text(
-                            'Sign In With Google',
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      EmailTextField(
+                        controller: emailController,
+                        labelText: 'Masukkan Email Anda',
+                        obscureText: false,
+                        focusNode: _emailFocus,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Email Tidak Boleh Kosong';
+                          }
+                          if (!EmailValidator.validate(value)) {
+                            return 'Email Tidak Sesuai';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 5),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Text('Kata Sandi',
                             style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
+                              color: ColorPath.background,
+                            )),
                       ),
-                    ),
-                    Center(
-                      child: FractionallySizedBox(
-                        widthFactor:
-                            0.6, // Faktor lebar relatif terhadap parent
-                        child: OutlinedButton.icon(
+                      const SizedBox(height: 4),
+                      PasswordTextField(
+                        controller: passwordController,
+                        labelText: "Masukkan Kata Sandi Anda",
+                        obscureText: !_isPasswordVisible,
+                        focusNode: _passwordFocus,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Masukkan Kata Sandi Anda';
+                          } else if (value.length < 6) {
+                            return 'Kata Sandi Harus Lebih Dari 6 Karakter';
+                          } else {
+                            return null;
+                          }
+                        },
+                        suffixIcon: IconButton(
                           icon: Image.asset(
-                            'assets/images/applelogo.png',
-                            width: 20.0,
+                            _isPasswordVisible
+                                ? 'assets/images/visible.png' // Replace with the path to the visible icon image
+                                : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
                           ),
-                          onPressed: () {},
-                          label: const Text(
-                            'Sign In With Apple',
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.black,
-                            ),
-                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 0.5),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Sudah Memiliki Akun?',
+                      const SizedBox(height: 5),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Text(
+                          'Konfirmasi Kata Sandi',
                           style: TextStyle(
-                              color: ColorPath.textcolor1,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500),
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: ColorPath.background,
+                          ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 2),
-                          child: TextButton(
-                            onPressed: () {
+                      ),
+                      const SizedBox(height: 4),
+                      PasswordTextField(
+                        controller: confirmPasswordController,
+                        labelText: "Masukkan Kembali Kata Sandi Anda",
+                        obscureText: !_isConfirmPasswordVisible,
+                        focusNode: _confirmPasswordFocus,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Masukkan Ulang Kata Sandi Anda';
+                          } else if (value != passwordController.text) {
+                            return 'Password Tidak Sesuai';
+                          } else {
+                            return null;
+                          }
+                        },
+                        suffixIcon: IconButton(
+                          icon: Image.asset(
+                            _isConfirmPasswordVisible
+                                ? 'assets/images/visible.png' // Replace with the path to the visible icon image
+                                : 'assets/images/invisible.png', // Replace with the path to the invisible icon image
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isConfirmPasswordVisible =
+                                  !_isConfirmPasswordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: AllButton(
+                          text: 'Daftar',
+                          onTap: () {
+                            final isValidForm =
+                                _formKey.currentState!.validate();
+
+                            if (isValidForm) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const LoginPage(),
                                 ),
                               );
-                            },
-                            child: const Text(
-                              'Login',
+                            }
+                          },
+                          backgroundColor: ColorPath.background,
+                          textColor: ColorPath.white,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      const Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          'Atau',
+                          style: TextStyle(
+                            fontSize: 11,
+                            color: Color(0XFF6D6D6D),
+                            fontWeight: FontWeight.w600,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      Center(
+                        child: FractionallySizedBox(
+                          widthFactor:
+                              0.6, // Faktor lebar relatif terhadap parent
+                          child: OutlinedButton.icon(
+                            icon: Image.asset(
+                              'assets/images/googlelogo.png',
+                              width: 20.0,
+                            ),
+                            onPressed: () {},
+                            label: const Text(
+                              'Sign In With Google',
                               style: TextStyle(
-                                color: ColorPath.background,
                                 fontSize: 15,
-                                fontWeight: FontWeight.w800,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Center(
+                        child: FractionallySizedBox(
+                          widthFactor:
+                              0.6, // Faktor lebar relatif terhadap parent
+                          child: OutlinedButton.icon(
+                            icon: Image.asset(
+                              'assets/images/applelogo.png',
+                              width: 20.0,
+                            ),
+                            onPressed: () {},
+                            label: const Text(
+                              'Sign In With Apple',
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 0.5),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Sudah Memiliki Akun?',
+                            style: TextStyle(
+                                color: ColorPath.textcolor1,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 2),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginPage(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Login',
+                                style: TextStyle(
+                                  color: ColorPath.background,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )

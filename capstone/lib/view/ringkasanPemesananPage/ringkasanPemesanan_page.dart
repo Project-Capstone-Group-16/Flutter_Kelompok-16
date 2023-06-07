@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/model/controller/category_controller.dart';
+import'package:capstone/components/all_button.dart';
 
 
 class RingkasanPemesananPage extends StatefulWidget {
@@ -84,10 +85,6 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                             width: 100,
                             height: 100,
                             decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                                width: 0.8,
-                              ),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 bottomLeft: Radius.circular(10),
@@ -121,14 +118,181 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
-          ],
-        ),
-        ),
-    );
+          ),
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(36, 230, 50, 5),
+            child:Text(
+              'Alamat Pemesan',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: ColorPath.background,
+              ),
+              ),
+             ),
+
+             Padding(
+               padding: const EdgeInsets.only(top: 257.0, left: 20),
+               child: Container(
+                width: 352,
+                 child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: 'Masukkan Alamat Pemesan',
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  ),
+                 ),
+               ),
+             ),
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(36, 320, 50, 5),
+            child:Text(
+              'Nama Pemesan',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: ColorPath.background,
+              ),
+              ),
+             ),
+
+             Padding(
+               padding: const EdgeInsets.only(top: 348.0, left: 20),
+               child: Container(
+                width: 352,
+                 child: TextFormField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: 'Masukkan Nama Pemesan',
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  ),
+                 ),
+               ),
+             ),
+
+          const Padding(
+            padding: EdgeInsets.fromLTRB(36, 412, 50, 5),
+            child:Text(
+              'Nomor Telpon Pemesan',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: ColorPath.background,
+              ),
+              ),
+             ),
+
+             Padding(
+               padding: const EdgeInsets.only(top: 440.0, left: 20),
+               child: Container(
+                width: 352,
+                 child: TextFormField(
+                  keyboardType: TextInputType.phone,
+                  decoration: InputDecoration(
+                    fillColor: Colors.white,
+                    filled: true,
+                    hintText: 'Masukkan Nomor Telpon Pemesan',
+                    hintStyle: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.grey,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  ),
+                 ),
+               ),
+             ),
+
+             Padding(
+               padding: const EdgeInsets.only(top:610),
+               child: Row(
+                children: [
+                  Container(
+                    width: 195,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: ColorPath.primary,
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 0.6,
+                      )
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Total Harga',
+                        style: TextStyle(
+                          fontSize:20,
+                          fontWeight: FontWeight.w700,
+                          color: Color.fromARGB(255, 92, 90, 90),
+                        ),
+                        ),
+                    ),
+                  ),
+                  Container(
+                    width: 195,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: ColorPath.primary,
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 0.5,
+                      )
+                    ),
+                    child: const Center(
+                      child: Text(
+                        'Rp45.000',
+                        style: TextStyle(
+                          fontSize:22,
+                          fontWeight: FontWeight.w700,
+                          color: ColorPath.textcolor1,
+                        ),
+                        ),
+                    ),
+                  ),
+                ],
+               ),
+             ),
+             
+                        Padding(
+                          padding: const EdgeInsets.only(left:100, top:710),
+                          child: AllButton(
+                          onTap: () {
+                          },
+                          text: 'Lanjut',
+                          backgroundColor: ColorPath.background,
+                          textColor: ColorPath.white,
+                                              ),
+                        ),
+            ],
+            ),
+           ),
+        );
   }
 }

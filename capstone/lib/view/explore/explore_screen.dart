@@ -47,12 +47,12 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     style: const TextStyle(
                       color: ColorPath.textcolor1,
                       fontFamily: 'Poppins',
-                      fontSize: 23,
+                      fontSize: 20,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 78),
+                    padding: EdgeInsetsDirectional.only(end: 95),
                   ),
                   IconButton(
                     onPressed: () {},
