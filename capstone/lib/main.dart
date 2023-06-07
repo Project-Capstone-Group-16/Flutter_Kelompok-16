@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: AppPage.list,
-      initialRoute: AppRoute.splash_screen,
+      initialRoute: AppRoute.login_or_register,
       debugShowCheckedModeBanner: false,
       initialBinding: BindingsBuilder(() {
         Get.put<Auth>(Auth());
