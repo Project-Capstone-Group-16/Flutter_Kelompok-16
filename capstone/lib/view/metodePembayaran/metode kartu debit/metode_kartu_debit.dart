@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/view/metodePembayaran/metode%20kartu%20debit/metode_kartu_debit_terakhir.dart';
-import 'package:flutter/material.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 
-import '../metodepembayaran.dart';
+import 'package:flutter/material.dart';
+
+import 'metode_kartu_debit_terakhir.dart';
+
 
 class MetodeKartuDebit extends StatefulWidget {
   const MetodeKartuDebit({super.key});
@@ -24,36 +24,32 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Positioned(
-                  top: 35,
-                  left: 50,
-                  child: Container(
-                    height: 46, // Tinggi AppBar
-                    color: Colors.transparent, // Warna AppBar
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                          color: const Color(0xFF1652F9),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        SizedBox(width: 20),
-                        Padding(
-                          padding: EdgeInsets.only(left: 78),
-                          child: Text(
-                            'Pembayaran',
-                            // textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF1652F9),
-                            ),
+                Container(
+                  height: 46, // Tinggi AppBar
+                  color: Colors.transparent, // Warna AppBar
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                        color: const Color(0xFF1652F9),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: EdgeInsets.only(left: 78),
+                        child: Text(
+                          'Pembayaran',
+                          // textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF1652F9),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 const SizedBox(height: 10),

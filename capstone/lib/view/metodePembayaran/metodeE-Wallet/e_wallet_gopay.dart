@@ -15,36 +15,32 @@ class GopayScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                Positioned(
-                  top: 35,
-                  left: 50,
-                  child: Container(
-                    height: 46, // Tinggi AppBar
-                    color: Colors.transparent, // Warna AppBar
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                          color: Color(0xFF1652F9),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                        SizedBox(width: 20),
-                        Padding(
-                          padding: EdgeInsets.only(left: 78),
-                          child: Text(
-                            'Pembayaran',
-                            // textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF1652F9),
-                            ),
+                Container(
+                  height: 46, // Tinggi AppBar
+                  color: Colors.transparent, // Warna AppBar
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                        color: Color(0xFF1652F9),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      SizedBox(width: 20),
+                      Padding(
+                        padding: EdgeInsets.only(left: 78),
+                        child: Text(
+                          'Pembayaran',
+                          // textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF1652F9),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 Container(
