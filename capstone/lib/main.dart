@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       getPages: AppPage.list,
 
-      initialRoute: AppRoute.metode_pembayaran_screen,
+      initialRoute: AppRoute.splash_screen,
 
       debugShowCheckedModeBanner: false,
       initialBinding: BindingsBuilder(() {
