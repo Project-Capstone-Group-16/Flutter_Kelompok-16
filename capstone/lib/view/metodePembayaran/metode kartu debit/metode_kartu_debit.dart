@@ -1,10 +1,10 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 
 import 'package:capstone/components/color_path.dart';
-
 import 'package:flutter/material.dart';
 
 import 'metode_kartu_debit_terakhir.dart';
+
 
 
 class MetodeKartuDebit extends StatefulWidget {
@@ -19,7 +19,7 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-        backgroundColor: Color(0xFFEEF9F7),
+        backgroundColor: const Color(0xFFEEF9F7),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
@@ -36,8 +36,8 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
-                      Padding(
+                      const SizedBox(width: 20),
+                      const Padding(
                         padding: EdgeInsets.only(left: 78),
                         child: Text(
                           'Pembayaran',
@@ -56,7 +56,7 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                 Container(
                   width: 358,
                   height: 380,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: ColorPath.background2,
                       borderRadius: BorderRadius.circular(18),
@@ -66,7 +66,7 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                       )),
                   child: Container(
                     color: ColorPath.white,
-                    margin: EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -77,15 +77,15 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                             child:
                                 Image.asset('assets/images/vectorFile.png'),
                           ),
-                          title: Text(
+                          title: const Text(
                             'Metode Kartu Debit',
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
-                        Column(
+                        const SizedBox(height: 20),
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -138,7 +138,7 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 50),
+                            SizedBox(height: 50),
                           ],
                         ),
                         // SizedBox(height: 10),
@@ -147,18 +147,18 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(1000),
                               ),
-                              backgroundColor: Color(0xFF1677FF),
+                              backgroundColor: const Color(0xFF1677FF),
                               foregroundColor: Colors.white,
                               elevation: 3,
-                              fixedSize: Size(150, 41)),
+                              fixedSize: const Size(150, 41)),
                           onPressed: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        KartuDebitSelesai()));
+                                        const KartuDebitSelesai()));
                           },
-                          child: Text('Tambah'),
+                          child: const Text('Tambah'),
                         ),
                       ],
                     ),

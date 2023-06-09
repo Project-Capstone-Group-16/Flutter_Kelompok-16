@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../../route/dashboard_screen.dart';
 
 class DanaScreen extends StatelessWidget {
   const DanaScreen({super.key});
@@ -22,13 +21,13 @@ class DanaScreen extends StatelessWidget {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: Color(0xFF1652F9),
+                        color: const Color(0xFF1652F9),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
-                      Padding(
+                      const SizedBox(width: 20),
+                      const Padding(
                         padding: EdgeInsets.only(left: 78),
                         child: Text(
                           'Pembayaran',
@@ -44,14 +43,14 @@ class DanaScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 8),
+                  margin: const EdgeInsets.only(top: 8),
                   child: Image.asset(
                     'assets/images/Pembayaran_pict.png',
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: Colors.white70,
                       borderRadius: BorderRadius.circular(5),
@@ -63,10 +62,10 @@ class DanaScreen extends StatelessWidget {
                         splashColor: Colors.grey,
                         leading: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Color(0xFF1652F9),
+                          backgroundColor: const Color(0xFF1652F9),
                           child: Image.asset('assets/images/vectorFile.png'),
                         ),
-                        title: Text(
+                        title: const Text(
                           'Metode E-Wallet',
                           style: TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 14),
@@ -74,14 +73,14 @@ class DanaScreen extends StatelessWidget {
                         trailing: Container(
                           // width: 117,
                           // height: 26,
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8, vertical: 5),
                           decoration: BoxDecoration(boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 0,
                               blurRadius: 5,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             ),
                           ]),
                           child: Image.asset(
@@ -102,7 +101,7 @@ class DanaScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(1000),
                       ),
-                      backgroundColor: Color(0xFF1677FF),
+                      backgroundColor: const Color(0xFF1677FF),
                       foregroundColor: Colors.white,
                       elevation: 3,
                     ),
@@ -119,16 +118,16 @@ class DanaScreen extends StatelessWidget {
                                   width: 192,
                                   height: 153,
                                 ),
-                                SizedBox(height: 40),
-                                Text(
+                                const SizedBox(height: 40),
+                                const Text(
                                   'Sukses',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                   ),
                                 ),
-                                SizedBox(height: 0),
-                                Text(
+                                const SizedBox(height: 0),
+                                const Text(
                                   'Selamat barangmu berhasil ditambahkan. Silahkan kembali ke halaman kategori.',
                                   textAlign: TextAlign.center,
                                 ),
@@ -142,18 +141,18 @@ class DanaScreen extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(1000),
                                       ),
-                                      backgroundColor: Color(0xFF1677FF),
+                                      backgroundColor: const Color(0xFF1677FF),
                                       foregroundColor: Colors.white,
                                       elevation: 3,
-                                      fixedSize: Size(150, 41)),
+                                      fixedSize: const Size(150, 41)),
                                   onPressed: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                DashboardScreen()));
+                                                const DashboardScreen()));
                                   },
-                                  child: Text('Selesai'),
+                                  child: const Text('Selesai'),
                                 ),
                               ),
                             ],
@@ -161,7 +160,7 @@ class DanaScreen extends StatelessWidget {
                         },
                       );
                     },
-                    child: Text('Selesai'),
+                    child: const Text('Selesai'),
                   ),
                 ),
               ],

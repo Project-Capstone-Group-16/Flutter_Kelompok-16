@@ -1,8 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../../screen.dart';
 
 class CashDiToko extends StatefulWidget {
   const CashDiToko({super.key});
@@ -17,7 +15,7 @@ class _CashDiTokoState extends State<CashDiToko> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEF9F7),
+      backgroundColor: const Color(0xFFEEF9F7),
       body: SafeArea(
         child: Stack(
           children: [
@@ -30,12 +28,12 @@ class _CashDiTokoState extends State<CashDiToko> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: Color(0xFF1652F9),
+                        color: const Color(0xFF1652F9),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       const Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 78),
@@ -59,9 +57,9 @@ class _CashDiTokoState extends State<CashDiToko> {
                     'assets/images/Pembayaran_pict.png',
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                       color: Colors.white70,
                       borderRadius: BorderRadius.circular(5),
@@ -73,7 +71,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                         splashColor: Colors.grey,
                         leading: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Color(0xFF1652F9),
+                          backgroundColor: const Color(0xFF1652F9),
                           child: Image.asset('assets/images/vectorFile.png'),
                         ),
                         title: const Text(
@@ -84,12 +82,12 @@ class _CashDiTokoState extends State<CashDiToko> {
                           width: 117,
                           height: 26,
                           padding:
-                              EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                              const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
                           decoration: BoxDecoration(
-                            color: Color(0xFFE0E0E0),
+                            color: const Color(0xFFE0E0E0),
                             borderRadius: BorderRadius.circular(15),
                           ),
-                          child: Row(
+                          child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
@@ -116,7 +114,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 350,
                 ),
                 SizedBox(
@@ -127,7 +125,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(1000),
                       ),
-                      backgroundColor: Color(0xFF1677FF),
+                      backgroundColor: const Color(0xFF1677FF),
                       foregroundColor: Colors.white,
                       elevation: 3,
                     ),
@@ -144,16 +142,16 @@ class _CashDiTokoState extends State<CashDiToko> {
                                   width: 192,
                                   height: 153,
                                 ),
-                                SizedBox(height: 40),
-                                Text(
+                                const SizedBox(height: 40),
+                                const Text(
                                   'Sukses',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                   ),
                                 ),
-                                SizedBox(height: 0),
-                                Text(
+                                const SizedBox(height: 0),
+                                const Text(
                                   'Selamat barangmu berhasil ditambahkan. Silahkan kembali ke halaman kategori.',
                                   textAlign: TextAlign.center,
                                 ),
@@ -167,18 +165,18 @@ class _CashDiTokoState extends State<CashDiToko> {
                                         borderRadius:
                                             BorderRadius.circular(1000),
                                       ),
-                                      backgroundColor: Color(0xFF1677FF),
+                                      backgroundColor: const Color(0xFF1677FF),
                                       foregroundColor: Colors.white,
                                       elevation: 3,
-                                      fixedSize: Size(150, 41)),
+                                      fixedSize: const Size(150, 41)),
                                   onPressed: () {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                DashboardScreen()));
+                                                const DashboardScreen()));
                                   },
-                                  child: Text('Selesai'),
+                                  child: const Text('Selesai'),
                                 ),
                               ),
                             ],
@@ -186,7 +184,7 @@ class _CashDiTokoState extends State<CashDiToko> {
                         },
                       );
                     },
-                    child: Text('Selesai'),
+                    child: const Text('Selesai'),
                   ),
                 ),
               ],

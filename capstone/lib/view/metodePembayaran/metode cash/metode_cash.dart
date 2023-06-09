@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:capstone/view/metodePembayaran/metode%20cash/cash_dirumah.dart';
 import 'package:flutter/material.dart';
 
+import 'cash_dirumah.dart';
 import 'cash_ditoko.dart';
+
 
 class MetodeCash extends StatefulWidget {
   const MetodeCash({super.key});
@@ -19,7 +18,7 @@ class _MetodeCashState extends State<MetodeCash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFEEF9F7),
+      backgroundColor: const Color(0xFFEEF9F7),
       body: SafeArea(
         child: Stack(
           children: [
@@ -32,13 +31,13 @@ class _MetodeCashState extends State<MetodeCash> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: Color(0xFF1652F9),
+                        color: const Color(0xFF1652F9),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
-                      Padding(
+                      const SizedBox(width: 20),
+                      const Padding(
                         padding: EdgeInsets.only(left: 78),
                         child: Text(
                           'Pembayaran',
@@ -53,32 +52,32 @@ class _MetodeCashState extends State<MetodeCash> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Container(
                   width: 358,
                   height: 345,
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Colors.white70,
                     borderRadius: BorderRadius.circular(18),
                     border: Border.all(width: 0.5, color: Colors.blueGrey),
                   ),
                   child: Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20),
                     child: Column(
                       children: [
                         ListTile(
                           splashColor: Colors.grey,
                           leading: CircleAvatar(
-                            backgroundColor: Color(0xFF1652F9),
+                            backgroundColor: const Color(0xFF1652F9),
                             child: Image.asset('assets/images/vectorFile.png'),
                           ),
-                          title: Text(
+                          title: const Text(
                             'Metode Cash',
                             style: TextStyle(fontWeight: FontWeight.w500),
                           ),
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         ElevatedButton(
                             onPressed: () {
                               setState(() {
@@ -91,15 +90,15 @@ class _MetodeCashState extends State<MetodeCash> {
                                   MaterialStateProperty.resolveWith<Color>(
                                       (states) {
                                 if (buttonBayarDiToko) {
-                                  return Color(0xFF100E83);
+                                  return const Color(0xFF100E83);
                                 }
-                                return Color(0xFFEEF9F7);
+                                return const Color(0xFFEEF9F7);
                               }),
                               foregroundColor:
                                   MaterialStateProperty.resolveWith<Color>(
                                       (states) {
                                 if (buttonBayarDiToko) {
-                                  return Color(
+                                  return const Color(
                                       0xFFF4FAFB); //  Warna tulisan saat button ditekan
                                 }
                                 return Colors.black;
@@ -107,7 +106,7 @@ class _MetodeCashState extends State<MetodeCash> {
                               fixedSize:
                                   MaterialStateProperty.resolveWith<Size>(
                                 (states) {
-                                  return Size(295, 43);
+                                  return const Size(295, 43);
                                 },
                               ),
                             ),
@@ -116,14 +115,14 @@ class _MetodeCashState extends State<MetodeCash> {
                                 IconTheme(
                                     data: IconThemeData(
                                       color: buttonBayarDiToko
-                                          ? Color(0xFFF4FAFB)
+                                          ? const Color(0xFFF4FAFB)
                                           : Colors.blue,
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.attach_money_rounded,
                                     )),
-                                SizedBox(width: 10),
-                                Text('Bayar di toko'),
+                                const SizedBox(width: 10),
+                                const Text('Bayar di toko'),
                               ],
                             )),
                         const SizedBox(height: 10),
@@ -139,15 +138,15 @@ class _MetodeCashState extends State<MetodeCash> {
                                   MaterialStateProperty.resolveWith<Color>(
                                       (states) {
                                 if (buttonBayarDiRumah) {
-                                  return Color(0xFF100E83);
+                                  return const Color(0xFF100E83);
                                 }
-                                return Color(0xFFEEF9F7);
+                                return const Color(0xFFEEF9F7);
                               }),
                               foregroundColor:
                                   MaterialStateProperty.resolveWith<Color>(
                                       (states) {
                                 if (buttonBayarDiRumah) {
-                                  return Color(
+                                  return const Color(
                                       0xFFF4FAFB); //  Warna tulisan saat button ditekan
                                 }
                                 return Colors.black;
@@ -155,7 +154,7 @@ class _MetodeCashState extends State<MetodeCash> {
                               fixedSize:
                                   MaterialStateProperty.resolveWith<Size>(
                                 (states) {
-                                  return Size(295, 43);
+                                  return const Size(295, 43);
                                 },
                               ),
                             ),
@@ -164,14 +163,14 @@ class _MetodeCashState extends State<MetodeCash> {
                                 IconTheme(
                                     data: IconThemeData(
                                       color: buttonBayarDiRumah
-                                          ? Color(0xFFF4FAFB)
-                                          : Color(0xFF1677FF),
+                                          ? const Color(0xFFF4FAFB)
+                                          : const Color(0xFF1677FF),
                                     ),
-                                    child: Icon(
+                                    child: const Icon(
                                       Icons.attach_money_rounded,
                                     )),
-                                SizedBox(width: 10),
-                                Text('Bayar di rumah'),
+                                const SizedBox(width: 10),
+                                const Text('Bayar di rumah'),
                               ],
                             )),
                         const SizedBox(height: 80),
@@ -183,7 +182,7 @@ class _MetodeCashState extends State<MetodeCash> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(1000),
                               ),
-                              backgroundColor: Color(0xFF1677FF),
+                              backgroundColor: const Color(0xFF1677FF),
                               foregroundColor: Colors.white,
                               elevation: 3,
                             ),
@@ -192,16 +191,16 @@ class _MetodeCashState extends State<MetodeCash> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CashDiToko()));
+                                        builder: (context) => const CashDiToko()));
                               }
                               if (buttonBayarDiRumah) {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => CashDirumah()));
+                                        builder: (context) => const CashDirumah()));
                               } else {}
                             },
-                            child: Text('Pilih'),
+                            child: const Text('Pilih'),
                           ),
                         ),
                       ],

@@ -6,6 +6,8 @@ import 'e_wallet_gopay.dart';
 import 'e_wallet_ovo.dart';
 import 'e_wallet_spay.dart';
 
+
+
 class MetodeEWallet extends StatefulWidget {
   const MetodeEWallet({super.key});
 
@@ -48,12 +50,12 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: Color(0xFF1652F9),
+                        color: const Color(0xFF1652F9),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       const Expanded(
                         child: Padding(
                           padding: EdgeInsets.only(left: 78),
@@ -112,7 +114,7 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                                     border: Border.all(
                                       width: isEInventSelected ? 2.0 : 0.0,
                                       color: isEInventSelected
-                                          ? Color(0xFFB3B3B3)
+                                          ? const Color(0xFFB3B3B3)
                                           : Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -148,7 +150,7 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                                     border: Border.all(
                                       width: isGopaySelected ? 2.0 : 0.0,
                                       color: isGopaySelected
-                                          ? Color(0xFFB3B3B3)
+                                          ? const Color(0xFFB3B3B3)
                                           : Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -171,7 +173,7 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                                         border: Border.all(
                                           width: isDanaSelected ? 2.0 : 0.0,
                                           color: isDanaSelected
-                                              ? Color(0xFFB3B3B3)
+                                              ? const Color(0xFFB3B3B3)
                                               : Colors.transparent,
                                         ),
                                         borderRadius:
@@ -199,7 +201,7 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                                     border: Border.all(
                                       width: isOvoSelected ? 2.0 : 0.0,
                                       color: isOvoSelected
-                                          ? Color(0xFFB3B3B3)
+                                          ? const Color(0xFFB3B3B3)
                                           : Colors.transparent,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
@@ -222,7 +224,7 @@ class _MetodeEWalletState extends State<MetodeEWallet> {
                                         border: Border.all(
                                           width: isSpaySelected ? 2.0 : 0.0,
                                           color: isSpaySelected
-                                              ? Color(0xFFB3B3B3)
+                                              ? const Color(0xFFB3B3B3)
                                               : Colors.transparent,
                                         ),
                                         borderRadius:

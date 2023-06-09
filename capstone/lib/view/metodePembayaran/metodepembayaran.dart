@@ -1,10 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:capstone/view/metodePembayaran/metode%20kartu%20debit/metode_kartu_debit.dart';
-import 'package:capstone/view/metodePembayaran/metodeE-Wallet/metode_e_wallet.dart';
 import 'package:flutter/material.dart';
 
 import 'metode cash/metode_cash.dart';
+import 'metode kartu debit/metode_kartu_debit.dart';
+import 'metodeE-Wallet/metode_e_wallet.dart';
 
 class MetodePembayaranScreen extends StatefulWidget {
   const MetodePembayaranScreen({super.key});
@@ -30,13 +28,13 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                     children: [
                       IconButton(
                         icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: Color(0xFF1652F9),
+                        color: const Color(0xFF1652F9),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      SizedBox(width: 20),
-                      Padding(
+                      const SizedBox(width: 20),
+                      const Padding(
                         padding: EdgeInsets.only(left: 78),
                         child: Text(
                           'Pembayaran',
@@ -74,10 +72,10 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                         splashColor: Colors.grey,
                         leading: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Color(0xFF1652F9),
+                          backgroundColor: const Color(0xFF1652F9),
                           child: Image.asset('assets/images/vectorFile.png'),
                         ),
-                        title: Text(
+                        title: const Text(
                           'Metode Cash',
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
@@ -96,7 +94,7 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                         splashColor: Colors.grey,
                         leading: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Color(0xFF1652F9),
+                          backgroundColor: const Color(0xFF1652F9),
                           child: Image.asset('assets/images/vectorFile.png'),
                         ),
                         title: const Text(
@@ -117,7 +115,7 @@ class MetodePembayaranScreenState extends State<MetodePembayaranScreen> {
                         splashColor: Colors.grey,
                         leading: CircleAvatar(
                           radius: 15,
-                          backgroundColor: Color(0xFF1652F9),
+                          backgroundColor: const Color(0xFF1652F9),
                           child: Image.asset('assets/images/vectorFile.png'),
                         ),
                         title: const Text(
