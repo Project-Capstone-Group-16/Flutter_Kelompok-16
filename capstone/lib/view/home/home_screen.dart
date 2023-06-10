@@ -93,80 +93,46 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  Column(
                     children: [
-                      Column(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.fromLTRB(25, 30, 0, 0),
-                          ),
-                          Image.asset(
-                            'assets/images/loker.png',
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 25, 5, 0),
-                            child: Container(
-                              width: 159,
-                              height: 135,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: ColorPath.white,
-                                ),
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(
-                                    20,
-                                  ),
-                                ),
-                              ),
-                              child: Column(
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(top: 10),
-                                    child: Text(
-                                      'kapasitas Loker',
-                                      style: TextStyle(
-                                        color: ColorPath.white,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(0, 15, 0, 0),
-                                    child: CircularPercentIndicator(
-                                      animation: true,
-                                      animationDuration: 1000,
-                                      lineWidth: 14,
-                                      progressColor: ColorPath.white,
-                                      percent: 0.75,
-                                      radius: 40,
-                                      circularStrokeCap:
-                                          CircularStrokeCap.round,
-                                      backgroundColor:
-                                          Color.fromARGB(105, 195, 185, 185),
-                                      center: const Text(
-                                        '75%',
-                                        style: TextStyle(
-                                          color: ColorPath.white,
-                                          fontFamily: 'Poppins',
-                                          fontSize: 13,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: Container(
+                          width: 156,
+                          height: 33,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: ColorPath.white,
+                            ),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(
+                                20,
                               ),
                             ),
-                          )
-                        ],
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Penyimpanan Saya',
+                              style: TextStyle(
+                                color: ColorPath.white,
+                                fontFamily: 'Poppins',
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      const Padding(
+                          padding: EdgeInsets.only(
+                        top: 5,
+                      )),
+                      Image.asset(
+                        'assets/images/loker.png',
                       ),
                     ],
                   ),
@@ -175,9 +141,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(15, 20, 5, 0),
+                            padding: const EdgeInsets.fromLTRB(17, 20, 5, 0),
                             child: Container(
-                              width: 90,
+                              width: 156,
                               height: 110,
                               decoration: BoxDecoration(
                                 border: Border.all(
@@ -201,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       style: TextStyle(
                                         color: ColorPath.white,
                                         fontFamily: 'Poppins',
-                                        fontSize: 11,
+                                        fontSize: 10,
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
@@ -230,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(5, 20, 5, 0),
                         child: Container(
-                          width: 90,
+                          width: 156,
                           height: 110,
                           decoration: BoxDecoration(
                             border: Border.all(
@@ -254,14 +220,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(
                                     color: ColorPath.white,
                                     fontFamily: 'Poppins',
-                                    fontSize: 11,
+                                    fontSize: 10,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 5,
-                                    vertical: 15,
+                                    vertical: 20,
                                   ),
                                   child: Text(
                                     '19 - 21 April',
@@ -278,85 +244,30 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 20, 5, 0),
-                        child: Container(
-                          width: 135,
-                          height: 110,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: ColorPath.white,
-                            ),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(
-                                20,
-                              ),
-                            ),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 23,
-                              vertical: 10,
-                            ),
-                            child: Column(
-                              children: [
-                                Text(
-                                  'Ukuran Barang',
-                                  style: TextStyle(
-                                    color: ColorPath.white,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 5,
-                                    vertical: 15,
-                                  ),
-                                  child: Text(
-                                    '15 x 20 x 24 cm',
-                                    style: TextStyle(
-                                      color: ColorPath.white,
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                   const SizedBox(
-                    height: 17,
+                    height: 12,
                   ),
-                  ElevatedButton.icon(
+                  ElevatedButton(
                     onPressed: () {},
-                    icon: const Icon(
-                      Icons.add,
-                      color: ColorPath.textcolor1,
-                    ),
-                    label: const Text(
-                      'Tambah Barang',
-                      style: TextStyle(
-                          color: ColorPath.textcolor1,
-                          fontFamily: 'Poppins',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600),
-                    ),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                         vertical: 10,
-                        horizontal: 40,
+                        horizontal: 20,
                       ),
                       backgroundColor: ColorPath.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
+                    ),
+                    child: const Text(
+                      'Hubungi Warehouse',
+                      style: TextStyle(
+                          color: ColorPath.textcolor1,
+                          fontFamily: 'Poppins',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],
