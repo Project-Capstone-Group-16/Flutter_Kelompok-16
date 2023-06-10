@@ -1,3 +1,5 @@
+import 'package:capstone/view/profile/faq_screen.dart';
+import 'package:capstone/view/profile/profile.dart';
 import 'package:get/get.dart';
 import 'app_route.dart';
 
@@ -24,7 +26,7 @@ class AppPage {
     GetPage(
       name: AppRoute.register_page,
       page: () => const RegisterPage(),
-     ),
+    ),
     GetPage(
       name: AppRoute.lupa_password,
       page: () => const ForgotPassword(),
@@ -36,6 +38,26 @@ class AppPage {
     GetPage(
       name: AppRoute.explore_screen,
       page: () => const ExploreScreen(),
+    ),
+    GetPage(
+      name: AppRoute.profile_screen,
+      page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      name: AppRoute.biodata_screen,
+      page: () => const BiodataPage(),
+    ),
+    GetPage(
+      name: AppRoute.histori_pesanan_screen,
+      page: () => const Histori_Pesanan(),
+    ),
+    GetPage(
+      name: AppRoute.pilih_bahasa_screen,
+      page: () => const Pilih_bahasa(),
+    ),
+    GetPage(
+      name: AppRoute.faq_screen,
+      page: () => const Faq_Page(),
     ),
     GetPage(
       name: AppRoute.cariloker_screen,

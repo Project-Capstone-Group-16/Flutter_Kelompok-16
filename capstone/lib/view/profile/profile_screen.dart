@@ -1,9 +1,11 @@
-import 'package:capstone/components/color_path.dart';
-import 'package:capstone/screen.dart';
-import 'package:capstone/view/profile/halaman_faq.dart';
-import 'profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'package:capstone/components/color_path.dart';
+import 'package:capstone/screen.dart';
+import 'package:capstone/view/profile/faq_screen.dart';
+
+import 'profile.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -32,10 +34,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, -0.89),
+              alignment: const AlignmentDirectional(0, -0.89),
               child: Stack(
                 children: [
-                  Align(
+                  const Align(
                     alignment: AlignmentDirectional(-0.9, -0.92),
                     child: Text(
                       'Profil',
@@ -47,12 +49,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.6, -0.91),
+                    alignment: const AlignmentDirectional(0.6, -0.91),
                     child: Container(
                       width: 35,
                       height: 35,
                       clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
                       child: Image.network(
@@ -62,17 +64,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.9, -0.93),
+                    alignment: const AlignmentDirectional(0.9, -0.93),
                     child: IconButton(
                       onPressed: () {
                         Get.defaultDialog(
                           title: "Keluar?",
-                          titleStyle: TextStyle(
+                          titleStyle: const TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
                           ),
                           content: Container(
-                            child: Text(
+                            child: const Text(
                               'Aoakah Anda yakin ingin keluar?',
                               style: TextStyle(
                                 fontSize: 15,
@@ -83,20 +85,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           textConfirm: "Keluar",
                           textCancel: "Tidak",
                           confirmTextColor: Colors.white,
-                          contentPadding: EdgeInsets.all(25),
+                          contentPadding: const EdgeInsets.all(25),
                           onConfirm: () {
-                            Get.offAll(LoginPage());
+                            Get.offAll(const LoginPage());
                           },
                         );
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.logout,
                         color: ColorPath.background2,
                         size: 30,
                       ),
                     ),
                   ),
-                  Align(
+                  const Align(
                     alignment: AlignmentDirectional(-0.78, -0.58),
                     child: Text(
                       'Pengaturan',
@@ -108,7 +110,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0, -0.10),
+                    alignment: const AlignmentDirectional(0, -0.10),
                     child: Container(
                       width: 331,
                       height: 281,
@@ -116,12 +118,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         color: ColorPath.background2,
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(
-                          color: Color(0xFFB3B3B3),
+                          color: const Color(0xFFB3B3B3),
                         ),
                       ),
                       child: Stack(
                         children: [
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.94, -0.9),
                             child: Icon(
                               Icons.settings_outlined,
@@ -129,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               size: 22,
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.74, -0.88),
                             child: Text(
                               'Umum',
@@ -140,7 +142,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.87, -0.60),
                             child: Text(
                               'Biodata',
@@ -151,9 +153,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.90, -0.70),
+                            alignment: const AlignmentDirectional(0.90, -0.70),
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.navigate_next,
                                 color: Colors.black,
                                 size: 24,
@@ -162,11 +164,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => BiodataPage()));
+                                        builder: (context) =>
+                                            const BiodataPage()));
                               },
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.87, -0.30),
                             child: Text(
                               'Histori',
@@ -177,9 +180,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.90, -0.36),
+                            alignment: const AlignmentDirectional(0.90, -0.36),
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.navigate_next,
                                 color: Colors.black,
                                 size: 24,
@@ -189,11 +192,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            Histori_Pesanan()));
+                                            const Histori_Pesanan()));
                               },
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.87, 0),
                             child: Text(
                               'Favorit',
@@ -204,9 +207,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.90, 0),
+                            alignment: const AlignmentDirectional(0.90, 0),
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.navigate_next,
                                 color: Colors.black,
                                 size: 24,
@@ -215,11 +218,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Favorit_Loker()));
+                                        builder: (context) =>
+                                            const Favorit_Loker()));
                               },
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.87, 0.30),
                             child: Text(
                               'Bahasa',
@@ -230,9 +234,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.90, 0.36),
+                            alignment: const AlignmentDirectional(0.90, 0.36),
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.navigate_next,
                                 color: Colors.black,
                                 size: 24,
@@ -241,11 +245,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Pilih_bahasa()));
+                                        builder: (context) =>
+                                            const Pilih_bahasa()));
                               },
                             ),
                           ),
-                          Align(
+                          const Align(
                             alignment: AlignmentDirectional(-0.87, 0.66),
                             child: Text(
                               'Pemberitahuan',
@@ -256,7 +261,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.87, 0.66),
+                            alignment: const AlignmentDirectional(0.87, 0.66),
                             child: Container(
                               height: 20,
                               width: 40,
@@ -274,7 +279,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   });
                                 },
                                 activeColor: ColorPath.white,
-                                activeTrackColor: Color(0xFF14D63F),
+                                activeTrackColor: const Color(0xFF14D63F),
                                 inactiveTrackColor: ColorPath.background2,
                                 inactiveThumbColor: Colors.green,
                               ),
@@ -288,7 +293,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0, 0.80),
+              alignment: const AlignmentDirectional(0, 0.80),
               child: Container(
                 width: 331,
                 height: 110,
@@ -296,12 +301,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: ColorPath.background2,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(
-                    color: Color(0xFFB3B3B3),
+                    color: const Color(0xFFB3B3B3),
                   ),
                 ),
                 child: Stack(
                   children: [
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional(-0.94, -0.58),
                       child: Icon(
                         Icons.info_outlined,
@@ -309,7 +314,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         size: 22,
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional(-0.74, -0.55),
                       child: Text(
                         'Bantuan',
@@ -320,7 +325,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional(-0.87, 0.20),
                       child: Text(
                         'Pertanyaan Umum',
@@ -331,9 +336,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.90, 0.26),
+                      alignment: const AlignmentDirectional(0.90, 0.26),
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.navigate_next,
                           color: Colors.black,
                           size: 24,
@@ -342,7 +347,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Faq_Page()));
+                                  builder: (context) => const Faq_Page()));
                         },
                       ),
                     ),
