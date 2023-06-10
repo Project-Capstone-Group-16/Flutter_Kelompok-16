@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/color_path.dart';
-import 'package:capstone/screen.dart';
+
 
 
 class EstimasiBiayaScreen extends StatelessWidget {
@@ -74,13 +74,13 @@ class EstimasiBiayaScreen extends StatelessWidget {
                               ),
                              ),
 
-                             child: Column(
+                             child: const Column(
                               children: [
-                                const SizedBox(height: 10,),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 155),
+                                SizedBox(height: 10,),
+                                 Padding(
+                                  padding: EdgeInsets.only(right: 130, top: 20),
                                   child: Text(
-                                    'Estimasi Per Hari',
+                                    'Estimasi Loker Kecil',
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: ColorPath.textcolor1,
@@ -88,7 +88,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                     ),
                                     ),
                                 ),
-                                const Row(
+                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
@@ -102,7 +102,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                         ),
                                     ),
                                     Text(
-                                      'Rp10.000- Rp40.000',
+                                      'Rp15.000/Hari',
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
@@ -112,7 +112,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                   ],
                                 ),
 
-                                const Padding(
+                                 Padding(
                                   padding: EdgeInsets.only(right: 10,left: 17.5),
                                   child: Text(
                                     'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
@@ -121,29 +121,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w500,
                                     ),
                                     ),
-                                   ),  
-                                   Padding(
-                                     padding: const EdgeInsets.only(top:20,left: 220),
-                                     child: ElevatedButton(
-                                      onPressed: (){
-                                        Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                        builder: (context) => const EstimasiBiayaPerHariScreen(),
-                                      ));
-                                      }, 
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: ColorPath.textcolor1,
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 5,
-                                          horizontal: 25,
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: const Text('Detail'),
-                                      ),
-                                   ),   
+                                   ),    
                               ]
                               ),
                              ),
@@ -172,13 +150,13 @@ class EstimasiBiayaScreen extends StatelessWidget {
                               ),
                              ),
 
-                             child: Column(
+                             child: const Column(
                               children: [
-                                const SizedBox(height: 10,),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 140),
+                                SizedBox(height: 10,),
+                                 Padding(
+                                  padding: EdgeInsets.only(right: 100, top: 20),
                                   child: Text(
-                                    'Estimasi Per Bulan',
+                                    'Estimasi Loker Sedang',
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: ColorPath.textcolor1,
@@ -186,7 +164,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                     ),
                                     ),
                                 ),
-                                const Row(
+                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
@@ -200,7 +178,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                         ),
                                     ),
                                     Text(
-                                      'Rp50.000- Rp100.000',
+                                      'Rp20.000/Hari',
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
@@ -210,7 +188,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                   ],
                                 ),
 
-                                const Padding(
+                                 Padding(
                                   padding: EdgeInsets.only(right: 10,left: 17.5),
                                   child: Text(
                                     'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
@@ -220,28 +198,6 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                     ),
                                     ),
                                    ),  
-                                   Padding(
-                                     padding: const EdgeInsets.only(top:20,left: 220),
-                                     child: ElevatedButton(
-                                      onPressed: (){
-                                        Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                        builder: (context) => const EstimasiBiayaPerBulanScreen(),
-                                      ));
-                                      }, 
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: ColorPath.textcolor1,
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 5,
-                                          horizontal: 25,
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: const Text('Detail'),
-                                      ),
-                                   ),   
                               ]
                               ),
                              ),
@@ -270,13 +226,13 @@ class EstimasiBiayaScreen extends StatelessWidget {
                               ),
                              ),
 
-                             child: Column(
+                             child: const Column(
                               children: [
-                                const SizedBox(height: 10,),
-                                const Padding(
-                                  padding: EdgeInsets.only(right: 135),
+                                 SizedBox(height: 10,),
+                                 Padding(
+                                  padding: EdgeInsets.only(right: 120, top: 20),
                                   child: Text(
-                                    'Estimasi Per Tahun',
+                                    'Estimasi Loker Besar',
                                     style: TextStyle(
                                       fontSize: 19,
                                       color: ColorPath.textcolor1,
@@ -284,7 +240,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                     ),
                                     ),
                                 ),
-                                const Row(
+                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
@@ -298,7 +254,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                         ),
                                     ),
                                     Text(
-                                      'Rp400.000- Rp600.000',
+                                      'Rp30.000/Hari',
                                       style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w600,
@@ -308,7 +264,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                   ],
                                 ),
 
-                                const Padding(
+                                 Padding(
                                   padding: EdgeInsets.only(right: 10,left: 17.5),
                                   child: Text(
                                     'Keterangan : Harga dapat berubah sewaktu-waktu terjadi perubahan harga',
@@ -317,29 +273,7 @@ class EstimasiBiayaScreen extends StatelessWidget {
                                       fontWeight: FontWeight.w500,
                                     ),
                                     ),
-                                   ),  
-                                   Padding(
-                                     padding: const EdgeInsets.only(top:20,left: 220),
-                                     child: ElevatedButton(
-                                      onPressed: (){
-                                        Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                        builder: (context) => const EstimasiBiayaPerTahunScreen(),
-                                      ));
-                                      }, 
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: ColorPath.textcolor1,
-                                        padding: const EdgeInsets.symmetric(
-                                          vertical: 5,
-                                          horizontal: 25,
-                                        ),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: const Text('Detail'),
-                                      ),
-                                   ),   
+                                   ),    
                               ]
                               ),
                              ),
