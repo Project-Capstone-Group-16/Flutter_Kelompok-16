@@ -1,6 +1,7 @@
-import 'package:capstone/components/color_path.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'package:capstone/components/color_path.dart';
 
 class AalamatPengguna extends StatefulWidget {
   const AalamatPengguna({super.key});
@@ -40,16 +41,16 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-1, -1),
+                alignment: const AlignmentDirectional(-1, -1),
                 child: Container(
                   width: 448,
                   height: 60,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ColorPath.background2,
                   ),
                   child: Stack(
                     children: [
-                      Align(
+                      const Align(
                         alignment: AlignmentDirectional(0, 0),
                         child: Text(
                           'Alamat Pengguna',
@@ -64,7 +65,7 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_back_ios,
                           size: 20,
                         ),
@@ -75,16 +76,16 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.99, 1.01),
+                alignment: const AlignmentDirectional(-0.99, 1.01),
                 child: Container(
                   width: 424,
                   height: 500,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: ColorPath.background2,
                   ),
                   child: Stack(
                     children: [
-                      Positioned(
+                      const Positioned(
                         top: 30,
                         left: 30,
                         child: Text(
@@ -100,13 +101,13 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                         top: 60, // Sesuaikan posisi vertikal
                         left: 20, // Sesuaikan posisi horizontal
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                          padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                           child: Container(
                             width: 340,
                             child: TextFormField(
                               decoration: InputDecoration(
                                   hintText: 'Masukkan Lokasi',
-                                  hintStyle: TextStyle(
+                                  hintStyle: const TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w500,
                                     color: ColorPath.hinttext,
@@ -116,7 +117,7 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                                   ),
                                   contentPadding: const EdgeInsets.symmetric(
                                       horizontal: 16.0),
-                                  prefixIcon: Icon(
+                                  prefixIcon: const Icon(
                                     Icons.place,
                                     color: Color(0xFF02B3FF),
                                   )),
@@ -125,7 +126,7 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-0.0, 0.88),
+                        alignment: const AlignmentDirectional(-0.0, 0.88),
                         child: Container(
                           width: 150,
                           height: 50,
@@ -135,7 +136,7 @@ class _AalamatPenggunaState extends State<AalamatPengguna> {
                             borderRadius: BorderRadius.circular(15),
                             shape: BoxShape.rectangle,
                           ),
-                          child: Align(
+                          child: const Align(
                             alignment: AlignmentDirectional(0, 0),
                             child: Text(
                               'Simpan',

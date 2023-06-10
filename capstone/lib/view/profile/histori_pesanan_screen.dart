@@ -18,7 +18,7 @@ class _Histori_PesananState extends State<Histori_Pesanan> {
         top: true,
         child: Stack(
           children: [
-            Align(
+            const Align(
               alignment: AlignmentDirectional(0, -0.96),
               child: Text(
                 'Histori',
@@ -30,12 +30,12 @@ class _Histori_PesananState extends State<Histori_Pesanan> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.9, -0.99),
+              alignment: const AlignmentDirectional(-0.9, -0.99),
               child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   size: 24,
                 ),

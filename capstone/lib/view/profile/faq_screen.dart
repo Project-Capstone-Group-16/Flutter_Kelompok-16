@@ -41,7 +41,7 @@ class _Faq_PageState extends State<Faq_Page> {
         top: true,
         child: Stack(
           children: [
-            Align(
+            const Align(
               alignment: AlignmentDirectional(0, -0.96),
               child: Text(
                 'Pertanyaan Umum',
@@ -53,12 +53,12 @@ class _Faq_PageState extends State<Faq_Page> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.9, -0.99),
+              alignment: const AlignmentDirectional(-0.9, -0.99),
               child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   size: 24,
                 ),
@@ -66,7 +66,7 @@ class _Faq_PageState extends State<Faq_Page> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 65, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 65, horizontal: 16),
               child: ListView.builder(
                 itemCount: faqs.length,
                 itemBuilder: (context, index) {
@@ -75,17 +75,17 @@ class _Faq_PageState extends State<Faq_Page> {
                     child: ExpansionTile(
                       title: Text(
                         faqs[index].question,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Text(
                             faqs[index].answer,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w300,
                             ),
