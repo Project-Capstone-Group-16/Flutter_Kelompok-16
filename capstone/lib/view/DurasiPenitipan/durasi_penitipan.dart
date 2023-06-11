@@ -29,6 +29,11 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
 
   void _ondaySelected(DateTime day, DateTime focusedDay) {
     setState(() {
+      if (selectedDates.isNotEmpty) {
+        // Menghapus semua tanggal yang sudah dipilih sebelumnya
+        selectedDates.clear();
+        inBetweenDates.clear();
+      }
       selectedDate = day;
       inBetweenDates = getDatesInRange(today, selectedDate);
     });
@@ -104,7 +109,8 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                           Align(
                             alignment: Alignment.center,
                             child: Padding(
-                              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                              padding:
+                                  const EdgeInsets.fromLTRB(10, 10, 10, 10),
                               child: TableCalendar(
                                 rowHeight: 43,
                                 daysOfWeekVisible: true,
@@ -169,7 +175,7 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                                   return selectedDates.contains(day) ||
                                       inBetweenDates.contains(selectedDay);
                                 },
-      
+
                                 focusedDay: DateTime.now(),
                                 onDaySelected: (selectedDay, focusedDay) {
                                   setState(() {
