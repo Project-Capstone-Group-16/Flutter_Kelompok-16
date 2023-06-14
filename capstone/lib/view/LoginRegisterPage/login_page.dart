@@ -1,3 +1,4 @@
+import 'package:capstone/model/controller/login_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/components/all_button.dart';
@@ -5,6 +6,7 @@ import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/email_textfield.dart';
 import 'package:capstone/components/password_textfield.dart';
 import 'package:capstone/screen.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,12 +16,19 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  LoginController loginController = Get.put(LoginController());
+
   final _formKey = GlobalKey<FormState>();
 
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+
+  // final emailController = TextEditingCon  troller(
+  //     // text: "subaruputra13@gmail.com",
+  //     );
+  // final passwordController = TextEditingController(
+  //     // text: "subaru1",
+  //     );
 
   bool _isPasswordVisible = false;
 
@@ -124,7 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                       const Padding(
                         padding: EdgeInsets.all(15.0),
                         child: Text(
-                          'Hai!                            Selamat Datang Kembali',
+                          'Hai!                               Selamat Datang Kembali',
                           style: TextStyle(
                             fontSize: 28,
                             color: ColorPath.textcolor1,
@@ -146,7 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 5),
                       EmailTextField(
-                        controller: emailController,
+                        controller: loginController.emailEditingController,
                         labelText: 'Masukkan Email Anda',
                         obscureText: false,
                         focusNode: _emailFocus,
@@ -176,7 +185,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 5),
                       PasswordTextField(
-                        controller: passwordController,
+                        controller: loginController.passwordEditingController,
                         labelText: "Masukkan Kata Sandi Anda",
                         obscureText: !_isPasswordVisible,
                         focusNode: _passwordFocus,
@@ -232,18 +241,21 @@ class _LoginPageState extends State<LoginPage> {
                       Center(
                         child: AllButton(
                           text: 'Masuk',
-                          onTap: () {
-                            final isValidForm =
-                                _formKey.currentState!.validate();
+                          onTap: () => loginController.loginWithEmail(),
 
-                            if (isValidForm) {
-                              Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(
-                                  builder: (context) => const DashboardScreen(),
-                                ),
-                              );
-                            }
-                          },
+                          // () {
+                          //   final isValidForm =
+                          //       _formKey.currentState!.validate();
+
+                          //   if (isValidForm) {
+                          //     Navigator.of(context).pushReplacement(
+                          //       MaterialPageRoute(
+                          //         builder: (context) => const DashboardScreen(),
+                          //       ),
+                          //     );
+                          //   }
+                          // },
+
                           backgroundColor: ColorPath.background,
                           textColor: ColorPath.white,
                         ),

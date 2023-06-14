@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/screen.dart';
 import 'package:capstone/view/profile/faq_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'profile.dart';
 
@@ -15,6 +16,8 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+
   bool switchValue = true;
   @override
   Widget build(BuildContext context) {
@@ -86,7 +89,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           textCancel: "Tidak",
                           confirmTextColor: Colors.white,
                           contentPadding: const EdgeInsets.all(25),
-                          onConfirm: () {
+                          onConfirm: () async {
+                            final SharedPreferences? prefs = await _prefs;
+                            prefs?.clear();
                             Get.offAll(const LoginPage());
                           },
                         );

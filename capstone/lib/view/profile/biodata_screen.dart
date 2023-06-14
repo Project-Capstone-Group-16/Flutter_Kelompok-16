@@ -14,8 +14,6 @@ class _BiodataPageState extends State<BiodataPage> {
   String? dropdownValue;
 
   final ImagePicker _picker = ImagePicker();
-  List<XFile>? _imageFileList;
-  dynamic _pickImageError;
 
   Future<void> _onImageButtonPressed(ImageSource source) async {
     try {
@@ -24,17 +22,13 @@ class _BiodataPageState extends State<BiodataPage> {
         _setImageFileListFromFile(pickedFile);
       });
     } catch (e) {
-      setState(() {
-        _pickImageError = e;
-      });
+      setState(() {});
     }
   }
 
   void _setImageFileListFromFile(XFile? file) {
     if (file != null) {
-      setState(() {
-        _imageFileList = [file];
-      });
+      setState(() {});
     }
   }
 
