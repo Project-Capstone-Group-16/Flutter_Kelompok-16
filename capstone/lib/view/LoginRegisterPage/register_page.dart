@@ -6,7 +6,7 @@ import 'package:capstone/components/all_button.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/email_textfield.dart';
 import 'package:capstone/components/password_textfield.dart';
-import 'package:capstone/model/controller/auth_controller.dart';
+import 'package:capstone/model/controller/register_controller.dart';
 import 'package:capstone/screen.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -22,10 +22,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
   final FocusNode _confirmPasswordFocus = FocusNode();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
-  final Auth authController = Get.find<Auth>();
+
+  RegisterController registerController = Get.put(RegisterController());
 
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
@@ -169,7 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const SizedBox(height: 4),
                       EmailTextField(
-                        controller: emailController,
+                        controller: registerController.emailController,
                         labelText: 'Masukkan Email Anda',
                         obscureText: false,
                         focusNode: _emailFocus,
@@ -195,7 +193,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const SizedBox(height: 4),
                       PasswordTextField(
-                        controller: passwordController,
+                        controller: registerController.passwordController,
                         labelText: "Masukkan Kata Sandi Anda",
                         obscureText: !_isPasswordVisible,
                         focusNode: _passwordFocus,
@@ -235,14 +233,16 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       const SizedBox(height: 4),
                       PasswordTextField(
-                        controller: confirmPasswordController,
+                        controller:
+                            registerController.confirmPasswordController,
                         labelText: "Masukkan Kembali Kata Sandi Anda",
                         obscureText: !_isConfirmPasswordVisible,
                         focusNode: _confirmPasswordFocus,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Masukkan Ulang Kata Sandi Anda';
-                          } else if (value != passwordController.text) {
+                          } else if (value !=
+                              registerController.passwordController.text) {
                             return 'Password Tidak Sesuai';
                           } else {
                             return null;
@@ -266,19 +266,21 @@ class _RegisterPageState extends State<RegisterPage> {
                       Center(
                         child: AllButton(
                           text: 'Daftar',
-                          onTap: () {
-                            final isValidForm =
-                                _formKey.currentState!.validate();
+                          onTap: () => registerController.registerWithEmail(),
 
-                            if (isValidForm) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const LoginPage(),
-                                ),
-                              );
-                            }
-                          },
+                          // () {
+                          //   final isValidForm =
+                          //       _formKey.currentState!.validate();
+
+                          //   if (isValidForm) {
+                          //     Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //         builder: (context) => const LoginPage(),
+                          //       ),
+                          //     );
+                          //   }
+                          // },
                           backgroundColor: ColorPath.background,
                           textColor: ColorPath.white,
                         ),

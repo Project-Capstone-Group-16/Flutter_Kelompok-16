@@ -64,7 +64,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(15, 55, 0, 0),
+              padding: const EdgeInsets.fromLTRB(15, 55, 0, 0),
               child: const Text(
                 'Explore',
                 style: TextStyle(

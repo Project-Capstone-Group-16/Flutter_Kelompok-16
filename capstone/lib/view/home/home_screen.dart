@@ -1,10 +1,9 @@
-import 'package:capstone/components/color_path.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:capstone/components/color_path.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
