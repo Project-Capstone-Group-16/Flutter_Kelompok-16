@@ -41,19 +41,19 @@ class _BiodataPageState extends State<BiodataPage> {
     return Container(
       height: 100.0,
       width: 300.0,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 20,
       ),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Pilih Foto Profil Anda',
             style: TextStyle(
               fontSize: 20.0,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -63,17 +63,17 @@ class _BiodataPageState extends State<BiodataPage> {
                 onPressed: () {
                   _onImageButtonPressed(ImageSource.camera);
                 },
-                icon: Icon(Icons.camera),
+                icon: const Icon(Icons.camera),
               ),
-              Text('Camera'),
-              SizedBox(width: 50),
+              const Text('Camera'),
+              const SizedBox(width: 50),
               IconButton(
                 onPressed: () {
                   _onImageButtonPressed(ImageSource.gallery);
                 },
-                icon: Icon(Icons.image),
+                icon: const Icon(Icons.image),
               ),
-              Text('Galeri'),
+              const Text('Galeri'),
             ],
           )
         ],
@@ -93,9 +93,9 @@ class _BiodataPageState extends State<BiodataPage> {
             children: [
               Expanded(
                   child: ListView(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 children: [
-                  Text(
+                  const Text(
                     'Biodata',
                     style: TextStyle(
                       fontSize: 20,
@@ -104,10 +104,10 @@ class _BiodataPageState extends State<BiodataPage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Stack(
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           CircleAvatar(
                             radius: 35.0,
@@ -136,7 +136,7 @@ class _BiodataPageState extends State<BiodataPage> {
                               borderRadius: BorderRadius.circular(100),
                               color: ColorPath.background),
                           child: IconButton(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.camera_alt,
                               color: ColorPath.black,
                               size: 16,
@@ -151,10 +151,10 @@ class _BiodataPageState extends State<BiodataPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Column(
                     children: [
-                      Align(
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Nama Depan',
@@ -165,13 +165,13 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 350,
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Masukkan Nama Depan',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                               color: ColorPath.hinttext,
@@ -184,8 +184,8 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Align(
+                      const SizedBox(height: 10),
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Nama Belakang',
@@ -196,13 +196,13 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 350,
                         child: TextFormField(
                           decoration: InputDecoration(
                             hintText: 'Masukkan Nama Belakang',
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                               color: ColorPath.hinttext,
@@ -215,8 +215,8 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Align(
+                      const SizedBox(height: 10),
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Jenis Kelamin',
@@ -227,7 +227,7 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 350,
                         height: 50,
@@ -249,7 +249,7 @@ class _BiodataPageState extends State<BiodataPage> {
                               dropdownValue = newValue;
                             });
                           },
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             contentPadding: EdgeInsets.symmetric(
                                 horizontal: 16, vertical: 10),
                             enabledBorder: InputBorder.none,
@@ -263,8 +263,8 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Align(
+                      const SizedBox(height: 10),
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Tanggal Lahir',
@@ -275,7 +275,7 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Container(
@@ -290,7 +290,7 @@ class _BiodataPageState extends State<BiodataPage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 30),
+                          const SizedBox(width: 30),
                           Container(
                             width: 75,
                             child: TextFormField(
@@ -303,7 +303,7 @@ class _BiodataPageState extends State<BiodataPage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 30),
+                          const SizedBox(width: 30),
                           Container(
                             width: 140,
                             child: TextFormField(
@@ -318,8 +318,8 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
-                      Align(
+                      const SizedBox(height: 10),
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'No Telepon',
@@ -330,7 +330,7 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Row(
                         children: [
                           Container(
@@ -338,11 +338,11 @@ class _BiodataPageState extends State<BiodataPage> {
                             height: 50,
                             decoration: BoxDecoration(
                               border: Border.all(color: Colors.grey, width: 1),
-                              color: Color(0xFFEEF9F7),
+                              color: const Color(0xFFEEF9F7),
                               borderRadius: BorderRadius.circular(8),
                               shape: BoxShape.rectangle,
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: AlignmentDirectional(0, 0),
                               child: Text(
                                 '+62',
@@ -353,7 +353,7 @@ class _BiodataPageState extends State<BiodataPage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 30),
+                          const SizedBox(width: 30),
                           Container(
                             width: 240,
                             child: TextFormField(
@@ -368,8 +368,8 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
-                      Align(
+                      const SizedBox(height: 10),
+                      const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           'Alamat',
@@ -380,13 +380,13 @@ class _BiodataPageState extends State<BiodataPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         width: 350,
                         child: TextFormField(
                           decoration: InputDecoration(
                               hintText: 'Masukkan Lokasi',
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: ColorPath.hinttext,
@@ -396,13 +396,13 @@ class _BiodataPageState extends State<BiodataPage> {
                               ),
                               contentPadding:
                                   const EdgeInsets.symmetric(horizontal: 16.0),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.place,
                                 color: Color(0xFF02B3FF),
                               )),
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       Container(
                         width: 150,
                         height: 50,
@@ -412,7 +412,7 @@ class _BiodataPageState extends State<BiodataPage> {
                           borderRadius: BorderRadius.circular(15),
                           shape: BoxShape.rectangle,
                         ),
-                        child: Align(
+                        child: const Align(
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'Tambah',
@@ -438,7 +438,7 @@ class _BiodataPageState extends State<BiodataPage> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios,
                 size: 24,
               ),
