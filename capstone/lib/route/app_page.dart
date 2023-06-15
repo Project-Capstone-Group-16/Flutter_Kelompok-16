@@ -1,5 +1,7 @@
 import 'package:capstone/view/profile/faq_screen.dart';
 import 'package:capstone/view/profile/profile.dart';
+import 'package:capstone/view/cariLoker/cariloker.dart';
+import 'package:capstone/view/cariLoker/deskripsi_loker.dart';
 import 'package:get/get.dart';
 import 'app_route.dart';
 
@@ -82,6 +84,10 @@ class AppPage {
     GetPage(
       name: AppRoute.metode_pembayaran_screen,
       page: () => const MetodePembayaranScreen(),
+    ),
+    GetPage(
+      name: AppRoute.deskripsi_loker,
+      page: () => const DeskripsiLoker(),
     ),
   ];
 }

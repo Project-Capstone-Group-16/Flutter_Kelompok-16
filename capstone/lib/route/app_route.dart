@@ -28,4 +28,5 @@ class AppRoute {
   static const String estimasi_biaya_screen = '/27';
   static const String ringkasan_pemesanan_page = '/28';
   static const String metode_pembayaran_screen = '/29';
+  static const String deskripsi_loker = '/30';
 }
