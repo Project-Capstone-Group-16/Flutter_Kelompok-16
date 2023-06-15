@@ -2,8 +2,14 @@ import 'package:capstone/components/all_button.dart';
 import 'package:flutter/material.dart';
 import '../../components/color_path.dart';
 
+import 'package:get/get.dart';
+
+import 'package:capstone/model/controller/selectedLokerImage_controller.dart';
+import 'package:capstone/model/controller/cariloker_controller.dart';
+
 class DeskripsiLoker extends StatefulWidget {
   const DeskripsiLoker({super.key});
+  
 
   @override
   State<DeskripsiLoker> createState() => _DeskripsiLokerState();
@@ -14,6 +20,12 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
 
   @override
   Widget build(BuildContext context) {
+
+    final cariLokerController= Get.find<CariLokerController>();
+
+    final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
+    final selectedLokerimage=_selectedlokerimagecontroller.selectedLokerImage;
+
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
@@ -22,8 +34,9 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+
+                const Text(
                   'Loker',
                   style: TextStyle(
                     fontSize: 20,
@@ -32,20 +45,33 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 10),
+                
+                const SizedBox(height: 10),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Stack(
                     alignment: Alignment.bottomRight,
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset(
-                          'assets/images/malangloker.png',
-                          height: 321,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
+                      Container(
+                        width: 500,
+                        height: 350,
+                        decoration: BoxDecoration(
+                      color: ColorPath.primary,
+                      border: Border.all(
+                        color: Colors.black, 
+                        width: 0.8
                         ),
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                        image: DecorationImage(image: NetworkImage(selectedLokerimage.value),
+                        fit: BoxFit.cover
+                        )
+                    ),
                       ),
                       IconButton(
                         onPressed: () {
@@ -62,18 +88,18 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
-                Divider(
+
+                const SizedBox(height: 10),
+                
+                const Divider(
                   color: Colors.grey, // Atur warna divider sesuai kebutuhan
                   thickness: 1, // Atur ketebalan divider sesuai kebutuhan
                   indent: 20, // Atur jarak inden dari sebelah kiri
                   endIndent: 20, // Atur jarak inden dari sebelah kanan
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+
+                const Padding(
+                  padding: EdgeInsets.only(left:30, right: 10),
                   child: Text(
                     'Alamat',
                     style: TextStyle(
@@ -83,37 +109,37 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
-                Padding(
+
+                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     'Jl AAnkara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: ColorPath.alamat,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Divider(
+
+                const SizedBox(height: 10),
+
+                const Divider(
                   color: Colors.grey, // Atur warna divider sesuai kebutuhan
                   thickness: 1, // Atur ketebalan divider sesuai kebutuhan
                   indent: 20, // Atur jarak inden dari sebelah kiri
                   endIndent: 20, // Atur jarak inden dari sebelah kanan
                 ),
-                SizedBox(height: 10),
-                Divider(
+
+                const SizedBox(height: 10),
+
+                const Divider(
                   color: Colors.grey, // Atur warna divider sesuai kebutuhan
                   thickness: 1, // Atur ketebalan divider sesuai kebutuhan
                   indent: 20, // Atur jarak inden dari sebelah kiri
                   endIndent: 20, // Atur jarak inden dari sebelah kanan
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
@@ -125,22 +151,24 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 5,
-                ),
+
+                const SizedBox(height: 5),
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     'Jl Ankara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 12,
                       color: ColorPath.alamat,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Divider(
+
+                const SizedBox(height: 10),
+
+                const Divider(
                   color: Colors.grey, // Atur warna divider sesuai kebutuhan
                   thickness: 1, // Atur ketebalan divider sesuai kebutuhan
                   indent: 20, // Atur jarak inden dari sebelah kiri
@@ -148,6 +176,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                 ),
               ],
             ),
+            
             Positioned(
                 bottom: 100,
                 left: 100,

@@ -29,13 +29,15 @@ class CariLokerController extends GetxController{
 class Lokasi {
   final String lokasiLoker;
   final String image;
+  final String alamat;
 
-  Lokasi ({required this.lokasiLoker, required this.image});
+  Lokasi ({required this.lokasiLoker, required this.image, required this.alamat});
 
   factory Lokasi.fromJson (Map<String,dynamic>json){
     return Lokasi(
       lokasiLoker: json['lokasiLoker'],
       image: json['image'],
+      alamat: json['alamat']
     );
   }
 }

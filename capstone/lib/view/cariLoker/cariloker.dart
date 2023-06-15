@@ -3,6 +3,7 @@ import 'package:capstone/view/cariLoker/deskripsi_loker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/model/controller/cariloker_controller.dart';
+import 'package:capstone/model/controller/selectedLokerImage_controller.dart';
 
 import '../../components/color_path.dart';
 
@@ -19,20 +20,21 @@ class CariLoker extends StatefulWidget {
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
   String selectedLokerImage = '';
-  CariLokerController carilokercontroller= Get.put(CariLokerController());
+  CariLokerController carilokercontroller= Get.find<CariLokerController>();
   RxList<String> locationList = <String>[].obs;
   RxMap<String, String> locationImages =<String,String>{}.obs;
 
-  
+  void addSelectedLokerImage(String selectedLokerImage){
+    final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
+    _selectedlokerimagecontroller.addSelectedLokerImage(selectedLokerImage);
+  }
 
   
 
   @override
   void initState() {
     super.initState();
-    carilokercontroller=Get.put(CariLokerController());
     carilokercontroller.fetchData();
-    
   }
 
   @override
@@ -165,6 +167,7 @@ class _CariLokerState extends State<CariLoker> {
                       const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
+                          addSelectedLokerImage(selectedLokerImage);
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DeskripsiLoker(),
                           ));
