@@ -89,7 +89,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
-                    'Jl Ankara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
+                    'Jl AAnkara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
                     style: TextStyle(
                       fontSize: 10,
                       color: ColorPath.alamat,
