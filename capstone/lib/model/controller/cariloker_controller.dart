@@ -5,6 +5,7 @@ import 'dart:convert';
 class CariLokerController extends GetxController{
   RxList <String> locationList=<String>[].obs;
   RxMap<String,String> locationImages=<String,String>{}.obs;
+  RxMap<String,String> locationAddresses=<String,String>{}.obs;
 
   Future <void> fetchData()async{
     try{
@@ -17,6 +18,7 @@ class CariLokerController extends GetxController{
         List<Lokasi>.from(data['Lokasi'].map((x)=>Lokasi.fromJson(x)));
          locationList.assignAll(locations.map((x) => x.lokasiLoker));
         locations.forEach((x) => locationImages[x.lokasiLoker] = x.image);
+        locations.forEach((x) => locationAddresses[x.lokasiLoker] = x.alamat);
       } else{
         throw Exception('Failed to load data');
       }
