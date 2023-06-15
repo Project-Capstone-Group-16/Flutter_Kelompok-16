@@ -17,14 +17,19 @@ class DeskripsiLoker extends StatefulWidget {
 
 class _DeskripsiLokerState extends State<DeskripsiLoker> {
   bool isFavorite = false;
+  final carilokercontroller= Get.find<CariLokerController>();
+  @override
+    void initState() {
+    super.initState();
+    carilokercontroller.fetchData();
+    }
 
   @override
   Widget build(BuildContext context) {
-
-    final cariLokerController= Get.find<CariLokerController>();
-
     final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
-    final selectedLokerimage=_selectedlokerimagecontroller.selectedLokerImage;
+    final selectedLokerImage=_selectedlokerimagecontroller.selectedLokerImage;
+    final locationAddress = carilokercontroller.locationAddresses[selectedLokerImage.value] ?? 'kosong';
+
 
     return Scaffold(
       backgroundColor: ColorPath.primary,
@@ -68,7 +73,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                           topRight: Radius.circular(10),
                           bottomRight: Radius.circular(10),
                         ),
-                        image: DecorationImage(image: NetworkImage(selectedLokerimage.value),
+                        image: DecorationImage(image: NetworkImage(selectedLokerImage.value),
                         fit: BoxFit.cover
                         )
                     ),
@@ -110,17 +115,26 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                   ),
                 ),
 
-                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Text(
-                    'Jl AAnkara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: ColorPath.alamat,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                 Obx(
+                  () {
+                    if (carilokercontroller.locationAddresses.isNotEmpty) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: Text(
+                          locationAddress,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: ColorPath.alamat,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      );
+                    } else {
+                      return const CircularProgressIndicator();
+                    }
+                  },
                 ),
+
 
                 const SizedBox(height: 10),
 
