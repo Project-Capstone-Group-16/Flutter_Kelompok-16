@@ -1,13 +1,13 @@
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/view/cariLoker/deskripsi_loker.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:capstone/model/controller/lokasi_loker_response.dart';
+
+import 'package:capstone/model/controller/cariloker_controller.dart';
 
 import '../../components/color_path.dart';
 
-import 'package:capstone/screen.dart';
+import 'package:get/get.dart';
+
 
 class CariLoker extends StatefulWidget {
   const CariLoker({Key? key}) : super(key: key);
@@ -18,39 +18,21 @@ class CariLoker extends StatefulWidget {
 
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
-  List<String> locationList = [];
-  Map<String, String> locationImages = {};
-
   String selectedLokerImage = '';
+  CariLokerController carilokercontroller= Get.put(CariLokerController());
+  RxList<String> locationList = <String>[].obs;
+  RxMap<String, String> locationImages =<String,String>{}.obs;
 
-  Future<void> fetchData() async {
-    try {
-      final response = await http.get(Uri.parse(
-          'https://my-json-server.typicode.com/alfianadis/mockapi/db'));
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body);
-        final List<Lokasi> locations =
-            List<Lokasi>.from(data['Lokasi'].map((x) => Lokasi.fromJson(x)));
-        locations.forEach((x) => locationList.add(x.lokasiLoker));
-        locations.forEach((x) => locationImages[x.lokasiLoker] = x.image);
-//
-        setState(() {
-          locationList = locationList;
+  
 
-          locationImages = locationImages;
-        });
-      } else {
-        throw Exception('Failed to load data');
-      }
-    } catch (e) {
-      throw Exception('Failed to connect to the server');
-    }
-  }
+  
 
   @override
   void initState() {
     super.initState();
-    fetchData();
+    carilokercontroller=Get.put(CariLokerController());
+    carilokercontroller.fetchData();
+    
   }
 
   @override
@@ -133,7 +115,7 @@ class _CariLokerState extends State<CariLoker> {
                             ),
                             image: selectedLokerImage.isNotEmpty
                                 ? DecorationImage(
-                                    image: NetworkImage(selectedLokerImage),
+                                    image: NetworkImage(carilokercontroller.locationImages[dropdownValue!]??''),
                                     fit: BoxFit.cover)
                                 : const DecorationImage(
                                     image: AssetImage(
@@ -141,52 +123,50 @@ class _CariLokerState extends State<CariLoker> {
                                     fit: BoxFit.contain)),
                       ),
                       const SizedBox(height: 50),
-                      Align(
-                        alignment: const AlignmentDirectional(0.05, -0.82),
-                        child: Container(
-                          width: 280,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey, width: 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: DropdownButtonFormField<String>(
-                            value: dropdownValue,
-                            items: <String>[
-                              'Malang',
-                              'Semarang',
-                              'Surabaya',
-                              'Bandung',
-                              'Jakarta'
-                            ].map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                dropdownValue = newValue;
-                                selectedLokerImage =
-                                    locationImages[newValue!] ?? '';
-                              });
-                            },
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 10),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              hintText: 'Pilih Daerah',
+                      Obx((){
+                        return Align(
+                          alignment: const AlignmentDirectional(0.05, -0.82),
+                          child: Container(
+                            width: 280,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.grey, width: 1),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                          ),
-                        ),
+                            child: 
+                            DropdownButtonFormField<String>(
+                              value: dropdownValue,
+                              items: carilokercontroller.locationList.map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue;
+                                  selectedLokerImage =
+                                      carilokercontroller.locationImages[newValue!] ?? '';
+                                });
+                              },
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 10),
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                hintText: 'Pilih Daerah',
+                              ),
+                            ),
+                          )
+                        );
+                      }
                       ),
                       const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const RingkasanPemesananPage(),
+                            builder: (context) => const DeskripsiLoker(),
                           ));
                         },
                         text: 'Lanjut',
