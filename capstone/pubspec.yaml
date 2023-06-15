@@ -37,13 +37,14 @@ dependencies:
   google_maps_flutter: ^2.2.8
   google_nav_bar: ^5.0.6
   http: ^0.13.0
+  image_picker: ^0.8.7+5
   intl: ^0.18.1
   introduction_screen: ^3.1.8
   line_icons: ^2.0.1
   percent_indicator: ^4.2.3
   pin_code_fields: ^7.4.0
   pinput: ^2.2.31
-  shared_preferences: ^2.1.1
+  shared_preferences: ^2.1.2
   smooth_page_indicator: ^1.1.0
   table_calendar: ^3.0.9
   image_picker: ^0.8.7+5

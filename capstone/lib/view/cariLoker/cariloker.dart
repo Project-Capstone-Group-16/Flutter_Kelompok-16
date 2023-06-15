@@ -7,6 +7,8 @@ import 'package:capstone/model/controller/lokasi_loker_response.dart';
 
 import '../../components/color_path.dart';
 
+import 'package:capstone/screen.dart';
+
 class CariLoker extends StatefulWidget {
   const CariLoker({Key? key}) : super(key: key);
 
@@ -136,65 +138,69 @@ class _CariLokerState extends State<CariLoker> {
                                 : const DecorationImage(
                                     image: AssetImage(
                                         'assets/images/emptycategoryscreen.png'),
-                                    fit: BoxFit.contain),
+                                    fit: BoxFit.contain)),
+                      ),
+                      const SizedBox(height: 50),
+                      Align(
+                        alignment: const AlignmentDirectional(0.05, -0.82),
+                        child: Container(
+                          width: 280,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border: Border.all(color: Colors.grey, width: 1),
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: DropdownButtonFormField<String>(
+                            value: dropdownValue,
+                            items: <String>[
+                              'Malang',
+                              'Semarang',
+                              'Surabaya',
+                              'Bandung',
+                              'Jakarta'
+                            ].map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                                selectedLokerImage =
+                                    locationImages[newValue!] ?? '';
+                              });
+                            },
+                            decoration: const InputDecoration(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 10),
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              hintText: 'Pilih Daerah',
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 50),
-                        Align(
-                          alignment: const AlignmentDirectional(0.05, -0.82),
-                          child: Container(
-                            width: 280,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: DropdownButtonFormField<String>(
-                              value: dropdownValue,
-                              items: locationList.map((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownValue = newValue;
-                                  selectedLokerImage =
-                                      locationImages[newValue!] ?? '';
-                                });
-                              },
-                              decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 10),
-                                enabledBorder: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                hintText: 'Pilih Daerah',
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 50),
-                        AllButton(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const DeskripsiLoker(),
-                            ));
-                          },
-                          text: 'Lanjut',
-                          backgroundColor: ColorPath.background,
-                          textColor: ColorPath.white,
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-      ),
+                      ),
+                      const SizedBox(height: 50),
+                      AllButton(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const RingkasanPemesananPage(),
+                          ));
+                        },
+                        text: 'Lanjut',
+                        backgroundColor: ColorPath.background,
+                        textColor: ColorPath.white,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          )
+        ],
+      )),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/model/controller/category_controller.dart';
 import'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
 
 
 class RingkasanPemesananPage extends StatefulWidget {
@@ -284,6 +285,11 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                           padding: const EdgeInsets.only(left:100, top:710),
                           child: AllButton(
                           onTap: () {
+                            Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const MetodePembayaranScreen()));
                           },
                           text: 'Lanjut',
                           backgroundColor: ColorPath.background,

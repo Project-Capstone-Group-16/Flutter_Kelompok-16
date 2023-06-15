@@ -1,3 +1,5 @@
+import 'package:capstone/view/profile/faq_screen.dart';
+import 'package:capstone/view/profile/profile.dart';
 import 'package:capstone/view/cariLoker/cariloker.dart';
 import 'package:capstone/view/cariLoker/deskripsi_loker.dart';
 import 'package:get/get.dart';
@@ -40,6 +42,26 @@ class AppPage {
       page: () => const ExploreScreen(),
     ),
     GetPage(
+      name: AppRoute.profile_screen,
+      page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      name: AppRoute.biodata_screen,
+      page: () => const BiodataPage(),
+    ),
+    GetPage(
+      name: AppRoute.histori_pesanan_screen,
+      page: () => const Histori_Pesanan(),
+    ),
+    GetPage(
+      name: AppRoute.pilih_bahasa_screen,
+      page: () => const Pilih_bahasa(),
+    ),
+    GetPage(
+      name: AppRoute.faq_screen,
+      page: () => const Faq_Page(),
+    ),
+    GetPage(
       name: AppRoute.cariloker_screen,
       page: () => const CariLoker(),
     ),
@@ -58,6 +80,10 @@ class AppPage {
     GetPage(
       name: AppRoute.ringkasan_pemesanan_page,
       page: () => const RingkasanPemesananPage(),
+    ),
+    GetPage(
+      name: AppRoute.metode_pembayaran_screen,
+      page: () => const MetodePembayaranScreen(),
     ),
     GetPage(
       name: AppRoute.deskripsi_loker,

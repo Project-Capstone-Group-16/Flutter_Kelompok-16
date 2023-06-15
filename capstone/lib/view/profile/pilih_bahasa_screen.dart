@@ -14,12 +14,12 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
 
   List<Map<String, dynamic>> languages = [
     {
-      'name': 'English (US)',
-      'flag': 'assets/images/amerika.png',
-    },
-    {
       'name': 'Indonesia',
       'flag': 'assets/images/indonesia.png',
+    },
+    {
+      'name': 'English (US)',
+      'flag': 'assets/images/amerika.png',
     },
     {
       'name': 'English (UK)',
@@ -60,10 +60,9 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
     return Scaffold(
       backgroundColor: ColorPath.background2,
       body: SafeArea(
-        top: true,
         child: Stack(
           children: [
-            Align(
+            const Align(
               alignment: AlignmentDirectional(0, -0.96),
               child: Text(
                 'Bahasa',
@@ -75,12 +74,12 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.9, -0.99),
+              alignment: const AlignmentDirectional(-0.9, -0.99),
               child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   size: 24,
                 ),
@@ -88,7 +87,7 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
               ),
             ),
             ListView.builder(
-              padding: EdgeInsets.only(top: 65),
+              padding: const EdgeInsets.only(top: 65),
               itemCount: languages.length,
               itemBuilder: (context, index) {
                 final language = languages[index];
@@ -108,10 +107,10 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
                         width: 45,
                         height: 29,
                       ),
-                      SizedBox(width: 40),
+                      const SizedBox(width: 40),
                       Text(
                         language['name'],
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
