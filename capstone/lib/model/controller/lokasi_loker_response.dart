@@ -2,6 +2,7 @@
 //
 //     final lokasiLokerResponse = lokasiLokerResponseFromJson(jsonString);
 
+
 import 'dart:convert';
 
 LokasiLokerResponse lokasiLokerResponseFromJson(String str) =>
