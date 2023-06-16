@@ -1,10 +1,11 @@
+import 'package:capstone/model/controller/lokerlocation_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'route/app_page.dart';
 import 'route/app_route.dart';
 
 import 'package:capstone/model/controller/category_controller.dart';
-import 'package:capstone/model/controller/selectedLokerImage_controller.dart';
+import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
 import 'model/controller/cariloker_controller.dart';
 
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         Get.put<CategoryController>(CategoryController());
         Get.put<SelectedLokerImage>(SelectedLokerImage());
         Get.put<CariLokerController>(CariLokerController());
+        Get.put<SelectedLokerAddress>(SelectedLokerAddress());
       }),
       theme: ThemeData(
         primarySwatch: Colors.blue,

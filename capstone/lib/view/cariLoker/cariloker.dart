@@ -3,7 +3,7 @@ import 'package:capstone/view/cariLoker/deskripsi_loker.dart';
 import 'package:flutter/material.dart';
 
 import 'package:capstone/model/controller/cariloker_controller.dart';
-import 'package:capstone/model/controller/selectedLokerImage_controller.dart';
+import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
 
 import '../../components/color_path.dart';
 
@@ -20,13 +20,14 @@ class CariLoker extends StatefulWidget {
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
   String selectedLokerImage = '';
+  // String selectedLokerAddress='';
   CariLokerController carilokercontroller= Get.find<CariLokerController>();
   RxList<String> locationList = <String>[].obs;
   RxMap<String, String> locationImages =<String,String>{}.obs;
 
-  void addSelectedLokerImage(String selectedLokerImage){
-    final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
-    _selectedlokerimagecontroller.addSelectedLokerImage(selectedLokerImage);
+  void addSelectedLoker(String selectedLokerImage, String selectedLokerAddress, String selectedLokerDescription){
+    final _selectedlokercontroller=Get.find<SelectedLokerImage>();
+    _selectedlokercontroller.addSelectedLokerImage(selectedLokerImage, selectedLokerAddress, selectedLokerDescription);
   }
 
   
@@ -44,6 +45,34 @@ class _CariLokerState extends State<CariLoker> {
       body: SafeArea(
         child: Stack(
           children: [
+            Stack(
+                        children:[
+                           Obx(() {
+                          final selectedLokerAddress = carilokercontroller
+                              .locationAddresses[dropdownValue ?? ''];
+                          return Text(
+                            selectedLokerAddress ?? '',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.transparent,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          );
+                        }),
+                        Obx(() {
+                        final selectedLokerDescription = carilokercontroller
+                            .locationDescription[dropdownValue ?? ''];
+                        return Text(
+                          selectedLokerDescription ?? '',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.transparent,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        );
+                      }),
+                        ]
+                      ),
             Row(
               children: [
                 Positioned(
@@ -125,6 +154,8 @@ class _CariLokerState extends State<CariLoker> {
                                     fit: BoxFit.contain)),
                       ),
                       const SizedBox(height: 50),
+
+
                       Obx((){
                         return Align(
                           alignment: const AlignmentDirectional(0.05, -0.82),
@@ -167,7 +198,9 @@ class _CariLokerState extends State<CariLoker> {
                       const SizedBox(height: 50),
                       AllButton(
                         onTap: () {
-                          addSelectedLokerImage(selectedLokerImage);
+                          final selectedLokerAddress = carilokercontroller.locationAddresses[dropdownValue ?? ''];
+                          final selectedLokerDescription = carilokercontroller.locationDescription[dropdownValue ?? ''];
+                          addSelectedLoker(selectedLokerImage, selectedLokerAddress??'', selectedLokerDescription??'');
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const DeskripsiLoker(),
                           ));

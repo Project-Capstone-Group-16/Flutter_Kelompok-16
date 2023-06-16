@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/model/controller/category_controller.dart';
+import 'package:capstone/model/controller/lokerlocation_controller.dart';
 import'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
 
@@ -20,7 +21,9 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
   Widget build(BuildContext context) {
 
     final _categoryController=Get.find<CategoryController>();
+    final alamatLokerController=Get.find<SelectedLokerAddress>();
     final selectedCategoryImage=_categoryController.selectedCategoryImage;
+    final selectedLokerAddress=alamatLokerController.selectedLokerAddress.value;
     
     return Scaffold(
       backgroundColor: ColorPath.primary,
@@ -114,6 +117,12 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                                 topRight: Radius.circular(10),
                                 bottomRight: Radius.circular(10),
                               )
+                            ),
+
+                            child: Center(
+                              child: Text(
+                                selectedLokerAddress
+                                ),
                             ),
                           ),
                         ),
