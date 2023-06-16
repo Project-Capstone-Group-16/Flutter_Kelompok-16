@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
 import 'package:capstone/model/controller/cariloker_controller.dart';
+import 'package:capstone/model/controller/lokerlocation_controller.dart';
 
 class DeskripsiLoker extends StatefulWidget {
   const DeskripsiLoker({super.key});
@@ -32,7 +33,12 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
     final _selectedlokerdescriptioncontroller=Get.find<SelectedLokerImage>();
     final selectedLokerImage= _selectedlokerimagecontroller.selectedLokerImage.value;
     final selectedLokerAddress= _selectedlokeraddresscontroller.selectedLokerAddress.value;
-    final selectedLokerDescription= _selectedlokerdescriptioncontroller.selectedLokerDescription.value;
+    final selectedLokerDescription= _selectedlokerdescriptioncontroller.selectedLokerDescription.value;    
+
+    void addSelectedLokerAddress(String selectedLokerAddress){
+      final alamatLokerController=Get.find<SelectedLokerAddress>();
+      alamatLokerController.addSelectedLokerAddress(selectedLokerAddress);
+    }
 
     return Scaffold(
       backgroundColor: ColorPath.primary,
@@ -190,6 +196,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                 left: 100,
                 child: AllButton(
                     onTap: () {
+                      addSelectedLokerAddress(selectedLokerAddress);
                       Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const DurasiPenitipan(),
                       ));
