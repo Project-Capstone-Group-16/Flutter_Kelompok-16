@@ -1,10 +1,11 @@
 import 'package:capstone/components/all_button.dart';
+import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
 import '../../components/color_path.dart';
 
 import 'package:get/get.dart';
 
-import 'package:capstone/model/controller/selectedLokerImage_controller.dart';
+import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
 import 'package:capstone/model/controller/cariloker_controller.dart';
 
 class DeskripsiLoker extends StatefulWidget {
@@ -27,9 +28,11 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
   @override
   Widget build(BuildContext context) {
     final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
-    final selectedLokerImage=_selectedlokerimagecontroller.selectedLokerImage;
-    final locationAddress = carilokercontroller.locationAddresses[selectedLokerImage.value] ?? 'kosong';
-
+    final _selectedlokeraddresscontroller=Get.find<SelectedLokerImage>();
+    final _selectedlokerdescriptioncontroller=Get.find<SelectedLokerImage>();
+    final selectedLokerImage= _selectedlokerimagecontroller.selectedLokerImage.value;
+    final selectedLokerAddress= _selectedlokeraddresscontroller.selectedLokerAddress.value;
+    final selectedLokerDescription= _selectedlokerdescriptioncontroller.selectedLokerDescription.value;
 
     return Scaffold(
       backgroundColor: ColorPath.primary,
@@ -73,7 +76,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                           topRight: Radius.circular(10),
                           bottomRight: Radius.circular(10),
                         ),
-                        image: DecorationImage(image: NetworkImage(selectedLokerImage.value),
+                        image: DecorationImage(image: NetworkImage(selectedLokerImage),
                         fit: BoxFit.cover
                         )
                     ),
@@ -97,10 +100,10 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                 const SizedBox(height: 10),
                 
                 const Divider(
-                  color: Colors.grey, // Atur warna divider sesuai kebutuhan
-                  thickness: 1, // Atur ketebalan divider sesuai kebutuhan
-                  indent: 20, // Atur jarak inden dari sebelah kiri
-                  endIndent: 20, // Atur jarak inden dari sebelah kanan
+                  color: Colors.grey,
+                  thickness: 1, 
+                  indent: 20, 
+                  endIndent: 20, 
                 ),
 
                 const Padding(
@@ -115,47 +118,38 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                   ),
                 ),
 
-                 Obx(
-                  () {
-                    if (carilokercontroller.locationAddresses.isNotEmpty) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: Text(
-                          locationAddress,
-                          style: const TextStyle(
-                            fontSize: 12,
-                            color: ColorPath.alamat,
-                            fontWeight: FontWeight.w400,
-                          ),
+                      Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: Text(
+                        selectedLokerAddress,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: ColorPath.alamat,
+                          fontWeight: FontWeight.w400,
                         ),
-                      );
-                    } else {
-                      return const CircularProgressIndicator();
-                    }
-                  },
-                ),
-
+                      ),
+                    ),
 
                 const SizedBox(height: 10),
 
                 const Divider(
-                  color: Colors.grey, // Atur warna divider sesuai kebutuhan
-                  thickness: 1, // Atur ketebalan divider sesuai kebutuhan
-                  indent: 20, // Atur jarak inden dari sebelah kiri
-                  endIndent: 20, // Atur jarak inden dari sebelah kanan
+                  color: Colors.grey, 
+                  thickness: 1, 
+                  indent: 20, 
+                  endIndent: 20, 
                 ),
 
                 const SizedBox(height: 10),
 
                 const Divider(
-                  color: Colors.grey, // Atur warna divider sesuai kebutuhan
-                  thickness: 1, // Atur ketebalan divider sesuai kebutuhan
-                  indent: 20, // Atur jarak inden dari sebelah kiri
-                  endIndent: 20, // Atur jarak inden dari sebelah kanan
+                  color: Colors.grey, 
+                  thickness: 1, 
+                  indent: 20, 
+                  endIndent: 20, 
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     'Deskripsi ',
                     style: TextStyle(
@@ -168,10 +162,10 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
 
                 const SizedBox(height: 5),
 
-                Padding(
+                  Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
-                    'Jl Ankara No 13, Cieumbeulit Wonokromo, Probolinggo Jawa Timur 124599',
+                    selectedLokerDescription,
                     style: TextStyle(
                       fontSize: 12,
                       color: ColorPath.alamat,
@@ -192,10 +186,14 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
             ),
             
             Positioned(
-                bottom: 100,
+                bottom: 50,
                 left: 100,
                 child: AllButton(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const DurasiPenitipan(),
+                      ));
+                    },
                     text: 'Lanjut',
                     backgroundColor: ColorPath.background,
                     textColor: ColorPath.white)),

@@ -1,3 +1,4 @@
+import 'package:capstone/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -60,7 +61,7 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                       icon: const Icon(Icons.arrow_back_ios_new_outlined),
                       color: ColorPath.textcolor1,
                       onPressed: () {
-                        // Aksi ketika tombol kembali ditekan
+                        Navigator.pop(context);
                       },
                     ),
                     const Expanded(
@@ -205,7 +206,11 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                           height: 40.0,
                           //  ElevatedButton 'Lanjut'
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const RingkasanPemesananPage(),
+                          ));
+                            },
                             style: ButtonStyle(
                               backgroundColor: MaterialStateProperty.all<Color>(
                                 elevatedButtonColor,
