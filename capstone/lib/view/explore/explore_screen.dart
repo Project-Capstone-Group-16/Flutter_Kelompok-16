@@ -52,7 +52,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 95),
+                    padding: EdgeInsetsDirectional.only(end: 99),
                   ),
                   IconButton(
                     onPressed: () {},
@@ -64,7 +64,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(15, 55, 0, 0),
+              padding: const EdgeInsets.fromLTRB(18, 55, 0, 0),
               child: const Text(
                 'Explore',
                 style: TextStyle(
@@ -80,7 +80,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.fromLTRB(15, 100, 15, 0),
+              margin: const EdgeInsets.fromLTRB(18, 100, 0, 0),
               width: 358,
               height: 270,
               decoration: const BoxDecoration(
@@ -94,143 +94,118 @@ class _ExploreScreenState extends State<ExploreScreen> {
               ),
               child: Column(
                 children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
                     children: [
-                      Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
-                            child: Text(
-                              'Simpan Barang',
-                              style: TextStyle(
-                                  color: ColorPath.primary,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          )
-                        ],
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          top: 27,
+                        ),
                       ),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(0, 25, 30, 0),
-                            child: Text(
-                              'Pengeluaran',
-                              style: TextStyle(
-                                  color: ColorPath.primary,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          )
-                        ],
+                      Image.asset(
+                        'assets/images/textLogo.png',
                       ),
-                    ],
-                  ),
-                  const Column(
-                    children: [
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(69, 10, 0, 0),
-                            child: Text(
-                              '0',
-                              style: TextStyle(
-                                  color: ColorPath.primary,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600),
-                            ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(19, 45, 0, 0),
+                                child: Container(
+                                  width: 155,
+                                  height: 98,
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: ColorPath.white,
+                                    ),
+                                    borderRadius: const BorderRadius.all(
+                                      Radius.circular(
+                                        20,
+                                      ),
+                                    ),
+                                  ),
+                                  child: const Padding(
+                                    padding: EdgeInsets.fromLTRB(0, 9, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          'Pesanan Aktif',
+                                          style: TextStyle(
+                                            color: ColorPath.white,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsets.fromLTRB(0, 6, 0, 0),
+                                          child: Text(
+                                            '0',
+                                            style: TextStyle(
+                                              color: ColorPath.white,
+                                              fontFamily: 'Poppins',
+                                              fontSize: 40,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(0, 10, 60, 0),
-                            child: Text(
-                              '0',
-                              style: TextStyle(
-                                  color: ColorPath.primary,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.w600),
+                            padding: const EdgeInsets.fromLTRB(9, 45, 0, 0),
+                            child: Container(
+                              width: 155,
+                              height: 98,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: ColorPath.white,
+                                ),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(
+                                    20,
+                                  ),
+                                ),
+                              ),
+                              child: const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 9, 0, 0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      'Total Transaksi',
+                                      style: TextStyle(
+                                        color: ColorPath.white,
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
+                                      child: Text(
+                                        '0',
+                                        style: TextStyle(
+                                          color: ColorPath.white,
+                                          fontFamily: 'Poppins',
+                                          fontSize: 40,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         ],
-                      )
+                      ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 0, horizontal: 35),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Yuk Tambah Barangmu Sekarang!',
-                          style: TextStyle(
-                              fontSize: 13.0,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: ColorPath.primary),
-                        ),
-                        LinearPercentIndicator(
-                          lineHeight: 22,
-                          width: 287,
-                          percent: 0.2,
-                          animation: true,
-                          animationDuration: 1000,
-                          center: const Text(
-                            "20.0%",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: ColorPath.primary,
-                            ),
-                          ),
-                          barRadius: const Radius.circular(12),
-                          backgroundColor: ColorPath.black,
-                          progressColor:
-                              const Color.fromARGB(255, 58, 144, 215),
-                        ),
-                        const SizedBox(
-                          height: 35,
-                        ),
-                        const Text(
-                          'Kapasitas Penyimpanan',
-                          style: TextStyle(
-                              fontSize: 12.0,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: ColorPath.primary),
-                        ),
-                        LinearPercentIndicator(
-                          lineHeight: 22,
-                          width: 287,
-                          percent: 0.6,
-                          animation: true,
-                          animationDuration: 1000,
-                          center: const Text(
-                            "60.0%",
-                            style: TextStyle(
-                              fontSize: 12.0,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w600,
-                              color: ColorPath.primary,
-                            ),
-                          ),
-                          barRadius: const Radius.circular(12),
-                          backgroundColor: ColorPath.black,
-                          progressColor:
-                              const Color.fromARGB(255, 58, 144, 215),
-                        ),
-                      ],
-                    ),
-                  )
                 ],
               ),
             ),
@@ -348,7 +323,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.fromLTRB(20, 500, 20, 0),
+              margin: const EdgeInsets.fromLTRB(19, 500, 0, 0),
               width: 358,
               height: 45,
               decoration: BoxDecoration(
