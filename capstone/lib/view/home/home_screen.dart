@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 95),
+                    padding: EdgeInsetsDirectional.only(end: 99),
                   ),
                   IconButton(
                     onPressed: () {},
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(15, 55, 0, 0),
+              padding: EdgeInsets.fromLTRB(18, 55, 0, 0),
               child: const Text(
                 'Beranda',
                 style: TextStyle(
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.fromLTRB(15, 100, 15, 0),
+              margin: const EdgeInsets.fromLTRB(18, 100, 0, 0),
               width: 358,
               height: 370,
               decoration: const BoxDecoration(
@@ -127,9 +127,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   Column(
                     children: [
                       const Padding(
-                          padding: EdgeInsets.only(
-                        top: 5,
-                      )),
+                        padding: EdgeInsets.only(
+                          top: 5,
+                        ),
+                      ),
                       Image.asset(
                         'assets/images/loker.png',
                       ),
@@ -140,10 +141,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(17, 20, 5, 0),
+                            padding: const EdgeInsets.fromLTRB(19, 20, 0, 0),
                             child: Container(
-                              width: 156,
-                              height: 110,
+                              width: 155,
+                              height: 98,
                               decoration: BoxDecoration(
                                 border: Border.all(
                                   color: ColorPath.white,
@@ -155,10 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 10,
-                                ),
+                                padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
                                 child: Column(
                                   children: [
                                     Text(
@@ -166,22 +164,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                       style: TextStyle(
                                         color: ColorPath.white,
                                         fontFamily: 'Poppins',
-                                        fontSize: 10,
+                                        fontSize: 14,
                                         fontWeight: FontWeight.w700,
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 2,
-                                        vertical: 20,
-                                      ),
+                                      padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
                                       child: Text(
                                         'Kecil (S1)',
                                         style: TextStyle(
                                           color: ColorPath.white,
                                           fontFamily: 'Poppins',
                                           fontSize: 12,
-                                          fontWeight: FontWeight.w600,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     )
@@ -193,10 +188,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 20, 5, 0),
+                        padding: const EdgeInsets.fromLTRB(9, 20, 0, 0),
                         child: Container(
-                          width: 156,
-                          height: 110,
+                          width: 155,
+                          height: 98,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: ColorPath.white,
@@ -208,10 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 18,
-                              vertical: 10,
-                            ),
+                            padding: EdgeInsets.fromLTRB(0, 6, 0, 0),
                             child: Column(
                               children: [
                                 Text(
@@ -219,22 +211,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                   style: TextStyle(
                                     color: ColorPath.white,
                                     fontFamily: 'Poppins',
-                                    fontSize: 10,
+                                    fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 5,
-                                    vertical: 20,
-                                  ),
+                                  padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
                                   child: Text(
                                     '19 - 21 April',
                                     style: TextStyle(
                                       color: ColorPath.white,
                                       fontFamily: 'Poppins',
                                       fontSize: 12,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 )
@@ -246,7 +235,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 20,
                   ),
                   ElevatedButton(
                     onPressed: () {},
@@ -274,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Container(
               alignment: Alignment.center,
-              margin: const EdgeInsets.fromLTRB(20, 500, 20, 0),
+              margin: const EdgeInsets.fromLTRB(19, 500, 0, 0),
               width: 358,
               height: 45,
               decoration: BoxDecoration(
