@@ -1,6 +1,9 @@
-import 'package:capstone/model/controller/category_controller.dart';
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:capstone/model/controller/selectedKategori_controller.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:capstone/model/controller/category_controller.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
@@ -19,11 +22,45 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
   bool isContainer2Active = false;
   bool isContainer3Active = false;
   bool isContainer4Active = false;
-  String selectedCategoryImage = '';
-  String? dropdownValue;
 
-  void addCategoryPic(String selectedimage){
-    final _categoryController=Get.find<CategoryController>();
+  CategoryController categoryController = Get.find<CategoryController>();
+
+  String selectedCategoryImage = '';
+  String selectedCategory = '';
+  String? dropdownValue;
+  List<String> kategoriList = [];
+  RxMap<String, String> kategoriKapasitas = <String, String>{}.obs;
+  RxMap<String, String> kategoriNama = <String, String>{}.obs;
+  RxMap<String, String> kategoriHarga = <String, String>{}.obs;
+
+  Future<List<String>> fetchKategoriList() async {
+    final url = 'http://143.198.92.250:8080/lockertypes';
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      final lockerTypes = data['data'] as List<dynamic>;
+      final kategoriList =
+          lockerTypes.map((type) => type['name'] as String).toList();
+      return kategoriList;
+    } else {
+      throw Exception('Failed to fetch kategori list');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchKategoriList().then((list) {
+      setState(() {
+        kategoriList = list;
+      });
+    }).catchError((error) {
+      print('Error fetching kategori list: $error');
+    });
+  }
+
+  void addCategoryPic(String selectedimage) {
+    final _categoryController = Get.find<CategoryController>();
     _categoryController.addCategoryPic(selectedimage);
   }
 
@@ -102,7 +139,8 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                 isContainer3Active = false;
                                 isContainer4Active = false;
                                 if (isContainer1Active) {
-                                  selectedCategoryImage = 'assets/images/gambartas.jpg';
+                                  selectedCategoryImage =
+                                      'assets/images/gambartas.jpg';
                                 }
                               });
                             },
@@ -240,48 +278,43 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                       ),
                       const SizedBox(height: 20),
                       Align(
-                        alignment: const AlignmentDirectional(0.05, -0.82),
-                        child: Container(
-                          width: 280,
-                          height: 50,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            border: Border.all(color: Colors.grey, width: 1),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: DropdownButtonFormField<String>(
-                            value: dropdownValue,
-                            items: <String>[
-                              'Kecil',
-                              'Sedang',
-                              'Besar',
-                            ].map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                dropdownValue = newValue;
-                              });
-                            },
-                            decoration: const InputDecoration(
-                              contentPadding: EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 10),
-                              enabledBorder: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              hintText: 'Jenis Loker',
+                          alignment: const AlignmentDirectional(0.05, -0.82),
+                          child: Container(
+                            width: 280,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              border: Border.all(color: Colors.grey, width: 1),
+                              borderRadius: BorderRadius.circular(8),
                             ),
-                          ),
-                        ),
-                      ),
+                            child: DropdownButtonFormField<String>(
+                              value: dropdownValue,
+                              items: kategoriList.map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (String? newValue) {
+                                setState(() {
+                                  dropdownValue = newValue;
+                                  selectedCategory = newValue ?? '';
+                                });
+                              },
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 10),
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                hintText: 'Jenis Loker',
+                              ),
+                            ),
+                          )),
                       const SizedBox(height: 70),
                       AllButton(
                         onTap: () {
                           addCategoryPic(selectedCategoryImage);
-                          Navigator.of(context)
-                              .push(MaterialPageRoute(
+                          Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
                         },

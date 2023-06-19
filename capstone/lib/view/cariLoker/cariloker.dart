@@ -9,9 +9,10 @@ import '../../components/color_path.dart';
 
 import 'package:get/get.dart';
 
-
 class CariLoker extends StatefulWidget {
-  const CariLoker({Key? key}) : super(key: key);
+  final String selectedCategory;
+
+  const CariLoker({Key? key, required this.selectedCategory}) : super(key: key);
 
   @override
   State<CariLoker> createState() => _CariLokerState();
@@ -20,17 +21,22 @@ class CariLoker extends StatefulWidget {
 class _CariLokerState extends State<CariLoker> {
   String? dropdownValue;
   String selectedLokerImage = '';
-  // String selectedLokerAddress='';
-  CariLokerController carilokercontroller= Get.find<CariLokerController>();
+  CariLokerController carilokercontroller = Get.find<CariLokerController>();
   RxList<String> locationList = <String>[].obs;
-  RxMap<String, String> locationImages =<String,String>{}.obs;
+  RxMap<String, String> locationImages = <String, String>{}.obs;
 
-  void addSelectedLoker(String selectedLokerImage, String selectedLokerAddress, String selectedLokerDescription){
-    final _selectedlokercontroller=Get.find<SelectedLokerImage>();
-    _selectedlokercontroller.addSelectedLokerImage(selectedLokerImage, selectedLokerAddress, selectedLokerDescription);
+  void addSelectedLoker(
+    String selectedLokerImage,
+    String selectedLokerAddress,
+    String selectedLokerDescription,
+  ) {
+    final _selectedlokercontroller = Get.find<SelectedLokerImage>();
+    _selectedlokercontroller.addSelectedLokerImage(
+      selectedLokerImage,
+      selectedLokerAddress,
+      selectedLokerDescription,
+    );
   }
-
-  
 
   @override
   void initState() {
@@ -46,33 +52,33 @@ class _CariLokerState extends State<CariLoker> {
         child: Stack(
           children: [
             Stack(
-                        children:[
-                           Obx(() {
-                          final selectedLokerAddress = carilokercontroller
-                              .locationAddresses[dropdownValue ?? ''];
-                          return Text(
-                            selectedLokerAddress ?? '',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.transparent,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          );
-                        }),
-                        Obx(() {
-                        final selectedLokerDescription = carilokercontroller
-                            .locationDescription[dropdownValue ?? ''];
-                        return Text(
-                          selectedLokerDescription ?? '',
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.transparent,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        );
-                      }),
-                        ]
-                      ),
+              children: [
+                Obx(() {
+                  final selectedLokerAddress = carilokercontroller
+                      .locationAddresses[dropdownValue ?? ''];
+                  return Text(
+                    selectedLokerAddress ?? '',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.transparent,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  );
+                }),
+                Obx(() {
+                  final selectedLokerDescription = carilokercontroller
+                      .locationDescription[dropdownValue ?? ''];
+                  return Text(
+                    selectedLokerDescription ?? '',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.transparent,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  );
+                }),
+              ],
+            ),
             Row(
               children: [
                 Positioned(
@@ -146,77 +152,96 @@ class _CariLokerState extends State<CariLoker> {
                             ),
                             image: selectedLokerImage.isNotEmpty
                                 ? DecorationImage(
-                                    image: NetworkImage(carilokercontroller.locationImages[dropdownValue!]??''),
-                                    fit: BoxFit.cover)
+                                    image: NetworkImage(carilokercontroller
+                                            .locationImages[dropdownValue!] ??
+                                        ''),
+                                    fit: BoxFit.cover,
+                                  )
                                 : const DecorationImage(
                                     image: AssetImage(
                                         'assets/images/emptycategoryscreen.png'),
-                                    fit: BoxFit.contain)),
-                      ),
-                      const SizedBox(height: 50),
+                                    fit: BoxFit.contain,
+                                  ),
+                          ),
+                        ),
+                        const SizedBox(height: 50),
+                        Obx(() {
+                          final selectedLokerCategory =
+                              carilokercontroller.locationList.firstWhere(
+                            (category) => category == dropdownValue,
+                            orElse: () => '',
+                          );
 
-
-                      Obx((){
-                        return Align(
-                          alignment: const AlignmentDirectional(0.05, -0.82),
-                          child: Container(
-                            width: 280,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: 
-                            DropdownButtonFormField<String>(
-                              value: dropdownValue,
-                              items: carilokercontroller.locationList.map((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                              onChanged: (String? newValue) {
-                                setState(() {
-                                  dropdownValue = newValue;
-                                  selectedLokerImage =
-                                      carilokercontroller.locationImages[newValue!] ?? '';
-                                });
-                              },
-                              decoration: const InputDecoration(
-                                contentPadding: EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 10),
-                                enabledBorder: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                hintText: 'Pilih Daerah',
+                          return Align(
+                            alignment: const AlignmentDirectional(0.05, -0.82),
+                            child: Container(
+                              width: 280,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                border:
+                                    Border.all(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: DropdownButtonFormField<String>(
+                                value: dropdownValue,
+                                items: carilokercontroller.locationList
+                                    .map((String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(value),
+                                  );
+                                }).toList(),
+                                onChanged: (String? newValue) {
+                                  setState(() {
+                                    dropdownValue = newValue;
+                                    selectedLokerImage = carilokercontroller
+                                            .locationImages[newValue!] ??
+                                        '';
+                                  });
+                                },
+                                decoration: const InputDecoration(
+                                  contentPadding: EdgeInsets.symmetric(
+                                      horizontal: 16, vertical: 10),
+                                  enabledBorder: InputBorder.none,
+                                  focusedBorder: InputBorder.none,
+                                  hintText: 'Pilih Daerah',
+                                ),
                               ),
                             ),
-                          )
-                        );
-                      }
-                      ),
-                      const SizedBox(height: 50),
-                      AllButton(
-                        onTap: () {
-                          final selectedLokerAddress = carilokercontroller.locationAddresses[dropdownValue ?? ''];
-                          final selectedLokerDescription = carilokercontroller.locationDescription[dropdownValue ?? ''];
-                          addSelectedLoker(selectedLokerImage, selectedLokerAddress??'', selectedLokerDescription??'');
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const DeskripsiLoker(),
-                          ));
-                        },
-                        text: 'Lanjut',
-                        backgroundColor: ColorPath.background,
-                        textColor: ColorPath.white,
-                      ),
-                    ],
+                          );
+                        }),
+                        const SizedBox(height: 50),
+                        AllButton(
+                          onTap: () {
+                            final selectedLokerAddress = carilokercontroller
+                                .locationAddresses[dropdownValue ?? ''];
+                            final selectedLokerDescription = carilokercontroller
+                                .locationDescription[dropdownValue ?? ''];
+                            addSelectedLoker(
+                              selectedLokerImage,
+                              selectedLokerAddress ?? '',
+                              selectedLokerDescription ?? '',
+                            );
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const DeskripsiLoker(),
+                              ),
+                            );
+                          },
+                          text: 'Lanjut',
+                          backgroundColor: ColorPath.background,
+                          textColor: ColorPath.white,
+                        ),
+                      ],
+                    ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
-          )
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 }

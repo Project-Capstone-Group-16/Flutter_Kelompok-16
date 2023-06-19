@@ -11,7 +11,6 @@ import 'package:capstone/model/controller/lokerlocation_controller.dart';
 
 class DeskripsiLoker extends StatefulWidget {
   const DeskripsiLoker({super.key});
-  
 
   @override
   State<DeskripsiLoker> createState() => _DeskripsiLokerState();
@@ -19,24 +18,21 @@ class DeskripsiLoker extends StatefulWidget {
 
 class _DeskripsiLokerState extends State<DeskripsiLoker> {
   bool isFavorite = false;
-  final carilokercontroller= Get.find<CariLokerController>();
-  @override
-    void initState() {
-    super.initState();
-    carilokercontroller.fetchData();
-    }
 
   @override
   Widget build(BuildContext context) {
-    final _selectedlokerimagecontroller=Get.find<SelectedLokerImage>();
-    final _selectedlokeraddresscontroller=Get.find<SelectedLokerImage>();
-    final _selectedlokerdescriptioncontroller=Get.find<SelectedLokerImage>();
-    final selectedLokerImage= _selectedlokerimagecontroller.selectedLokerImage.value;
-    final selectedLokerAddress= _selectedlokeraddresscontroller.selectedLokerAddress.value;
-    final selectedLokerDescription= _selectedlokerdescriptioncontroller.selectedLokerDescription.value;    
+    final _selectedlokerimagecontroller = Get.find<SelectedLokerImage>();
+    final _selectedlokeraddresscontroller = Get.find<SelectedLokerImage>();
+    final _selectedlokerdescriptioncontroller = Get.find<SelectedLokerImage>();
+    final selectedLokerImage =
+        _selectedlokerimagecontroller.selectedLokerImage.value;
+    final selectedLokerAddress =
+        _selectedlokeraddresscontroller.selectedLokerAddress.value;
+    final selectedLokerDescription =
+        _selectedlokerdescriptioncontroller.selectedLokerDescription.value;
 
-    void addSelectedLokerAddress(String selectedLokerAddress){
-      final alamatLokerController=Get.find<SelectedLokerAddress>();
+    void addSelectedLokerAddress(String selectedLokerAddress) {
+      final alamatLokerController = Get.find<SelectedLokerAddress>();
       alamatLokerController.addSelectedLokerAddress(selectedLokerAddress);
     }
 
@@ -49,7 +45,6 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 20),
-
                 const Text(
                   'Loker',
                   style: TextStyle(
@@ -59,9 +54,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                
                 const SizedBox(height: 10),
-
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Stack(
@@ -71,21 +64,17 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                         width: 500,
                         height: 350,
                         decoration: BoxDecoration(
-                      color: ColorPath.primary,
-                      border: Border.all(
-                        color: Colors.black, 
-                        width: 0.8
-                        ),
-                        borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(10),
-                          bottomLeft: Radius.circular(10),
-                          topRight: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
-                        ),
-                        image: DecorationImage(image: NetworkImage(selectedLokerImage),
-                        fit: BoxFit.cover
-                        )
-                    ),
+                            color: ColorPath.primary,
+                            border: Border.all(color: Colors.black, width: 0.8),
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
+                            ),
+                            image: DecorationImage(
+                                image: NetworkImage(selectedLokerImage),
+                                fit: BoxFit.cover)),
                       ),
                       IconButton(
                         onPressed: () {
@@ -102,18 +91,15 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ],
                   ),
                 ),
-
                 const SizedBox(height: 10),
-                
                 const Divider(
                   color: Colors.grey,
-                  thickness: 1, 
-                  indent: 20, 
-                  endIndent: 20, 
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(left:30, right: 10),
+                  padding: EdgeInsets.only(left: 30, right: 10),
                   child: Text(
                     'Alamat',
                     style: TextStyle(
@@ -123,37 +109,31 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ),
                   ),
                 ),
-
-                      Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: Text(
-                        selectedLokerAddress,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: ColorPath.alamat,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Text(
+                    selectedLokerAddress,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: ColorPath.alamat,
+                      fontWeight: FontWeight.w400,
                     ),
-
-                const SizedBox(height: 10),
-
-                const Divider(
-                  color: Colors.grey, 
-                  thickness: 1, 
-                  indent: 20, 
-                  endIndent: 20, 
+                  ),
                 ),
-
                 const SizedBox(height: 10),
-
                 const Divider(
-                  color: Colors.grey, 
-                  thickness: 1, 
-                  indent: 20, 
-                  endIndent: 20, 
+                  color: Colors.grey,
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
                 ),
-
+                const SizedBox(height: 10),
+                const Divider(
+                  color: Colors.grey,
+                  thickness: 1,
+                  indent: 20,
+                  endIndent: 20,
+                ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
@@ -165,10 +145,8 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 5),
-
-                  Padding(
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     selectedLokerDescription,
@@ -179,9 +157,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 10),
-
                 const Divider(
                   color: Colors.grey, // Atur warna divider sesuai kebutuhan
                   thickness: 1, // Atur ketebalan divider sesuai kebutuhan
@@ -190,7 +166,6 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                 ),
               ],
             ),
-            
             Positioned(
                 bottom: 50,
                 left: 100,
@@ -198,7 +173,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     onTap: () {
                       addSelectedLokerAddress(selectedLokerAddress);
                       Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const DurasiPenitipan(),
+                        builder: (context) => const DurasiPenitipan(),
                       ));
                     },
                     text: 'Lanjut',
