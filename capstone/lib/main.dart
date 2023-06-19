@@ -10,7 +10,6 @@ import 'model/controller/cariloker_controller.dart';
 
 import 'package:get/get.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       getPages: AppPage.list,
-      initialRoute: AppRoute.dashboard_screen,
+      initialRoute: AppRoute.category_barang_screen,
       debugShowCheckedModeBanner: false,
       initialBinding: BindingsBuilder(() {
         Get.put<CategoryController>(CategoryController());
