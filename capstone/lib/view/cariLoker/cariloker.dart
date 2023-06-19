@@ -10,9 +10,8 @@ import '../../components/color_path.dart';
 import 'package:get/get.dart';
 
 class CariLoker extends StatefulWidget {
-  final String selectedCategory;
 
-  const CariLoker({Key? key, required this.selectedCategory}) : super(key: key);
+  const CariLoker({Key? key}) : super(key: key);
 
   @override
   State<CariLoker> createState() => _CariLokerState();
