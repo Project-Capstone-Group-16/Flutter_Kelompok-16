@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
 import 'package:capstone/model/controller/cariloker_controller.dart';
 import 'package:capstone/model/controller/lokerlocation_controller.dart';
+import 'package:capstone/model/controller/dropdownvalue_controller.dart';
 
 class DeskripsiLoker extends StatefulWidget {
   const DeskripsiLoker({super.key});
@@ -24,18 +25,21 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
     final _selectedlokerimagecontroller = Get.find<SelectedLokerImage>();
     final _selectedlokeraddresscontroller = Get.find<SelectedLokerImage>();
     final _selectedlokerdescriptioncontroller = Get.find<SelectedLokerImage>();
+    final _selectedLokerKapasitas=Get.find<SelectedLokerKapasitas>();
     final selectedLokerImage =
         _selectedlokerimagecontroller.selectedLokerImage.value;
     final selectedLokerAddress =
         _selectedlokeraddresscontroller.selectedLokerAddress.value;
     final selectedLokerDescription =
         _selectedlokerdescriptioncontroller.selectedLokerDescription.value;
+    final selectedLokerKapasitas=
+      _selectedLokerKapasitas.selectedLokerKapasitas.value;
 
     void addSelectedLokerAddress(String selectedLokerAddress) {
       final alamatLokerController = Get.find<SelectedLokerAddress>();
       alamatLokerController.addSelectedLokerAddress(selectedLokerAddress);
     }
-
+ 
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
@@ -45,9 +49,9 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: 20),
-                const Text(
-                  'Loker',
-                  style: TextStyle(
+                Text(
+                  '$selectedLokerKapasitas Locker',
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                     color: ColorPath.background,

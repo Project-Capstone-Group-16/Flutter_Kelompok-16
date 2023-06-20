@@ -1,3 +1,4 @@
+import 'package:capstone/model/controller/favorite_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -5,6 +6,7 @@ import 'package:capstone/components/color_path.dart';
 import 'package:capstone/screen.dart';
 import 'package:capstone/view/profile/faq_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:capstone/view/profile/loker_favorite2.dart';
 
 import 'profile.dart';
 
@@ -224,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const Favorit_Loker()));
+                                            FavoriteScreen(favoriteController: Get.put(FavoriteController()),)));
                               },
                             ),
                           ),
