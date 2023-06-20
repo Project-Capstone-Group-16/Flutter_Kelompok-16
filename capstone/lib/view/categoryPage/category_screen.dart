@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:capstone/model/controller/selectedKategori_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:capstone/model/controller/category_controller.dart';
+import 'package:capstone/model/controller/dropdownvalue_controller.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
@@ -62,6 +62,11 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
   void addCategoryPic(String selectedimage) {
     final _categoryController = Get.find<CategoryController>();
     _categoryController.addCategoryPic(selectedimage);
+  }
+
+    void addSelectedLokerKapasitas(String dropdownValue){
+    final _selectedLokerKapasitas=Get.find<SelectedLokerKapasitas>();
+    _selectedLokerKapasitas.addSelectedLokerKapasitas(dropdownValue);
   }
 
   @override
@@ -313,6 +318,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                       const SizedBox(height: 70),
                       AllButton(
                         onTap: () {
+                          addSelectedLokerKapasitas(dropdownValue??'');
                           addCategoryPic(selectedCategoryImage);
                           Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
