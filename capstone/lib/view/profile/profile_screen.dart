@@ -6,7 +6,7 @@ import 'package:capstone/components/color_path.dart';
 import 'package:capstone/screen.dart';
 import 'package:capstone/view/profile/faq_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:capstone/view/profile/loker_favorite2.dart';
+import 'package:capstone/view/profile/loker_favorite.dart';
 
 import 'profile.dart';
 

@@ -22,6 +22,26 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
     return Scaffold(
       backgroundColor: ColorPath.primary,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Favorite'),
+        titleTextStyle: const TextStyle(
+          fontSize: 23,
+          color: ColorPath.textcolor1,
+          fontWeight: FontWeight.w600,
+        ),
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          }, 
+          icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+              ),
+             ),
+      ),
 
       body: GetBuilder<FavoriteController>(
         builder: (favoriteController){
@@ -31,30 +51,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                Row(
-                  children: [
-                  IconButton(
-                    onPressed: (){
-                      Navigator.pop(context);
-                    }, 
-                    icon: const Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.black,
-                    )
-                    ),
-                    const SizedBox(width: 80),
-                const Text(
-                  'Favorite',
-                  style: TextStyle(
-                    fontSize: 23,
-                    color: ColorPath.textcolor1,
-                    fontWeight: FontWeight.w600,
-                  ),
-                )
-                ],
-                ),
-                const SizedBox(height: 20),
-          
                 SingleChildScrollView(
                   child: ListView.builder(
                           
@@ -117,7 +113,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                           ),
 
                                           Padding(
-                                            padding: const EdgeInsets.only(left:150,top:15),
+                                            padding: const EdgeInsets.only(left:170, top:15),
                                             child: IconButton(
                                               onPressed: (){
                                                  setState(() {
