@@ -54,147 +54,165 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
       body: SafeArea(
         child: Stack(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 20),
-                Text(
-                  '$selectedLokerKapasitas Locker',
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: ColorPath.background,
+            Row(
+            children: [
+              Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
                   ),
-                  textAlign: TextAlign.center,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-                const SizedBox(height: 10),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Stack(
-                    alignment: Alignment.bottomRight,
-                    children: [
-                      Container(
-                        width: 500,
-                        height: 350,
-                        decoration: BoxDecoration(
-                            color: ColorPath.primary,
-                            border: Border.all(color: Colors.black, width: 0.8),
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10),
-                            ),
-                            image: DecorationImage(
-                                image: NetworkImage(selectedLokerImage),
-                                fit: BoxFit.cover)),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20, bottom: 10),
-                        child: FavoriteButton(
-                        isFavorite: Get.find<FavoriteController>().isFavorited(selectedLokerImage, selectedLokerAddress),
-                        iconSize: 40.0,
-                        valueChanged: (isFavorite) {
-                          final favoriteController = Get.find<FavoriteController>();
-                          if (isFavorite) {
-                            favoriteController.addToFavorite(selectedLokerImage, selectedLokerAddress);
-                          } else {
-                            int index = favoriteController.favoriteItems.indexWhere(
-                              (item) => 
-                              item['selectedLokerImage'] == selectedLokerImage && 
-                              item['selectedLokerAddress'] == selectedLokerAddress
-                              );
-                            if (index != -1) {
-                              favoriteController.removeItem(index);
-                              Get.snackbar(
-                                'Success', 
-                                "Removed from Bookmarks",
-                                backgroundColor: Colors.black,
-                                colorText: Colors.white,
-                              );
+              ),
+              const SizedBox(width: 60),
+               Text(
+                '$selectedLokerKapasitas Locker',
+                style: const TextStyle(
+                  fontSize: 23,
+                  color: ColorPath.textcolor1,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
+            Padding(
+              padding: const EdgeInsets.only(top:60.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Stack(
+                      alignment: Alignment.bottomRight,
+                      children: [
+                        Container(
+                          width: 500,
+                          height: 350,
+                          decoration: BoxDecoration(
+                              color: ColorPath.primary,
+                              border: Border.all(color: Colors.black, width: 0.8),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                bottomLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                              image: DecorationImage(
+                                  image: NetworkImage(selectedLokerImage),
+                                  fit: BoxFit.cover)),
+                        ),
+            
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20, bottom: 10),
+                          child: FavoriteButton(
+                          isFavorite: Get.find<FavoriteController>().isFavorited(selectedLokerImage, selectedLokerAddress),
+                          iconSize: 40.0,
+                          valueChanged: (isFavorite) {
+                            final favoriteController = Get.find<FavoriteController>();
+                            if (isFavorite) {
+                              favoriteController.addToFavorite(selectedLokerImage, selectedLokerAddress);
+                            } else {
+                              int index = favoriteController.favoriteItems.indexWhere(
+                                (item) => 
+                                item['selectedLokerImage'] == selectedLokerImage && 
+                                item['selectedLokerAddress'] == selectedLokerAddress
+                                );
+                              if (index != -1) {
+                                favoriteController.removeItem(index);
+                                Get.snackbar(
+                                  'Success', 
+                                  "Removed from Bookmarks",
+                                  backgroundColor: Colors.black,
+                                  colorText: Colors.white,
+                                );
+                              }
                             }
-                          }
-                        },
-                                          ),
+                          },
+                                            ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 30, right: 10),
+                    child: Text(
+                      'Alamat',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 30, right: 10),
-                  child: Text(
-                    'Alamat',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Text(
-                    selectedLokerAddress,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: ColorPath.alamat,
-                      fontWeight: FontWeight.w400,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      selectedLokerAddress,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: ColorPath.alamat,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                const Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                const SizedBox(height: 10),
-                const Divider(
-                  color: Colors.grey,
-                  thickness: 1,
-                  indent: 20,
-                  endIndent: 20,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30),
-                  child: Text(
-                    'Deskripsi ',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                  const SizedBox(height: 10),
+                  const Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
+                  ),
+                  const SizedBox(height: 10),
+                  const Divider(
+                    color: Colors.grey,
+                    thickness: 1,
+                    indent: 20,
+                    endIndent: 20,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      'Deskripsi ',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 5),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30),
-                  child: Text(
-                    selectedLokerDescription,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: ColorPath.alamat,
-                      fontWeight: FontWeight.w400,
+                  const SizedBox(height: 5),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Text(
+                      selectedLokerDescription,
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: ColorPath.alamat,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 10),
-                const Divider(
-                  color: Colors.grey, // Atur warna divider sesuai kebutuhan
-                  thickness: 1, // Atur ketebalan divider sesuai kebutuhan
-                  indent: 20, // Atur jarak inden dari sebelah kiri
-                  endIndent: 20, // Atur jarak inden dari sebelah kanan
-                ),
-              ],
+                  const SizedBox(height: 10),
+                  const Divider(
+                    color: Colors.grey, // Atur warna divider sesuai kebutuhan
+                    thickness: 1, // Atur ketebalan divider sesuai kebutuhan
+                    indent: 20, // Atur jarak inden dari sebelah kiri
+                    endIndent: 20, // Atur jarak inden dari sebelah kanan
+                  ),
+                ],
+              ),
             ),
             Positioned(
                 bottom: 50,
@@ -209,20 +227,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                     text: 'Lanjut',
                     backgroundColor: ColorPath.background,
                     textColor: ColorPath.white)),
-            Positioned(
-              top: 10,
-              left: 16,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 24,
-                ),
-                color: Colors.black,
-              ),
-            )
+          
           ],
         ),
       ),

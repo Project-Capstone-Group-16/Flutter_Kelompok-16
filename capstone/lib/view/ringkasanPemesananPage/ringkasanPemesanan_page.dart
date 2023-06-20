@@ -44,7 +44,7 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                     },
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 15),
                 const Text(
                   'Ringkasan Pemesanan',
                   style: TextStyle(

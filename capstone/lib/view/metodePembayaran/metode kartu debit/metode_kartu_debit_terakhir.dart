@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../route/dashboard_screen.dart';
 
+import 'package:capstone/components/color_path.dart';
+
 class KartuDebitSelesai extends StatefulWidget {
   const KartuDebitSelesai({super.key});
 
@@ -26,26 +28,28 @@ class _KartuDebitSelesaiState extends State<KartuDebitSelesai> {
                     color: Colors.transparent, // Warna AppBar
                     child: Row(
                       children: [
-                        IconButton(
-                          icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                          color: const Color(0xFF1652F9),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                        Positioned(
+                      top: 35,
+                      left: 10,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
                         ),
-                        const SizedBox(width: 20),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 78),
-                          child: Text(
-                            'Pembayaran',
-                            // textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF1652F9),
-                            ),
-                          ),
-                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 65),
+                    const Text(
+                      'Pembayaran',
+                      style: TextStyle(
+                        fontSize: 23,
+                        color: ColorPath.textcolor1,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    )
                       ],
                     ),
                   ),

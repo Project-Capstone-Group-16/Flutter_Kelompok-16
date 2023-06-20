@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:capstone/components/color_path.dart';
+import'package:capstone/components/all_button.dart';
 
 class BiodataPage extends StatefulWidget {
   const BiodataPage({super.key});
@@ -88,17 +89,34 @@ class _BiodataPageState extends State<BiodataPage> {
               children: [
                 Expanded(
                   child: ListView(
-                    padding: const EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(15),
                     children: [
-                      const Text(
-                        'Biodata',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: ColorPath.background,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
+                       Row(
+            children: [
+              Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+              const SizedBox(width: 80),
+               const Text(
+                'Biodata',
+                style: TextStyle(
+                  fontSize: 23,
+                  color: ColorPath.textcolor1,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
                       const SizedBox(height: 20),
                       Stack(
                         children: [
@@ -400,28 +418,13 @@ class _BiodataPageState extends State<BiodataPage> {
                             ),
                           ),
                           const SizedBox(height: 30),
-                          Container(
-                            width: 150,
-                            height: 50,
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              color: ColorPath.AppbarProfile,
-                              borderRadius: BorderRadius.circular(15),
-                              shape: BoxShape.rectangle,
-                            ),
-                            child: const Align(
-                              alignment: AlignmentDirectional(0, 0),
-                              child: Text(
-                                'Tambah',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: ColorPath.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
+                          AllButton(
+                          onTap: () {
+                          },
+                          text: 'Tambah',
+                          backgroundColor: ColorPath.background,
+                          textColor: ColorPath.white,
+                        ),
                         ],
                       ),
                     ],
@@ -429,20 +432,6 @@ class _BiodataPageState extends State<BiodataPage> {
                 )
               ],
             ),
-            Positioned(
-              top: 10,
-              left: 16,
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 24,
-                ),
-                color: Colors.black,
-              ),
-            )
           ],
         ),
       ),

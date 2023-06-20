@@ -4,6 +4,8 @@ import 'package:table_calendar/table_calendar.dart';
 
 import '../../components/color_path.dart';
 
+import 'package:capstone/components/all_button.dart';
+
 class DurasiPenitipan extends StatefulWidget {
   const DurasiPenitipan({super.key});
 
@@ -57,23 +59,28 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                 color: Colors.transparent, // Warna AppBar
                 child: Row(
                   children: [
-                    IconButton(
-                      icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                      color: ColorPath.textcolor1,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const Expanded(
-                      child: Text(
-                        'Durasi Penitipan',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: ColorPath.textcolor1),
-                      ),
-                    ),
+                    Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+              const SizedBox(width: 52),
+              const Text(
+                'Durasi Penitipan',
+                style: TextStyle(
+                  fontSize: 23,
+                  color: ColorPath.textcolor1,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
                   ],
                 ),
               ),
@@ -197,40 +204,16 @@ class _DurasiPenitipanState extends State<DurasiPenitipan> {
                       ),
                     ),
                     const SizedBox(height: 90),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        child: SizedBox(
-                          width: 150.0,
-                          height: 40.0,
-                          //  ElevatedButton 'Lanjut'
-                          child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
+                   AllButton(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const RingkasanPemesananPage(),
                           ));
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                elevatedButtonColor,
-                              ),
-                              shape: MaterialStateProperty.all<
-                                  RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ),
-                              ),
-                            ),
-                            child: const Text(
-                              'Lanjut',
-                              style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                        ),
+                        },
+                        text: 'Lanjut',
+                        backgroundColor: ColorPath.background,
+                        textColor: ColorPath.white,
                       ),
-                    )
                   ],
                 ),
               ),

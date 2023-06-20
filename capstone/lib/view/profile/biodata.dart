@@ -28,7 +28,7 @@ class _BiodataPageState extends State<BiodataPage> {
       });
     }
   }
-
+ 
   void _setImageFileListFromFile(XFile? file) {
     if (file != null) {
       setState(() {
@@ -95,15 +95,32 @@ class _BiodataPageState extends State<BiodataPage> {
                   child: ListView(
                 padding: const EdgeInsets.all(20),
                 children: [
-                  const Text(
-                    'Biodata',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: ColorPath.background,
-                    ),
-                    textAlign: TextAlign.center,
+                   Row(
+            children: [
+              Positioned(
+                top: 35,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
                   ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+              const SizedBox(width: 60),
+               const Text(
+                'Biodata',
+                style: TextStyle(
+                  fontSize: 23,
+                  color: ColorPath.textcolor1,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
                   const SizedBox(height: 20),
                   Stack(
                     children: [
@@ -431,20 +448,6 @@ class _BiodataPageState extends State<BiodataPage> {
               ))
             ],
           ),
-          Positioned(
-            top: 10,
-            left: 16,
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                size: 24,
-              ),
-              color: Colors.black,
-            ),
-          )
         ],
       )),
     );

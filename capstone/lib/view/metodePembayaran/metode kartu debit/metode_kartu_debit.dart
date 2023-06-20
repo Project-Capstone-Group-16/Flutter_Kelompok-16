@@ -29,26 +29,28 @@ class _MetodeKartuDebitState extends State<MetodeKartuDebit> {
                   color: Colors.transparent, // Warna AppBar
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back_ios_new_outlined),
-                        color: const Color(0xFF1652F9),
+                      Positioned(
+                      top: 35,
+                      left: 10,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
+                        ),
                         onPressed: () {
                           Navigator.pop(context);
                         },
                       ),
-                      const SizedBox(width: 20),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 78),
-                        child: Text(
-                          'Pembayaran',
-                          // textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF1652F9),
-                          ),
-                        ),
+                    ),
+                    const SizedBox(width: 65),
+                    const Text(
+                      'Pembayaran',
+                      style: TextStyle(
+                        fontSize: 23,
+                        color: ColorPath.textcolor1,
+                        fontWeight: FontWeight.w600,
                       ),
+                    )
                     ],
                   ),
                 ),
