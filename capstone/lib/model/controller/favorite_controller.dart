@@ -8,10 +8,16 @@ class FavoriteController extends GetxController {
   }
 
   void addToFavorite(String selectedLokerImage, String selectedLokerAddress) {
-   favoriteItems.add({'image': selectedLokerImage, 'alamat': selectedLokerAddress});
+   favoriteItems.add({
+     'selectedLokerImage': selectedLokerImage,
+     'selectedLokerAddress': selectedLokerAddress,
+   });
   }
 
-  bool isFavorited(String selectedLokerImage, String alamat) {
-    return favoriteItems.any((item) => item['image'] == selectedLokerImage && item['alamat'] == alamat);
+  bool isFavorited(String selectedLokerImage, String selectedLokerAddress) {
+    return favoriteItems.any((item) =>
+      item['selectedLokerImage'] == selectedLokerImage &&
+      item['selectedLokerAddress'] == selectedLokerAddress
+    );
   }
 }

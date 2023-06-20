@@ -6,9 +6,11 @@ import '../../components/color_path.dart';
 import 'package:get/get.dart';
 
 import 'package:capstone/model/controller/selectedLokerimage_controller.dart';
-import 'package:capstone/model/controller/cariloker_controller.dart';
 import 'package:capstone/model/controller/lokerlocation_controller.dart';
 import 'package:capstone/model/controller/dropdownvalue_controller.dart';
+import 'package:capstone/model/controller/favorite_controller.dart';
+
+import 'package:favorite_button/favorite_button.dart';
 
 class DeskripsiLoker extends StatefulWidget {
   const DeskripsiLoker({super.key});
@@ -16,7 +18,7 @@ class DeskripsiLoker extends StatefulWidget {
   @override
   State<DeskripsiLoker> createState() => _DeskripsiLokerState();
 }
-
+ 
 class _DeskripsiLokerState extends State<DeskripsiLoker> {
   bool isFavorite = false;
 
@@ -26,6 +28,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
     final _selectedlokeraddresscontroller = Get.find<SelectedLokerImage>();
     final _selectedlokerdescriptioncontroller = Get.find<SelectedLokerImage>();
     final _selectedLokerKapasitas = Get.find<SelectedLokerKapasitas>();
+
     final selectedLokerImage =
         _selectedlokerimagecontroller.selectedLokerImage.value;
     final selectedLokerAddress =
@@ -39,6 +42,12 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
       final alamatLokerController = Get.find<SelectedLokerAddress>();
       alamatLokerController.addSelectedLokerAddress(selectedLokerAddress);
     }
+    void addToFavorite(String selectedLokerImage, String selectedLokerAddress){
+      final favoriteController= Get.find<FavoriteController>();
+      favoriteController.addToFavorite(selectedLokerImage, selectedLokerAddress);
+    }
+
+
  
     return Scaffold(
       backgroundColor: ColorPath.primary,
@@ -80,17 +89,34 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                                 image: NetworkImage(selectedLokerImage),
                                 fit: BoxFit.cover)),
                       ),
-                      IconButton(
-                        onPressed: () {
-                          setState(() {
-                            isFavorite = !isFavorite;
-                          });
+
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20, bottom: 10),
+                        child: FavoriteButton(
+                        isFavorite: Get.find<FavoriteController>().isFavorited(selectedLokerImage, selectedLokerAddress),
+                        iconSize: 40.0,
+                        valueChanged: (isFavorite) {
+                          final favoriteController = Get.find<FavoriteController>();
+                          if (isFavorite) {
+                            favoriteController.addToFavorite(selectedLokerImage, selectedLokerAddress);
+                          } else {
+                            int index = favoriteController.favoriteItems.indexWhere(
+                              (item) => 
+                              item['selectedLokerImage'] == selectedLokerImage && 
+                              item['selectedLokerAddress'] == selectedLokerAddress
+                              );
+                            if (index != -1) {
+                              favoriteController.removeItem(index);
+                              Get.snackbar(
+                                'Success', 
+                                "Removed from Bookmarks",
+                                backgroundColor: Colors.black,
+                                colorText: Colors.white,
+                              );
+                            }
+                          }
                         },
-                        icon: Icon(
-                          isFavorite ? Icons.favorite : Icons.favorite_border,
-                          size: 24,
-                          color: Colors.red,
-                        ),
+                                          ),
                       ),
                     ],
                   ),

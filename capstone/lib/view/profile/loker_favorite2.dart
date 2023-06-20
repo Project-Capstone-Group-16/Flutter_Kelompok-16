@@ -20,52 +20,79 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   @override
   Widget build(BuildContext context) {
 
-    final favoriteController= Get.find<FavoriteController>();
-    final favoriteItems=favoriteController.favoriteItems;
-
     return Scaffold(
-
-      backgroundColor: ColorPath.background2,
+      appBar: AppBar(
+        title: const Text('See Your Favorite Foods'),
+        backgroundColor: Colors.white,
+      ),
 
       body: GetBuilder<FavoriteController>(
         builder: (favoriteController){
           final favoriteItems=favoriteController.favoriteItems;
           return favoriteItems.isNotEmpty?
-          SafeArea(
-          top: true,
-          child: Stack(
-            children: [
-              const Align(
-                alignment: AlignmentDirectional(0, -0.96),
-                child: Text(
-                  'Favorit',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                    color: ColorPath.background,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              child: GridView.builder(
+          
+                  shrinkWrap: true,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 5,
+            
+                  //rasio tinggi/lebar setiap item
+                  childAspectRatio: 2/3,
                   ),
+                itemCount: favoriteItems.length,
+                itemBuilder: (BuildContext context, int index){
+                  final loker= favoriteItems[index];
+                  return Card(
+                    elevation: 10,
+                    shadowColor: Colors.grey.withOpacity(0.5),
+                    
+                    child: Stack(
+                      children:[
+                      Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(child:Image.network(loker['selectedLokerImage'], fit: BoxFit.cover,)),
+                        Padding(padding: const EdgeInsets.all(8.0),
+                        child: Stack(
+                          children: [
+                            Text(
+                              loker['selectedLokerAddress'], 
+                              style: const TextStyle(
+                                fontSize: 16),
+                                ),
+                              ],
+                            ),
+                           ),
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          child: IconButton(
+                            onPressed: (){
+                              setState(() {
+                                favoriteItems.removeAt(index);
+                              });
+                            }, 
+                            icon: const Icon(Icons.delete_rounded)
+                            ),
+                        )
+                      ],
+                      )
+                      ]
+                    ),
+                  );
+                }
                 ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(-0.9, -0.99),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 24,
-                  ),
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-        ): const Center(
-          child: Text('No items in favorite'),
-        );
+            ),
+          ): 
+            const Center(
+              child: Text('No items in favorite'),
+            );
         }
-      )
+        ),
     );
   }
 }
