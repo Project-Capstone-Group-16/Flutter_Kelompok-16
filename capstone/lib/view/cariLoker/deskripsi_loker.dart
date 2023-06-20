@@ -25,7 +25,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
     final _selectedlokerimagecontroller = Get.find<SelectedLokerImage>();
     final _selectedlokeraddresscontroller = Get.find<SelectedLokerImage>();
     final _selectedlokerdescriptioncontroller = Get.find<SelectedLokerImage>();
-    final _selectedLokerKapasitas=Get.find<SelectedLokerKapasitas>();
+    final _selectedLokerKapasitas = Get.find<SelectedLokerKapasitas>();
     final selectedLokerImage =
         _selectedlokerimagecontroller.selectedLokerImage.value;
     final selectedLokerAddress =
