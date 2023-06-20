@@ -21,71 +21,126 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('See Your Favorite Foods'),
-        backgroundColor: Colors.white,
-      ),
+      backgroundColor: ColorPath.primary,
 
       body: GetBuilder<FavoriteController>(
         builder: (favoriteController){
           final favoriteItems=favoriteController.favoriteItems;
           return favoriteItems.isNotEmpty?
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: GridView.builder(
-          
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 5,
-            
-                  //rasio tinggi/lebar setiap item
-                  childAspectRatio: 2/3,
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                  IconButton(
+                    onPressed: (){
+                      Navigator.pop(context);
+                    }, 
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    )
+                    ),
+                    const SizedBox(width: 80),
+                const Text(
+                  'Favorite',
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: ColorPath.textcolor1,
+                    fontWeight: FontWeight.w600,
                   ),
-                itemCount: favoriteItems.length,
-                itemBuilder: (BuildContext context, int index){
-                  final loker= favoriteItems[index];
-                  return Card(
-                    elevation: 10,
-                    shadowColor: Colors.grey.withOpacity(0.5),
-                    
-                    child: Stack(
-                      children:[
-                      Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(child:Image.network(loker['selectedLokerImage'], fit: BoxFit.cover,)),
-                        Padding(padding: const EdgeInsets.all(8.0),
+                )
+                ],
+                ),
+                const SizedBox(height: 20),
+          
+                SingleChildScrollView(
+                  child: ListView.builder(
+                          
+                    shrinkWrap: true,
+                    itemExtent: 160,
+                    itemCount: favoriteItems.length,
+                    itemBuilder: (BuildContext context, int index){
+                      final loker= favoriteItems[index];
+                      return Container(
                         child: Stack(
                           children: [
-                            Text(
-                              loker['selectedLokerAddress'], 
-                              style: const TextStyle(
-                                fontSize: 16),
-                                ),
-                              ],
-                            ),
-                           ),
-                        Positioned(
-                          top: 0,
-                          right: 0,
-                          child: IconButton(
-                            onPressed: (){
-                              setState(() {
-                                favoriteItems.removeAt(index);
-                              });
-                            }, 
-                            icon: const Icon(Icons.delete_rounded)
-                            ),
-                        )
-                      ],
-                      )
-                      ]
+                            Container(
+                              width: 500,
+                              height: 149,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(color: Colors.black, width: 0.8),
+                                  borderRadius: BorderRadius.circular(10
+                                  )),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left:8.0),
+                                    child: Container(
+                                      width: 120,
+                                      height: 130,
+                                      decoration: BoxDecoration(
+                                          borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(10),
+                                            bottomLeft: Radius.circular(10),
+                                            topRight: Radius.circular(10),
+                                            bottomRight: Radius.circular(10),
+                                          ),
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                                  loker['selectedLokerImage']),
+                                              fit: BoxFit.fill)),
+                                    ),
+                                  ),
+                                  Stack(
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 20.0),
+                                            child: Container(
+                                              width: 185,
+                                              height: 80,
+                                              child: Center(
+                                                child: Text(
+                                                  loker['selectedLokerAddress'],
+                                                  style: const TextStyle(
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+                                          Padding(
+                                            padding: const EdgeInsets.only(left:150,top:15),
+                                            child: IconButton(
+                                              onPressed: (){
+                                                 setState(() {
+                                                  favoriteItems.removeAt(index);
+                                                });
+                                              }, 
+                                              icon: const Icon(Icons.delete_rounded),
+                                              ),
+                                          )
+                                        ],
+                                      ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
-                  );
-                }
+                  ],
                 ),
+              );
+                    }
+                    ),
+                ),
+              ],
             ),
           ): 
             const Center(
