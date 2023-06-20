@@ -41,30 +41,31 @@ class _Faq_PageState extends State<Faq_Page> {
         top: true,
         child: Stack(
           children: [
-            const Align(
-              alignment: AlignmentDirectional(0, -0.96),
-              child: Text(
-                'Pertanyaan Umum',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: ColorPath.background,
+            Positioned(
+                top: 13,
+                left: 10,
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
               ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(-0.9, -0.99),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 24,
+              const SizedBox(width: 55),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(80, 20, 10, 20),
+                child: Text(
+                  'Pertanyaan Umum',
+                  style: TextStyle(
+                    fontSize: 23,
+                    color: ColorPath.textcolor1,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                color: Colors.black,
               ),
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 65, horizontal: 16),
               child: ListView.builder(

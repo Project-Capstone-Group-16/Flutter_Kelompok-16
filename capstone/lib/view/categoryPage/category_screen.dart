@@ -74,7 +74,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
-          child: Stack(
+        child: Stack(
         children: [
           Row(
             children: [
@@ -91,7 +91,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                   },
                 ),
               ),
-              const SizedBox(width: 60),
+              const SizedBox(width: 55),
               const Text(
                 'Kategori Barang',
                 style: TextStyle(
