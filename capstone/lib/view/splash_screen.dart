@@ -16,7 +16,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
-    Timer(const Duration(seconds: 4), () {
+    Timer(const Duration(seconds: 10), () {
       Get.to(const LandingPage());
     });
     return Scaffold(
@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/inventron.jpg'),
+            image: AssetImage('assets/images/splash_screen.jpg'),
           ),
         ),
       ),
