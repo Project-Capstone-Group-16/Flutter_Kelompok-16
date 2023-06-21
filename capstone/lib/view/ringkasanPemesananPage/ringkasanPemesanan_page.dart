@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:capstone/components/color_path.dart';
 import 'package:capstone/model/controller/category_controller.dart';
 import 'package:capstone/model/controller/lokerlocation_controller.dart';
+import 'package:capstone/model/controller/dropdownvalue_controller.dart';
 import 'package:capstone/components/all_button.dart';
 import 'package:capstone/screen.dart';
 
@@ -20,10 +21,14 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
   Widget build(BuildContext context) {
     final _categoryController = Get.find<CategoryController>();
     final alamatLokerController = Get.find<SelectedLokerAddress>();
+    final _selectedLokerKapasitas=Get.find<SelectedLokerKapasitas>();
+
     final selectedCategoryImage = _categoryController.selectedCategoryImage;
     final selectedLokerAddress =
         alamatLokerController.selectedLokerAddress.value;
-
+    final selectedLokerKapasitas=
+      _selectedLokerKapasitas.selectedLokerKapasitas.value;
+ 
     return Scaffold(
       backgroundColor: ColorPath.primary,
       body: SafeArea(
@@ -117,8 +122,8 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                                 top: 15,
                                 left: 20,
                                 child: Text(
-                                  'Loker Kecil',
-                                  style: TextStyle(
+                                  '$selectedLokerKapasitas Locker',
+                                  style: const TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w700,
                                   ),
