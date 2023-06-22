@@ -305,7 +305,7 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                                   dropdownValue = newValue;
                                   selectedCategory = newValue ?? '';
                                 });
-                              },
+                              }, 
                               decoration: const InputDecoration(
                                 contentPadding: EdgeInsets.symmetric(
                                     horizontal: 16, vertical: 10),
@@ -320,9 +320,18 @@ class _CategoryBarangScreenState extends State<CategoryBarangScreen> {
                         onTap: () {
                           addSelectedLokerKapasitas(dropdownValue??'');
                           addCategoryPic(selectedCategoryImage);
-                          Navigator.of(context).push(MaterialPageRoute(
+                          if(selectedCategoryImage.isNotEmpty && dropdownValue!=null){
+                            Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const CariLoker(),
                           ));
+                          } else{
+                            Get.snackbar(
+                              'Whoops', 
+                              'Choose A Category Before Continue To The Next Page',
+                              backgroundColor: Colors.black,
+                              colorText: Colors.white,);
+                          }
+                          
                         },
                         text: 'Lanjut',
                         backgroundColor: ColorPath.background,

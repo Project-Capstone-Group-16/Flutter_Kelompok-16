@@ -222,11 +222,19 @@ class _CariLokerState extends State<CariLoker> {
                               selectedLokerAddress ?? '',
                               selectedLokerDescription ?? '',
                             );
-                            Navigator.of(context).push(
+                            if (dropdownValue!=null){
+                              Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => const DeskripsiLoker(),
                               ),
                             );
+                            } else {
+                              Get.snackbar(
+                                'Whoops', 
+                                'Choose A Location Before Continue To The Next Page',
+                                backgroundColor: Colors.black,
+                                colorText: Colors.white);
+                            }
                           },
                           text: 'Lanjut',
                           backgroundColor: ColorPath.background,
