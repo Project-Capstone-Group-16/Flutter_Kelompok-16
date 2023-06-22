@@ -47,12 +47,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         builder: (favoriteController){
           final favoriteItems=favoriteController.favoriteItems;
           return favoriteItems.isNotEmpty?
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                SingleChildScrollView(
-                  child: ListView.builder(
+          SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  ListView.builder(
                           
                     shrinkWrap: true,
                     itemExtent: 160,
@@ -111,7 +111,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                               ),
                                             ),
                                           ),
-
+          
                                           Padding(
                                             padding: const EdgeInsets.only(left:170, top:15),
                                             child: IconButton(
@@ -131,12 +131,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       ),
                     ),
                   ],
-                ),
-              );
+                  ),
+                );
                     }
                     ),
-                ),
-              ],
+                ],
+              ),
             ),
           ): 
             const Center(

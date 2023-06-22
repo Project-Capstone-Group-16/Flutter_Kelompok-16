@@ -103,7 +103,7 @@ class _RingkasanPemesananPageState extends State<RingkasanPemesananPage> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(
-                                    left: 20.0, bottom: 10, top: 10),
+                                    left: 20.0, bottom: 10, top: 25),
                                 child: Container(
                                   width: 185,
                                   height: 100,
