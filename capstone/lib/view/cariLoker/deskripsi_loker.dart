@@ -126,7 +126,7 @@ class _DeskripsiLokerState extends State<DeskripsiLoker> {
                                 favoriteController.removeItem(index);
                                 Get.snackbar(
                                   'Success', 
-                                  "Removed from Bookmarks",
+                                  "Removed from Favorite",
                                   backgroundColor: Colors.black,
                                   colorText: Colors.white,
                                 );
