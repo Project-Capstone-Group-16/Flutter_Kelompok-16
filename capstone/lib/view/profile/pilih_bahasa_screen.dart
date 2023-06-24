@@ -59,35 +59,32 @@ class _Pilih_bahasaState extends State<Pilih_bahasa> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorPath.background2,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Bahasa'),
+        titleTextStyle: const TextStyle(
+          fontSize: 23,
+          color: ColorPath.textcolor1,
+          fontWeight: FontWeight.w600,
+        ),
+        leading: IconButton(
+          onPressed: (){
+            Navigator.pop(context);
+          }, 
+          icon: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+              ),
+             ),
+      ),
+      
       body: SafeArea(
         child: Stack(
           children: [
-            const Align(
-              alignment: AlignmentDirectional(0, -0.96),
-              child: Text(
-                'Bahasa',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: ColorPath.background,
-                ),
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(-0.9, -0.99),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 24,
-                ),
-                color: Colors.black,
-              ),
-            ),
             ListView.builder(
-              padding: const EdgeInsets.only(top: 65),
+              padding: const EdgeInsets.only(top: 15),
               itemCount: languages.length,
               itemBuilder: (context, index) {
                 final language = languages[index];
