@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'color_path.dart';
-
 class AllButton extends StatelessWidget {
-  const AllButton({super.key, required this.onTap, required this.text});
+  const AllButton({
+    super.key,
+    required this.onTap,
+    required this.text,
+    required this.backgroundColor,
+    required this.textColor,
+  });
   final void Function() onTap;
   final String text;
+  final Color? backgroundColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,18 +22,18 @@ class AllButton extends StatelessWidget {
           vertical: 10,
           horizontal: 60,
         ),
-        backgroundColor: ColorPath.background,
+        backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),
       ),
       child: Text(
         text,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyle(
+            fontSize: 18,
+            color: textColor,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Poppins'),
         textAlign: TextAlign.center,
       ),
     );
