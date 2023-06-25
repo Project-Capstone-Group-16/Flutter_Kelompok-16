@@ -52,7 +52,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 99),
+                    padding: EdgeInsetsDirectional.only(end: 90),
                   ),
                   IconButton(
                     onPressed: () {},

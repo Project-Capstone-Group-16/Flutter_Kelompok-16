@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsetsDirectional.only(end: 99),
+                    padding: EdgeInsetsDirectional.only(end: 90),
                   ),
                   IconButton(
                     onPressed: () {},
