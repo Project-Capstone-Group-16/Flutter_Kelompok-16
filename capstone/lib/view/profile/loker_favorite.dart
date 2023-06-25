@@ -104,7 +104,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                                 child: Text(
                                                   loker['selectedLokerAddress'],
                                                   style: const TextStyle(
-                                                    fontSize: 15,
+                                                    fontSize: 13,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
