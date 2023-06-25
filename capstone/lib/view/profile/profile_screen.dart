@@ -94,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           onConfirm: () async {
                             final SharedPreferences? prefs = await _prefs;
                             prefs?.clear();
-                            Get.offAll(const LoginPage());
+                            Get.offAll(const LoginRegister());
                           },
                         );
                       },
